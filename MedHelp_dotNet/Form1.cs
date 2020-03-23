@@ -14,12 +14,16 @@ namespace MedHelp_dotNet
     public partial class AddEventForm : Form
     {
         public XmlDocument xmlDoc;
+        Classes.AreaClass[] areaClass;
+        Classes.MOClass[] moClass;
         public AddEventForm()
         {
             InitializeComponent();
             LoadHealthStatus();
+            LoadArea();
         }
 
+        #region cbHealthStatus
         private void LoadHealthStatus()
         {
             xmlDoc = new XmlDocument();
@@ -48,6 +52,7 @@ namespace MedHelp_dotNet
             cbHealthStatus.SelectedIndex = -1;
         }
 
+        //Добавление статуса в ComboBox
         private void InsertHealthStatus(string newStatusName)
         {
             if (CheckTree(newStatusName))
@@ -70,6 +75,7 @@ namespace MedHelp_dotNet
             else MessageBox.Show("Поле с таким наименованием уже существует", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
+        //Удаление статуса из ComboBox
         private void RemoveHealthStatus(int removedStatusIndex)
         {
             XmlNode selectedNode = xmlDoc.DocumentElement.ChildNodes[removedStatusIndex];
@@ -85,6 +91,7 @@ namespace MedHelp_dotNet
             LoadHealthStatus();
         }
 
+        //Проверка статуса на наличие его уже в списке
         private bool CheckTree(string StatusName)
         {
             XmlNode checkNode = xmlDoc.DocumentElement;
@@ -118,6 +125,63 @@ namespace MedHelp_dotNet
         private void RemoveStatus_Click(object sender, EventArgs e)
         {
             RemoveHealthStatus(cbHealthStatus.SelectedIndex);
+        }
+
+        #endregion
+
+        #region Area
+        //Загрузка списка районов
+        private void LoadArea()
+        {
+            areaClass = Classes.QueryClass.LoadListArea();
+            cbArea.DataSource = areaClass;
+            cbArea.DisplayMember = "name";
+            cbArea.ValueMember = "id";
+            cbArea.SelectedIndex = -1;
+        }
+
+        //Добавление нового района в таблицу
+        private void InsertArea()
+        {
+            Classes.QueryClass.InsertArea(cbArea.Text);
+        }
+
+        //Удаление выбранного района из таблицы
+        private void RemoveAreaList()
+        {
+            Classes.QueryClass.RemoveArea(int.Parse(cbArea.SelectedValue.ToString()));
+        }
+
+        //Обработка кнопки добавить район
+        private void AddArea_Click(object sender, EventArgs e)
+        {
+            InsertArea();
+            LoadArea();
+        }
+
+        //Обработка кнопки удалить район
+        private void RemoveArea_Click(object sender, EventArgs e)
+        {
+            RemoveAreaList();
+            LoadArea();
+        }
+        #endregion
+
+        #region MO
+        private void LoadMOList()
+        {
+            moClass = Classes.QueryClass.LoadMOList(int.Parse(cbArea.SelectedValue.ToString()));
+        }
+
+        private void AddMO_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
+
+        private void cbArea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbArea.SelectedIndex != -1) LoadMOList();
         }
     }
 }

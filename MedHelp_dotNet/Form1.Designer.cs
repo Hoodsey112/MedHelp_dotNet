@@ -92,7 +92,7 @@
             this.AddMO = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveMO = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbArea = new System.Windows.Forms.ComboBox();
             this.AreaMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddArea = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveArea = new System.Windows.Forms.ToolStripMenuItem();
@@ -166,19 +166,19 @@
             this.AddStatus,
             this.RemoveStatus});
             this.HealthStatusMeniStrip.Name = "HealthStatusMeniStrip";
-            this.HealthStatusMeniStrip.Size = new System.Drawing.Size(181, 70);
+            this.HealthStatusMeniStrip.Size = new System.Drawing.Size(125, 48);
             // 
             // AddStatus
             // 
             this.AddStatus.Name = "AddStatus";
-            this.AddStatus.Size = new System.Drawing.Size(180, 22);
+            this.AddStatus.Size = new System.Drawing.Size(124, 22);
             this.AddStatus.Text = "Добавить";
             this.AddStatus.Click += new System.EventHandler(this.AddStatus_Click);
             // 
             // RemoveStatus
             // 
             this.RemoveStatus.Name = "RemoveStatus";
-            this.RemoveStatus.Size = new System.Drawing.Size(180, 22);
+            this.RemoveStatus.Size = new System.Drawing.Size(124, 22);
             this.RemoveStatus.Text = "Удалить";
             this.RemoveStatus.Click += new System.EventHandler(this.RemoveStatus_Click);
             // 
@@ -620,7 +620,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.comboBox2);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cbArea);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(6, 19);
             this.groupBox2.Name = "groupBox2";
@@ -701,8 +701,9 @@
             // AddMO
             // 
             this.AddMO.Name = "AddMO";
-            this.AddMO.Size = new System.Drawing.Size(124, 22);
+            this.AddMO.Size = new System.Drawing.Size(180, 22);
             this.AddMO.Text = "Добавить";
+            this.AddMO.Click += new System.EventHandler(this.AddMO_Click);
             // 
             // RemoveMO
             // 
@@ -720,15 +721,16 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Медицинская организация";
             // 
-            // comboBox1
+            // cbArea
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBox1.ContextMenuStrip = this.AreaMenuStrip;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(50, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cbArea.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbArea.ContextMenuStrip = this.AreaMenuStrip;
+            this.cbArea.FormattingEnabled = true;
+            this.cbArea.Location = new System.Drawing.Point(50, 19);
+            this.cbArea.Name = "cbArea";
+            this.cbArea.Size = new System.Drawing.Size(200, 21);
+            this.cbArea.TabIndex = 1;
+            this.cbArea.SelectedIndexChanged += new System.EventHandler(this.cbArea_SelectedIndexChanged);
             // 
             // AreaMenuStrip
             // 
@@ -743,12 +745,14 @@
             this.AddArea.Name = "AddArea";
             this.AddArea.Size = new System.Drawing.Size(124, 22);
             this.AddArea.Text = "Добавить";
+            this.AddArea.Click += new System.EventHandler(this.AddArea_Click);
             // 
             // RemoveArea
             // 
             this.RemoveArea.Name = "RemoveArea";
-            this.RemoveArea.Size = new System.Drawing.Size(124, 22);
+            this.RemoveArea.Size = new System.Drawing.Size(180, 22);
             this.RemoveArea.Text = "Удалить";
+            this.RemoveArea.Click += new System.EventHandler(this.RemoveArea_Click);
             // 
             // label1
             // 
@@ -801,7 +805,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbArea;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox4;

@@ -9,6 +9,8 @@ namespace MedHelp_dotNet.Classes
     class QueryClass
     {
         #region Area
+
+        //Запрос для добавления записи в таблицу с районами
         public static void InsertArea(string NewArea)
         {
             string query = $"insert into area (name) value ('{NewArea}')";
@@ -24,6 +26,7 @@ namespace MedHelp_dotNet.Classes
             }
         }
 
+        //Запрос для пометки записи как удаленной
         public static void RemoveArea(int area_id)
         {
             string query = $"update area set deleted = 1 where id = {area_id}";
@@ -39,6 +42,7 @@ namespace MedHelp_dotNet.Classes
             }
         }
 
+        //Запрос для получения списка районов
         public static AreaClass[] LoadListArea()
         {
             string query = "select id, name from area where deleted = 0";
@@ -80,6 +84,8 @@ namespace MedHelp_dotNet.Classes
         #endregion
 
         #region MO
+
+        //Запрос для получения доступных МО согласно выбранному району
         public static MOClass[] LoadMOList(int area_id)
         {
             List<MOClass> mOs = new List<MOClass>();
@@ -119,6 +125,40 @@ namespace MedHelp_dotNet.Classes
             }
             else return null;
         }
+
+        //Запрос для добавления записи в таблицу с МО
+        public static void InsertNewMO(string NewMO, int area_id)
+        {
+            string query = $"insert into medorganisation (name, area_id) value ('{NewMO}', {area_id})";
+
+            using (MySqlConnection sqlConnection = ConnectionClass.GetStringConnection())
+            {
+                sqlConnection.Open();
+
+                using (MySqlCommand sqlCommand = new MySqlCommand(query, sqlConnection))
+                {
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+        }
+
+        //Запрос для пометки записи как удаленной
+        public static void RemoveMO(int MO_id, int area_id)
+        {
+            string query = $"UPDATE medorganisation SET deleted = 1 where id = {MO_id} and area_id = {area_id}";
+
+            using (MySqlConnection sqlConnection = ConnectionClass.GetStringConnection())
+            {
+                sqlConnection.Open();
+
+                using (MySqlCommand sqlCommand = new MySqlCommand(query, sqlConnection))
+                {
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+        }
         #endregion
+
+
     }
 }

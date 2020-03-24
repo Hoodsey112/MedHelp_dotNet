@@ -81,13 +81,10 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbMO = new System.Windows.Forms.ComboBox();
             this.MOMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddMO = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveMO = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,6 +94,12 @@
             this.AddArea = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveArea = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.EditMO = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbShortNameOrg = new System.Windows.Forms.ComboBox();
+            this.HelthOrgMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AddOrg = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditOrg = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoveOrg = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.HealthStatusMeniStrip.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -112,6 +115,7 @@
             this.groupBox2.SuspendLayout();
             this.MOMenuStrip.SuspendLayout();
             this.AreaMenuStrip.SuspendLayout();
+            this.HelthOrgMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -128,14 +132,14 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(12, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(657, 588);
+            this.groupBox1.Size = new System.Drawing.Size(657, 556);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Новое обращение";
             // 
             // CancelBTN
             // 
-            this.CancelBTN.Location = new System.Drawing.Point(576, 557);
+            this.CancelBTN.Location = new System.Drawing.Point(576, 517);
             this.CancelBTN.Name = "CancelBTN";
             this.CancelBTN.Size = new System.Drawing.Size(75, 23);
             this.CancelBTN.TabIndex = 7;
@@ -144,7 +148,7 @@
             // 
             // AddBTN
             // 
-            this.AddBTN.Location = new System.Drawing.Point(495, 557);
+            this.AddBTN.Location = new System.Drawing.Point(495, 517);
             this.AddBTN.Name = "AddBTN";
             this.AddBTN.Size = new System.Drawing.Size(75, 23);
             this.AddBTN.TabIndex = 6;
@@ -155,7 +159,7 @@
             // 
             this.cbHealthStatus.ContextMenuStrip = this.HealthStatusMeniStrip;
             this.cbHealthStatus.FormattingEnabled = true;
-            this.cbHealthStatus.Location = new System.Drawing.Point(232, 559);
+            this.cbHealthStatus.Location = new System.Drawing.Point(232, 519);
             this.cbHealthStatus.Name = "cbHealthStatus";
             this.cbHealthStatus.Size = new System.Drawing.Size(221, 21);
             this.cbHealthStatus.TabIndex = 5;
@@ -185,7 +189,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(16, 562);
+            this.label17.Location = new System.Drawing.Point(16, 522);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(210, 13);
             this.label17.TabIndex = 4;
@@ -199,7 +203,7 @@
             this.groupBox7.Controls.Add(this.groupBox8);
             this.groupBox7.Controls.Add(this.dateTimePicker3);
             this.groupBox7.Controls.Add(this.label10);
-            this.groupBox7.Location = new System.Drawing.Point(6, 355);
+            this.groupBox7.Location = new System.Drawing.Point(6, 315);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(645, 196);
             this.groupBox7.TabIndex = 3;
@@ -448,7 +452,7 @@
             this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox4.Controls.Add(this.groupBox6);
             this.groupBox4.Controls.Add(this.groupBox5);
-            this.groupBox4.Location = new System.Drawing.Point(127, 248);
+            this.groupBox4.Location = new System.Drawing.Point(127, 210);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(414, 101);
             this.groupBox4.TabIndex = 2;
@@ -532,7 +536,7 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(6, 162);
+            this.groupBox3.Location = new System.Drawing.Point(6, 122);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(645, 83);
             this.groupBox3.TabIndex = 1;
@@ -612,49 +616,20 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.cbShortNameOrg);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.cbMO);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.cbArea);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(6, 19);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(645, 137);
+            this.groupBox2.Size = new System.Drawing.Size(645, 97);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Информация об организации";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(451, 46);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(184, 54);
-            this.textBox2.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(381, 65);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Адрес ДОО";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(177, 46);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(195, 54);
-            this.textBox1.TabIndex = 7;
             // 
             // label4
             // 
@@ -662,54 +637,56 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(165, 31);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Полное название детской оздоровительной организации";
+            this.label4.Text = "Название детской оздоровительной организации";
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(89, 106);
+            this.dateTimePicker1.Location = new System.Drawing.Point(550, 61);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(82, 20);
             this.dateTimePicker1.TabIndex = 5;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(9, 102);
+            this.label3.Location = new System.Drawing.Point(470, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 29);
             this.label3.TabIndex = 4;
             this.label3.Text = "Дата подачи информации";
             // 
-            // comboBox2
+            // cbMO
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBox2.ContextMenuStrip = this.MOMenuStrip;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(406, 19);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(229, 21);
-            this.comboBox2.TabIndex = 3;
+            this.cbMO.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbMO.ContextMenuStrip = this.MOMenuStrip;
+            this.cbMO.FormattingEnabled = true;
+            this.cbMO.Location = new System.Drawing.Point(406, 19);
+            this.cbMO.Name = "cbMO";
+            this.cbMO.Size = new System.Drawing.Size(229, 21);
+            this.cbMO.TabIndex = 3;
             // 
             // MOMenuStrip
             // 
             this.MOMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddMO,
+            this.EditMO,
             this.RemoveMO});
             this.MOMenuStrip.Name = "MOMenuStrip";
-            this.MOMenuStrip.Size = new System.Drawing.Size(125, 48);
+            this.MOMenuStrip.Size = new System.Drawing.Size(154, 70);
             // 
             // AddMO
             // 
             this.AddMO.Name = "AddMO";
-            this.AddMO.Size = new System.Drawing.Size(180, 22);
+            this.AddMO.Size = new System.Drawing.Size(153, 22);
             this.AddMO.Text = "Добавить";
             this.AddMO.Click += new System.EventHandler(this.AddMO_Click);
             // 
             // RemoveMO
             // 
             this.RemoveMO.Name = "RemoveMO";
-            this.RemoveMO.Size = new System.Drawing.Size(124, 22);
+            this.RemoveMO.Size = new System.Drawing.Size(153, 22);
             this.RemoveMO.Text = "Удалить";
+            this.RemoveMO.Click += new System.EventHandler(this.RemoveMO_Click);
             // 
             // label2
             // 
@@ -750,7 +727,7 @@
             // RemoveArea
             // 
             this.RemoveArea.Name = "RemoveArea";
-            this.RemoveArea.Size = new System.Drawing.Size(180, 22);
+            this.RemoveArea.Size = new System.Drawing.Size(124, 22);
             this.RemoveArea.Text = "Удалить";
             this.RemoveArea.Click += new System.EventHandler(this.RemoveArea_Click);
             // 
@@ -764,11 +741,54 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Район";
             // 
+            // EditMO
+            // 
+            this.EditMO.Name = "EditMO";
+            this.EditMO.Size = new System.Drawing.Size(153, 22);
+            this.EditMO.Text = "Редактировать";
+            // 
+            // cbShortNameOrg
+            // 
+            this.cbShortNameOrg.ContextMenuStrip = this.HelthOrgMenuStrip;
+            this.cbShortNameOrg.FormattingEnabled = true;
+            this.cbShortNameOrg.Location = new System.Drawing.Point(183, 60);
+            this.cbShortNameOrg.Name = "cbShortNameOrg";
+            this.cbShortNameOrg.Size = new System.Drawing.Size(275, 21);
+            this.cbShortNameOrg.TabIndex = 7;
+            // 
+            // HelthOrgMenuStrip
+            // 
+            this.HelthOrgMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddOrg,
+            this.EditOrg,
+            this.RemoveOrg});
+            this.HelthOrgMenuStrip.Name = "HelthOrgMenuStrip";
+            this.HelthOrgMenuStrip.Size = new System.Drawing.Size(181, 92);
+            // 
+            // AddOrg
+            // 
+            this.AddOrg.Name = "AddOrg";
+            this.AddOrg.Size = new System.Drawing.Size(180, 22);
+            this.AddOrg.Text = "Добавить";
+            this.AddOrg.Click += new System.EventHandler(this.AddOrg_Click);
+            // 
+            // EditOrg
+            // 
+            this.EditOrg.Name = "EditOrg";
+            this.EditOrg.Size = new System.Drawing.Size(153, 22);
+            this.EditOrg.Text = "Редактировать";
+            // 
+            // RemoveOrg
+            // 
+            this.RemoveOrg.Name = "RemoveOrg";
+            this.RemoveOrg.Size = new System.Drawing.Size(153, 22);
+            this.RemoveOrg.Text = "Удалить";
+            // 
             // AddEventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 604);
+            this.ClientSize = new System.Drawing.Size(681, 571);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddEventForm";
             this.Text = "Новое обращение";
@@ -795,6 +815,7 @@
             this.groupBox2.PerformLayout();
             this.MOMenuStrip.ResumeLayout(false);
             this.AreaMenuStrip.ResumeLayout(false);
+            this.HelthOrgMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -803,7 +824,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbMO;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbArea;
         private System.Windows.Forms.Label label1;
@@ -816,9 +837,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label3;
@@ -869,6 +887,12 @@
         private System.Windows.Forms.ContextMenuStrip MOMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem AddMO;
         private System.Windows.Forms.ToolStripMenuItem RemoveMO;
+        private System.Windows.Forms.ComboBox cbShortNameOrg;
+        private System.Windows.Forms.ContextMenuStrip HelthOrgMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem AddOrg;
+        private System.Windows.Forms.ToolStripMenuItem EditOrg;
+        private System.Windows.Forms.ToolStripMenuItem RemoveOrg;
+        private System.Windows.Forms.ToolStripMenuItem EditMO;
     }
 }
 

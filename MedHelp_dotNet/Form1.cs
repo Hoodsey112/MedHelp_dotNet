@@ -16,11 +16,13 @@ namespace MedHelp_dotNet
         public XmlDocument xmlDoc;
         Classes.AreaClass[] areaClass;
         Classes.MOClass[] moClass;
+        bool firstStart = true;
         public AddEventForm()
         {
             InitializeComponent();
             LoadHealthStatus();
             LoadArea();
+            firstStart = false;
         }
 
         #region cbHealthStatus
@@ -165,23 +167,52 @@ namespace MedHelp_dotNet
             RemoveAreaList();
             LoadArea();
         }
-        #endregion
-
-        #region MO
-        private void LoadMOList()
-        {
-            moClass = Classes.QueryClass.LoadMOList(int.Parse(cbArea.SelectedValue.ToString()));
-        }
-
-        private void AddMO_Click(object sender, EventArgs e)
-        {
-
-        }
-        #endregion
 
         private void cbArea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbArea.SelectedIndex != -1) LoadMOList();
+            if (!firstStart)
+            {
+                if (cbArea.SelectedIndex != -1) LoadMOList();
+            }
+        }
+        #endregion
+
+        #region MO
+        //Получение списка МО согласно выбранному району
+        private void LoadMOList()
+        {
+            moClass = Classes.QueryClass.LoadMOList(int.Parse(cbArea.SelectedValue.ToString()));
+            cbMO.DataSource = moClass;
+            cbMO.ValueMember = "id";
+            cbMO.DisplayMember = "name";
+            cbMO.SelectedIndex = -1;
+        }
+
+        //Добавление новой МО в таблицу
+        private void AddMO_Click(object sender, EventArgs e)
+        {
+            if (cbArea.SelectedItem != null)
+            {
+                Classes.QueryClass.InsertNewMO(cbMO.Text, int.Parse(cbArea.SelectedValue.ToString()));
+                LoadMOList();
+            }
+            else MessageBox.Show("Необходимо выбрать район, для добавления новой медицинской организации", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        //Удаление выбранного МО из таблицы
+        private void RemoveMO_Click(object sender, EventArgs e)
+        {
+            Classes.QueryClass.RemoveMO(int.Parse(cbMO.SelectedValue.ToString()), int.Parse(cbArea.SelectedValue.ToString()));
+            LoadMOList();
+        }
+        #endregion
+
+        private void AddOrg_Click(object sender, EventArgs e)
+        {
+            using (HealthOrgForm hoForm = new HealthOrgForm())
+            {
+                hoForm.ShowDialog();
+            }
         }
     }
 }

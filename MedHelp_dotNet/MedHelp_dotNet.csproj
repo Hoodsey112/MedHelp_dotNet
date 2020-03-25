@@ -49,9 +49,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AreaClass.cs" />
+    <Compile Include="Classes\ClientClass.cs" />
     <Compile Include="Classes\ConnectionClass.cs" />
+    <Compile Include="Classes\HealthOrgClass.cs" />
     <Compile Include="Classes\MOClass.cs" />
     <Compile Include="Classes\QueryClass.cs" />
+    <Compile Include="ClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientForm.Designer.cs">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

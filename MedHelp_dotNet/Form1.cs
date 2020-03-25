@@ -16,6 +16,7 @@ namespace MedHelp_dotNet
         public XmlDocument xmlDoc;
         Classes.AreaClass[] areaClass;
         Classes.MOClass[] moClass;
+        Classes.HealthOrgClass[] healthClass;
         bool firstStart = true;
         public AddEventForm()
         {
@@ -135,7 +136,7 @@ namespace MedHelp_dotNet
         //Загрузка списка районов
         private void LoadArea()
         {
-            areaClass = Classes.QueryClass.LoadListArea();
+            areaClass = Classes.AreaClass.LoadListArea();
             cbArea.DataSource = areaClass;
             cbArea.DisplayMember = "name";
             cbArea.ValueMember = "id";
@@ -145,13 +146,13 @@ namespace MedHelp_dotNet
         //Добавление нового района в таблицу
         private void InsertArea()
         {
-            Classes.QueryClass.InsertArea(cbArea.Text);
+            Classes.AreaClass.InsertArea(cbArea.Text);
         }
 
         //Удаление выбранного района из таблицы
         private void RemoveAreaList()
         {
-            Classes.QueryClass.RemoveArea(int.Parse(cbArea.SelectedValue.ToString()));
+            Classes.AreaClass.RemoveArea(int.Parse(cbArea.SelectedValue.ToString()));
         }
 
         //Обработка кнопки добавить район
@@ -172,7 +173,11 @@ namespace MedHelp_dotNet
         {
             if (!firstStart)
             {
-                if (cbArea.SelectedIndex != -1) LoadMOList();
+                if (cbArea.SelectedIndex != -1)
+                {
+                    LoadMOList();
+                    LoadHealthOrgList();
+                }
             }
         }
         #endregion
@@ -181,11 +186,20 @@ namespace MedHelp_dotNet
         //Получение списка МО согласно выбранному району
         private void LoadMOList()
         {
-            moClass = Classes.QueryClass.LoadMOList(int.Parse(cbArea.SelectedValue.ToString()));
+            moClass = Classes.MOClass.LoadMOList(int.Parse(cbArea.SelectedValue.ToString()));
             cbMO.DataSource = moClass;
             cbMO.ValueMember = "id";
             cbMO.DisplayMember = "name";
             cbMO.SelectedIndex = -1;
+        }
+
+        private void LoadHealthOrgList()
+        {
+            healthClass = Classes.HealthOrgClass.LoadHealthOrgList(int.Parse(cbArea.SelectedValue.ToString()));
+            cbShortNameOrg.DataSource = healthClass;
+            cbShortNameOrg.ValueMember = "id";
+            cbShortNameOrg.DisplayMember = "ShortName";
+            cbShortNameOrg.SelectedIndex = -1;
         }
 
         //Добавление новой МО в таблицу
@@ -193,7 +207,7 @@ namespace MedHelp_dotNet
         {
             if (cbArea.SelectedItem != null)
             {
-                Classes.QueryClass.InsertNewMO(cbMO.Text, int.Parse(cbArea.SelectedValue.ToString()));
+                Classes.MOClass.InsertNewMO(cbMO.Text, int.Parse(cbArea.SelectedValue.ToString()));
                 LoadMOList();
             }
             else MessageBox.Show("Необходимо выбрать район, для добавления новой медицинской организации", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -202,16 +216,59 @@ namespace MedHelp_dotNet
         //Удаление выбранного МО из таблицы
         private void RemoveMO_Click(object sender, EventArgs e)
         {
-            Classes.QueryClass.RemoveMO(int.Parse(cbMO.SelectedValue.ToString()), int.Parse(cbArea.SelectedValue.ToString()));
+            Classes.MOClass.RemoveMO(int.Parse(cbMO.SelectedValue.ToString()), int.Parse(cbArea.SelectedValue.ToString()));
             LoadMOList();
         }
         #endregion
 
         private void AddOrg_Click(object sender, EventArgs e)
         {
-            using (HealthOrgForm hoForm = new HealthOrgForm())
+            using (HealthOrgForm hoForm = new HealthOrgForm(false, 0, 0))
             {
                 hoForm.ShowDialog();
+            }
+        }
+
+        private void EditOrg_Click(object sender, EventArgs e)
+        {
+            using (HealthOrgForm hoForm = new HealthOrgForm(true, int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbShortNameOrg.SelectedValue.ToString())))
+            {
+                hoForm.ShowDialog();
+            }
+        }
+
+        private void HelthOrgMenuStrip_Opening(object sender, CancelEventArgs e)
+        {
+            if (cbShortNameOrg.SelectedItem != null) AddOrg.Enabled = false;
+            else
+            {
+                AddOrg.Enabled = true;
+                EditOrg.Enabled = false;
+                RemoveOrg.Enabled = false;
+            }
+        }
+
+        private void AddClient_Click(object sender, EventArgs e)
+        {
+            using (ClientForm cForm = new ClientForm(1))
+            {
+                cForm.ShowDialog();
+            }
+        }
+
+        private void FoundClient_Click(object sender, EventArgs e)
+        {
+            using (ClientForm cForm = new ClientForm(2))
+            {
+                cForm.ShowDialog();
+            }
+        }
+
+        private void EditClient_Click(object sender, EventArgs e)
+        {
+            using (ClientForm cForm = new ClientForm(3))
+            {
+                cForm.ShowDialog();
             }
         }
     }

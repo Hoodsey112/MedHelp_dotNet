@@ -72,21 +72,27 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ClientAddressTB = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbClientSex = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.ClientBirthDate = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ClientFIOTB = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbShortNameOrg = new System.Windows.Forms.ComboBox();
+            this.HelthOrgMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AddOrg = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditOrg = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoveOrg = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.cbMO = new System.Windows.Forms.ComboBox();
             this.MOMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddMO = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditMO = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveMO = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.cbArea = new System.Windows.Forms.ComboBox();
@@ -94,12 +100,12 @@
             this.AddArea = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveArea = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.EditMO = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbShortNameOrg = new System.Windows.Forms.ComboBox();
-            this.HelthOrgMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.AddOrg = new System.Windows.Forms.ToolStripMenuItem();
-            this.EditOrg = new System.Windows.Forms.ToolStripMenuItem();
-            this.RemoveOrg = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AddClient = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditClient = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoveClient = new System.Windows.Forms.ToolStripMenuItem();
+            this.FoundClient = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.HealthStatusMeniStrip.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -113,9 +119,10 @@
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.HelthOrgMenuStrip.SuspendLayout();
             this.MOMenuStrip.SuspendLayout();
             this.AreaMenuStrip.SuspendLayout();
-            this.HelthOrgMenuStrip.SuspendLayout();
+            this.ClientMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -528,13 +535,14 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.ContextMenuStrip = this.ClientMenuStrip;
+            this.groupBox3.Controls.Add(this.ClientAddressTB);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.comboBox3);
+            this.groupBox3.Controls.Add(this.cbClientSex);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.dateTimePicker2);
+            this.groupBox3.Controls.Add(this.ClientBirthDate);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.ClientFIOTB);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Location = new System.Drawing.Point(6, 122);
             this.groupBox3.Name = "groupBox3";
@@ -543,14 +551,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Инофрмация о ребенке";
             // 
-            // textBox4
+            // ClientAddressTB
             // 
-            this.textBox4.Location = new System.Drawing.Point(389, 19);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox4.Size = new System.Drawing.Size(246, 51);
-            this.textBox4.TabIndex = 7;
+            this.ClientAddressTB.Enabled = false;
+            this.ClientAddressTB.Location = new System.Drawing.Point(389, 19);
+            this.ClientAddressTB.Multiline = true;
+            this.ClientAddressTB.Name = "ClientAddressTB";
+            this.ClientAddressTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ClientAddressTB.Size = new System.Drawing.Size(246, 51);
+            this.ClientAddressTB.TabIndex = 7;
             // 
             // label9
             // 
@@ -560,16 +569,17 @@
             this.label9.TabIndex = 6;
             this.label9.Text = "Адрес постоянного проживания";
             // 
-            // comboBox3
+            // cbClientSex
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.cbClientSex.Enabled = false;
+            this.cbClientSex.FormattingEnabled = true;
+            this.cbClientSex.Items.AddRange(new object[] {
             "Мужской",
             "Женский"});
-            this.comboBox3.Location = new System.Drawing.Point(222, 48);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(73, 21);
-            this.comboBox3.TabIndex = 5;
+            this.cbClientSex.Location = new System.Drawing.Point(222, 48);
+            this.cbClientSex.Name = "cbClientSex";
+            this.cbClientSex.Size = new System.Drawing.Size(73, 21);
+            this.cbClientSex.TabIndex = 5;
             // 
             // label8
             // 
@@ -580,13 +590,14 @@
             this.label8.TabIndex = 4;
             this.label8.Text = "Пол";
             // 
-            // dateTimePicker2
+            // ClientBirthDate
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(103, 48);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(80, 20);
-            this.dateTimePicker2.TabIndex = 3;
+            this.ClientBirthDate.Enabled = false;
+            this.ClientBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.ClientBirthDate.Location = new System.Drawing.Point(103, 48);
+            this.ClientBirthDate.Name = "ClientBirthDate";
+            this.ClientBirthDate.Size = new System.Drawing.Size(80, 20);
+            this.ClientBirthDate.TabIndex = 3;
             // 
             // label7
             // 
@@ -597,12 +608,13 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Дата рождения";
             // 
-            // textBox3
+            // ClientFIOTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(50, 19);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(246, 20);
-            this.textBox3.TabIndex = 1;
+            this.ClientFIOTB.ContextMenuStrip = this.ClientMenuStrip;
+            this.ClientFIOTB.Location = new System.Drawing.Point(50, 19);
+            this.ClientFIOTB.Name = "ClientFIOTB";
+            this.ClientFIOTB.Size = new System.Drawing.Size(246, 20);
+            this.ClientFIOTB.TabIndex = 1;
             // 
             // label6
             // 
@@ -630,6 +642,45 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Информация об организации";
+            // 
+            // cbShortNameOrg
+            // 
+            this.cbShortNameOrg.ContextMenuStrip = this.HelthOrgMenuStrip;
+            this.cbShortNameOrg.FormattingEnabled = true;
+            this.cbShortNameOrg.Location = new System.Drawing.Point(183, 60);
+            this.cbShortNameOrg.Name = "cbShortNameOrg";
+            this.cbShortNameOrg.Size = new System.Drawing.Size(275, 21);
+            this.cbShortNameOrg.TabIndex = 7;
+            // 
+            // HelthOrgMenuStrip
+            // 
+            this.HelthOrgMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddOrg,
+            this.EditOrg,
+            this.RemoveOrg});
+            this.HelthOrgMenuStrip.Name = "HelthOrgMenuStrip";
+            this.HelthOrgMenuStrip.Size = new System.Drawing.Size(154, 70);
+            this.HelthOrgMenuStrip.Opening += new System.ComponentModel.CancelEventHandler(this.HelthOrgMenuStrip_Opening);
+            // 
+            // AddOrg
+            // 
+            this.AddOrg.Name = "AddOrg";
+            this.AddOrg.Size = new System.Drawing.Size(153, 22);
+            this.AddOrg.Text = "Добавить";
+            this.AddOrg.Click += new System.EventHandler(this.AddOrg_Click);
+            // 
+            // EditOrg
+            // 
+            this.EditOrg.Name = "EditOrg";
+            this.EditOrg.Size = new System.Drawing.Size(153, 22);
+            this.EditOrg.Text = "Редактировать";
+            this.EditOrg.Click += new System.EventHandler(this.EditOrg_Click);
+            // 
+            // RemoveOrg
+            // 
+            this.RemoveOrg.Name = "RemoveOrg";
+            this.RemoveOrg.Size = new System.Drawing.Size(153, 22);
+            this.RemoveOrg.Text = "Удалить";
             // 
             // label4
             // 
@@ -681,6 +732,12 @@
             this.AddMO.Text = "Добавить";
             this.AddMO.Click += new System.EventHandler(this.AddMO_Click);
             // 
+            // EditMO
+            // 
+            this.EditMO.Name = "EditMO";
+            this.EditMO.Size = new System.Drawing.Size(153, 22);
+            this.EditMO.Text = "Редактировать";
+            // 
             // RemoveMO
             // 
             this.RemoveMO.Name = "RemoveMO";
@@ -713,21 +770,22 @@
             // 
             this.AreaMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddArea,
+            this.EditArea,
             this.RemoveArea});
             this.AreaMenuStrip.Name = "AreaMenuStrip";
-            this.AreaMenuStrip.Size = new System.Drawing.Size(125, 48);
+            this.AreaMenuStrip.Size = new System.Drawing.Size(154, 70);
             // 
             // AddArea
             // 
             this.AddArea.Name = "AddArea";
-            this.AddArea.Size = new System.Drawing.Size(124, 22);
+            this.AddArea.Size = new System.Drawing.Size(153, 22);
             this.AddArea.Text = "Добавить";
             this.AddArea.Click += new System.EventHandler(this.AddArea_Click);
             // 
             // RemoveArea
             // 
             this.RemoveArea.Name = "RemoveArea";
-            this.RemoveArea.Size = new System.Drawing.Size(124, 22);
+            this.RemoveArea.Size = new System.Drawing.Size(153, 22);
             this.RemoveArea.Text = "Удалить";
             this.RemoveArea.Click += new System.EventHandler(this.RemoveArea_Click);
             // 
@@ -741,48 +799,48 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Район";
             // 
-            // EditMO
+            // EditArea
             // 
-            this.EditMO.Name = "EditMO";
-            this.EditMO.Size = new System.Drawing.Size(153, 22);
-            this.EditMO.Text = "Редактировать";
+            this.EditArea.Name = "EditArea";
+            this.EditArea.Size = new System.Drawing.Size(153, 22);
+            this.EditArea.Text = "Редактировать";
             // 
-            // cbShortNameOrg
+            // ClientMenuStrip
             // 
-            this.cbShortNameOrg.ContextMenuStrip = this.HelthOrgMenuStrip;
-            this.cbShortNameOrg.FormattingEnabled = true;
-            this.cbShortNameOrg.Location = new System.Drawing.Point(183, 60);
-            this.cbShortNameOrg.Name = "cbShortNameOrg";
-            this.cbShortNameOrg.Size = new System.Drawing.Size(275, 21);
-            this.cbShortNameOrg.TabIndex = 7;
+            this.ClientMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FoundClient,
+            this.AddClient,
+            this.EditClient,
+            this.RemoveClient});
+            this.ClientMenuStrip.Name = "ClientMenuStrip";
+            this.ClientMenuStrip.Size = new System.Drawing.Size(154, 92);
             // 
-            // HelthOrgMenuStrip
+            // AddClient
             // 
-            this.HelthOrgMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddOrg,
-            this.EditOrg,
-            this.RemoveOrg});
-            this.HelthOrgMenuStrip.Name = "HelthOrgMenuStrip";
-            this.HelthOrgMenuStrip.Size = new System.Drawing.Size(181, 92);
+            this.AddClient.Name = "AddClient";
+            this.AddClient.Size = new System.Drawing.Size(153, 22);
+            this.AddClient.Text = "Добавить";
+            this.AddClient.Click += new System.EventHandler(this.AddClient_Click);
             // 
-            // AddOrg
+            // EditClient
             // 
-            this.AddOrg.Name = "AddOrg";
-            this.AddOrg.Size = new System.Drawing.Size(180, 22);
-            this.AddOrg.Text = "Добавить";
-            this.AddOrg.Click += new System.EventHandler(this.AddOrg_Click);
+            this.EditClient.Name = "EditClient";
+            this.EditClient.Size = new System.Drawing.Size(153, 22);
+            this.EditClient.Text = "Редактировать";
+            this.EditClient.Click += new System.EventHandler(this.EditClient_Click);
             // 
-            // EditOrg
+            // RemoveClient
             // 
-            this.EditOrg.Name = "EditOrg";
-            this.EditOrg.Size = new System.Drawing.Size(153, 22);
-            this.EditOrg.Text = "Редактировать";
+            this.RemoveClient.Name = "RemoveClient";
+            this.RemoveClient.Size = new System.Drawing.Size(153, 22);
+            this.RemoveClient.Text = "Удалить";
             // 
-            // RemoveOrg
+            // FoundClient
             // 
-            this.RemoveOrg.Name = "RemoveOrg";
-            this.RemoveOrg.Size = new System.Drawing.Size(153, 22);
-            this.RemoveOrg.Text = "Удалить";
+            this.FoundClient.Name = "FoundClient";
+            this.FoundClient.Size = new System.Drawing.Size(153, 22);
+            this.FoundClient.Text = "Найти";
+            this.FoundClient.Click += new System.EventHandler(this.FoundClient_Click);
             // 
             // AddEventForm
             // 
@@ -813,9 +871,10 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.HelthOrgMenuStrip.ResumeLayout(false);
             this.MOMenuStrip.ResumeLayout(false);
             this.AreaMenuStrip.ResumeLayout(false);
-            this.HelthOrgMenuStrip.ResumeLayout(false);
+            this.ClientMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -829,13 +888,13 @@
         private System.Windows.Forms.ComboBox cbArea;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ClientAddressTB;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbClientSex;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker ClientBirthDate;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox ClientFIOTB;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -893,6 +952,12 @@
         private System.Windows.Forms.ToolStripMenuItem EditOrg;
         private System.Windows.Forms.ToolStripMenuItem RemoveOrg;
         private System.Windows.Forms.ToolStripMenuItem EditMO;
+        private System.Windows.Forms.ToolStripMenuItem EditArea;
+        private System.Windows.Forms.ContextMenuStrip ClientMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem FoundClient;
+        private System.Windows.Forms.ToolStripMenuItem AddClient;
+        private System.Windows.Forms.ToolStripMenuItem EditClient;
+        private System.Windows.Forms.ToolStripMenuItem RemoveClient;
     }
 }
 

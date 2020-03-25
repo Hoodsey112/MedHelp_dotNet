@@ -31,14 +31,14 @@
             this.ApplyBTN = new System.Windows.Forms.Button();
             this.CancelBTN = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.FullNameTB = new System.Windows.Forms.TextBox();
-            this.AddressTB = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.cbArea = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.ShortNameTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbArea = new System.Windows.Forms.ComboBox();
+            this.AddressTB = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.FullNameTB = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +50,7 @@
             this.ApplyBTN.TabIndex = 0;
             this.ApplyBTN.Text = "Сохранить";
             this.ApplyBTN.UseVisualStyleBackColor = true;
+            this.ApplyBTN.Click += new System.EventHandler(this.ApplyBTN_Click);
             // 
             // CancelBTN
             // 
@@ -78,38 +79,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Детская оздоровительная организация";
             // 
-            // label1
+            // cbArea
             // 
-            this.label1.Location = new System.Drawing.Point(8, 64);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Полное название детской оздоровительной организации";
+            this.cbArea.FormattingEnabled = true;
+            this.cbArea.Location = new System.Drawing.Point(11, 32);
+            this.cbArea.Name = "cbArea";
+            this.cbArea.Size = new System.Drawing.Size(208, 21);
+            this.cbArea.TabIndex = 7;
             // 
-            // FullNameTB
+            // label4
             // 
-            this.FullNameTB.Location = new System.Drawing.Point(11, 99);
-            this.FullNameTB.Multiline = true;
-            this.FullNameTB.Name = "FullNameTB";
-            this.FullNameTB.Size = new System.Drawing.Size(319, 46);
-            this.FullNameTB.TabIndex = 1;
-            // 
-            // AddressTB
-            // 
-            this.AddressTB.Location = new System.Drawing.Point(11, 223);
-            this.AddressTB.Multiline = true;
-            this.AddressTB.Name = "AddressTB";
-            this.AddressTB.Size = new System.Drawing.Size(319, 46);
-            this.AddressTB.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 203);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Адрес ДОО";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Район";
             // 
             // ShortNameTB
             // 
@@ -128,22 +113,38 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Короткое название ДОО";
             // 
-            // label4
+            // AddressTB
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Район";
+            this.AddressTB.Location = new System.Drawing.Point(11, 223);
+            this.AddressTB.Multiline = true;
+            this.AddressTB.Name = "AddressTB";
+            this.AddressTB.Size = new System.Drawing.Size(319, 46);
+            this.AddressTB.TabIndex = 3;
             // 
-            // cbArea
+            // label2
             // 
-            this.cbArea.FormattingEnabled = true;
-            this.cbArea.Location = new System.Drawing.Point(11, 32);
-            this.cbArea.Name = "cbArea";
-            this.cbArea.Size = new System.Drawing.Size(208, 21);
-            this.cbArea.TabIndex = 7;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 203);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Адрес ДОО";
+            // 
+            // FullNameTB
+            // 
+            this.FullNameTB.Location = new System.Drawing.Point(11, 99);
+            this.FullNameTB.Multiline = true;
+            this.FullNameTB.Name = "FullNameTB";
+            this.FullNameTB.Size = new System.Drawing.Size(319, 46);
+            this.FullNameTB.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(8, 64);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 32);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Полное название детской оздоровительной организации";
             // 
             // HealthOrgForm
             // 

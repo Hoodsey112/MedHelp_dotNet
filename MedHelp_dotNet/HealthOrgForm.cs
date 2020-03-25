@@ -12,18 +12,27 @@ namespace MedHelp_dotNet
     public partial class HealthOrgForm : Form
     {
         Classes.AreaClass[] areaClass;
+        Classes.HealthOrgClass health;
 
-        public HealthOrgForm()
+        bool EdIn = true; //"true" if you edit data, if you insert data then EdIn = "false"
+
+        public HealthOrgForm(bool _EdIn, int _area_id, int _id)
         {
             InitializeComponent();
             LoadArea();
+            
+            if (_EdIn)
+            { 
+                health = Classes.HealthOrgClass.LoadHealthOrgList(_id, _area_id);
+                EditData();
+            }
         }
 
         #region Area
         //Загрузка списка районов
         private void LoadArea()
         {
-            areaClass = Classes.QueryClass.LoadListArea();
+            areaClass = Classes.AreaClass.LoadListArea();
             cbArea.DataSource = areaClass;
             cbArea.DisplayMember = "name";
             cbArea.ValueMember = "id";
@@ -34,6 +43,32 @@ namespace MedHelp_dotNet
         private void CancelBTN_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void EditData()
+        {
+            cbArea.SelectedValue = health.area_id;
+            FullNameTB.Text = health.FullName;
+            ShortNameTB.Text = health.ShortName;
+            AddressTB.Text = health.Address;
+        }
+
+        private void SaveData()
+        {
+            Classes.HealthOrgClass.InsertHealthOrg(FullNameTB.Text, ShortNameTB.Text, AddressTB.Text, int.Parse(cbArea.SelectedValue.ToString()));
+            if (DialogResult.OK == MessageBox.Show("Данные успешно сохранены", "Сохранение записи", MessageBoxButtons.OK, MessageBoxIcon.Information)) Close();
+        }
+
+        private void ApplyBTN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

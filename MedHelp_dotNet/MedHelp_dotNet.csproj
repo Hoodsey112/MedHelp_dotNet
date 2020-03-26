@@ -51,7 +51,9 @@
     <Compile Include="Classes\AreaClass.cs" />
     <Compile Include="Classes\ClientClass.cs" />
     <Compile Include="Classes\ConnectionClass.cs" />
+    <Compile Include="Classes\EventClass.cs" />
     <Compile Include="Classes\HealthOrgClass.cs" />
+    <Compile Include="Classes\MKBClass.cs" />
     <Compile Include="Classes\MOClass.cs" />
     <Compile Include="Classes\QueryClass.cs" />
     <Compile Include="ClientForm.cs">

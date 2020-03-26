@@ -17,12 +17,24 @@ namespace MedHelp_dotNet
         Classes.AreaClass[] areaClass;
         Classes.MOClass[] moClass;
         Classes.HealthOrgClass[] healthClass;
+        Classes.MKBClass[] MKB;
+        public Classes.ClientClass client;
         bool firstStart = true;
+        int RelaxInfo = 0;
         public AddEventForm()
         {
             InitializeComponent();
             LoadHealthStatus();
             LoadArea();
+            
+            //----------------------------------
+            MKB = Classes.MKBClass.LoadMKB();//|
+            MKB10TB.DataSource = MKB;        //|
+            MKB10TB.DisplayMember = "DiagID";//|
+            MKB10TB.ValueMember = "DiagName";//|
+            MKB10TB.SelectedIndex = -1;      //|
+            //----------------------------------
+
             firstStart = false;
         }
 
@@ -260,16 +272,86 @@ namespace MedHelp_dotNet
         {
             using (ClientForm cForm = new ClientForm(2))
             {
+                client = new Classes.ClientClass();
+                cForm.Owner = this;
                 cForm.ShowDialog();
+            }
+
+            ClientFIOTB.Text = client.FIO;
+            ClientBirthDate.Value = client.birthDate;
+            cbClientSex.SelectedItem = client.sex;
+            ClientAddressTB.Text = client.Address;
+        }
+
+        private void ORGHimselfRelaxInfoRB_CheckedChanged(object sender, EventArgs e)
+        {
+            RelaxInfo = 2;
+        }
+
+        private void ORGMCRelaxInfoRB_CheckedChanged(object sender, EventArgs e)
+        {
+            RelaxInfo = 3;
+        }
+
+        private void NONORGHimselfRelaxInfoRB_CheckedChanged(object sender, EventArgs e)
+        {
+            RelaxInfo = 5;
+        }
+
+        private void NONORGWithParentRelaxInfoRB_CheckedChanged(object sender, EventArgs e)
+        {
+            RelaxInfo = 6;
+        }
+
+        private void AddBTN_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Checked RadioButton is {RelaxInfo}");
+        }
+
+        private void HelpRB_1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(HelpRB_1.Checked)
+            {
+                DiagTB.Enabled = true;
+                MKB10TB.Enabled = true;
+                SpecialityTB.Enabled = false;
+                DepartmentTB.Enabled = false;
             }
         }
 
-        private void EditClient_Click(object sender, EventArgs e)
+        private void HelpRB_2_CheckedChanged(object sender, EventArgs e)
         {
-            using (ClientForm cForm = new ClientForm(3))
+            if (HelpRB_2.Checked)
             {
-                cForm.ShowDialog();
+                DiagTB.Enabled = true;
+                MKB10TB.Enabled = true;
+                SpecialityTB.Enabled = true;
+                DepartmentTB.Enabled = false;
             }
+        }
+
+        private void HelpRB_3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (HelpRB_3.Checked)
+            {
+                DiagTB.Enabled = true;
+                MKB10TB.Enabled = true;
+                SpecialityTB.Enabled = false;
+                DepartmentTB.Enabled = true;
+            }
+        }
+
+        private void MKB10TB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(MKB10TB.Enabled && DiagTB.Enabled)
+            {
+                if (MKB10TB.SelectedItem != null) DiagTB.Text = MKB10TB.SelectedValue.ToString();
+            }
+        }
+
+        private void CancelBTN_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

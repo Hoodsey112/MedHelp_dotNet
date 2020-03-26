@@ -39,39 +39,35 @@
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.TransferDate = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.TransferTB = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.DepartmentTB = new System.Windows.Forms.TextBox();
             this.DepartMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddDepart = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveDepart = new System.Windows.Forms.ToolStripMenuItem();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.SpecialityTB = new System.Windows.Forms.TextBox();
             this.DoctorMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddDoctor = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveDoctor = new System.Windows.Forms.ToolStripMenuItem();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.DiagTB = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.HelpRB_3 = new System.Windows.Forms.RadioButton();
+            this.HelpRB_2 = new System.Windows.Forms.RadioButton();
+            this.HelpRB_1 = new System.Windows.Forms.RadioButton();
+            this.TreatmentDate = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ClientMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.FoundClient = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddClient = new System.Windows.Forms.ToolStripMenuItem();
             this.ClientAddressTB = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cbClientSex = new System.Windows.Forms.ComboBox();
@@ -87,7 +83,7 @@
             this.EditOrg = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveOrg = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.EventDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.cbMO = new System.Windows.Forms.ComboBox();
             this.MOMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -98,14 +94,18 @@
             this.cbArea = new System.Windows.Forms.ComboBox();
             this.AreaMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddArea = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditArea = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveArea = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.EditArea = new System.Windows.Forms.ToolStripMenuItem();
-            this.ClientMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.AddClient = new System.Windows.Forms.ToolStripMenuItem();
-            this.EditClient = new System.Windows.Forms.ToolStripMenuItem();
-            this.RemoveClient = new System.Windows.Forms.ToolStripMenuItem();
-            this.FoundClient = new System.Windows.Forms.ToolStripMenuItem();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.ORGMCRelaxInfoRB = new System.Windows.Forms.RadioButton();
+            this.ORGHimselfRelaxInfoRB = new System.Windows.Forms.RadioButton();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.NONORGWithParentRelaxInfoRB = new System.Windows.Forms.RadioButton();
+            this.NONORGHimselfRelaxInfoRB = new System.Windows.Forms.RadioButton();
+            this.MKB10TB = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.HealthStatusMeniStrip.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -115,14 +115,12 @@
             this.DepartMenuStrip.SuspendLayout();
             this.DoctorMenuStrip.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.ClientMenuStrip.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.HelthOrgMenuStrip.SuspendLayout();
             this.MOMenuStrip.SuspendLayout();
             this.AreaMenuStrip.SuspendLayout();
-            this.ClientMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -152,6 +150,7 @@
             this.CancelBTN.TabIndex = 7;
             this.CancelBTN.Text = "Отмена";
             this.CancelBTN.UseVisualStyleBackColor = true;
+            this.CancelBTN.Click += new System.EventHandler(this.CancelBTN_Click);
             // 
             // AddBTN
             // 
@@ -161,6 +160,7 @@
             this.AddBTN.TabIndex = 6;
             this.AddBTN.Text = "Добавить";
             this.AddBTN.UseVisualStyleBackColor = true;
+            this.AddBTN.Click += new System.EventHandler(this.AddBTN_Click);
             // 
             // cbHealthStatus
             // 
@@ -208,7 +208,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox7.Controls.Add(this.groupBox10);
             this.groupBox7.Controls.Add(this.groupBox8);
-            this.groupBox7.Controls.Add(this.dateTimePicker3);
+            this.groupBox7.Controls.Add(this.TreatmentDate);
             this.groupBox7.Controls.Add(this.label10);
             this.groupBox7.Location = new System.Drawing.Point(6, 315);
             this.groupBox7.Name = "groupBox7";
@@ -219,9 +219,9 @@
             // 
             // groupBox10
             // 
-            this.groupBox10.Controls.Add(this.dateTimePicker4);
+            this.groupBox10.Controls.Add(this.TransferDate);
             this.groupBox10.Controls.Add(this.label16);
-            this.groupBox10.Controls.Add(this.textBox9);
+            this.groupBox10.Controls.Add(this.TransferTB);
             this.groupBox10.Controls.Add(this.label15);
             this.groupBox10.Location = new System.Drawing.Point(4, 50);
             this.groupBox10.Name = "groupBox10";
@@ -230,13 +230,13 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "По тяжести состояния направле/переведен в реанимацию";
             // 
-            // dateTimePicker4
+            // TransferDate
             // 
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(6, 106);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(84, 20);
-            this.dateTimePicker4.TabIndex = 3;
+            this.TransferDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.TransferDate.Location = new System.Drawing.Point(6, 106);
+            this.TransferDate.Name = "TransferDate";
+            this.TransferDate.Size = new System.Drawing.Size(84, 20);
+            this.TransferDate.TabIndex = 3;
             // 
             // label16
             // 
@@ -247,12 +247,12 @@
             this.label16.TabIndex = 2;
             this.label16.Text = "Дата перевода";
             // 
-            // textBox9
+            // TransferTB
             // 
-            this.textBox9.Location = new System.Drawing.Point(7, 62);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(176, 20);
-            this.textBox9.TabIndex = 1;
+            this.TransferTB.Location = new System.Drawing.Point(7, 62);
+            this.TransferTB.Name = "TransferTB";
+            this.TransferTB.Size = new System.Drawing.Size(176, 20);
+            this.TransferTB.TabIndex = 1;
             // 
             // label15
             // 
@@ -266,9 +266,9 @@
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.groupBox9);
-            this.groupBox8.Controls.Add(this.radioButton7);
-            this.groupBox8.Controls.Add(this.radioButton6);
-            this.groupBox8.Controls.Add(this.radioButton5);
+            this.groupBox8.Controls.Add(this.HelpRB_3);
+            this.groupBox8.Controls.Add(this.HelpRB_2);
+            this.groupBox8.Controls.Add(this.HelpRB_1);
             this.groupBox8.Location = new System.Drawing.Point(200, 10);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(435, 180);
@@ -278,13 +278,13 @@
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.textBox8);
+            this.groupBox9.Controls.Add(this.MKB10TB);
+            this.groupBox9.Controls.Add(this.DepartmentTB);
             this.groupBox9.Controls.Add(this.label14);
-            this.groupBox9.Controls.Add(this.textBox7);
+            this.groupBox9.Controls.Add(this.SpecialityTB);
             this.groupBox9.Controls.Add(this.label13);
-            this.groupBox9.Controls.Add(this.textBox6);
             this.groupBox9.Controls.Add(this.label12);
-            this.groupBox9.Controls.Add(this.textBox5);
+            this.groupBox9.Controls.Add(this.DiagTB);
             this.groupBox9.Controls.Add(this.label11);
             this.groupBox9.Location = new System.Drawing.Point(220, 9);
             this.groupBox9.Name = "groupBox9";
@@ -292,15 +292,16 @@
             this.groupBox9.TabIndex = 3;
             this.groupBox9.TabStop = false;
             // 
-            // textBox8
+            // DepartmentTB
             // 
-            this.textBox8.ContextMenuStrip = this.DepartMenuStrip;
-            this.textBox8.Location = new System.Drawing.Point(6, 137);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox8.Size = new System.Drawing.Size(197, 20);
-            this.textBox8.TabIndex = 7;
+            this.DepartmentTB.ContextMenuStrip = this.DepartMenuStrip;
+            this.DepartmentTB.Enabled = false;
+            this.DepartmentTB.Location = new System.Drawing.Point(6, 137);
+            this.DepartmentTB.Multiline = true;
+            this.DepartmentTB.Name = "DepartmentTB";
+            this.DepartmentTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DepartmentTB.Size = new System.Drawing.Size(197, 20);
+            this.DepartmentTB.TabIndex = 7;
             // 
             // DepartMenuStrip
             // 
@@ -331,15 +332,16 @@
             this.label14.TabIndex = 6;
             this.label14.Text = "Отделение";
             // 
-            // textBox7
+            // SpecialityTB
             // 
-            this.textBox7.ContextMenuStrip = this.DoctorMenuStrip;
-            this.textBox7.Location = new System.Drawing.Point(6, 100);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox7.Size = new System.Drawing.Size(197, 20);
-            this.textBox7.TabIndex = 5;
+            this.SpecialityTB.ContextMenuStrip = this.DoctorMenuStrip;
+            this.SpecialityTB.Enabled = false;
+            this.SpecialityTB.Location = new System.Drawing.Point(6, 100);
+            this.SpecialityTB.Multiline = true;
+            this.SpecialityTB.Name = "SpecialityTB";
+            this.SpecialityTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.SpecialityTB.Size = new System.Drawing.Size(197, 20);
+            this.SpecialityTB.TabIndex = 5;
             // 
             // DoctorMenuStrip
             // 
@@ -370,15 +372,6 @@
             this.label13.TabIndex = 4;
             this.label13.Text = "Врач-специалист";
             // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(6, 62);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox6.Size = new System.Drawing.Size(197, 20);
-            this.textBox6.TabIndex = 3;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -388,14 +381,15 @@
             this.label12.TabIndex = 2;
             this.label12.Text = "МКБ10";
             // 
-            // textBox5
+            // DiagTB
             // 
-            this.textBox5.Location = new System.Drawing.Point(6, 24);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox5.Size = new System.Drawing.Size(197, 20);
-            this.textBox5.TabIndex = 1;
+            this.DiagTB.Enabled = false;
+            this.DiagTB.Location = new System.Drawing.Point(6, 24);
+            this.DiagTB.Multiline = true;
+            this.DiagTB.Name = "DiagTB";
+            this.DiagTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.DiagTB.Size = new System.Drawing.Size(197, 20);
+            this.DiagTB.TabIndex = 1;
             // 
             // label11
             // 
@@ -406,44 +400,47 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Диагноз";
             // 
-            // radioButton7
+            // HelpRB_3
             // 
-            this.radioButton7.Location = new System.Drawing.Point(10, 129);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(204, 34);
-            this.radioButton7.TabIndex = 2;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Специализированная медицинская помощь (стационар)";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.HelpRB_3.Location = new System.Drawing.Point(10, 129);
+            this.HelpRB_3.Name = "HelpRB_3";
+            this.HelpRB_3.Size = new System.Drawing.Size(204, 34);
+            this.HelpRB_3.TabIndex = 2;
+            this.HelpRB_3.TabStop = true;
+            this.HelpRB_3.Text = "Специализированная медицинская помощь (стационар)";
+            this.HelpRB_3.UseVisualStyleBackColor = true;
+            this.HelpRB_3.CheckedChanged += new System.EventHandler(this.HelpRB_3_CheckedChanged);
             // 
-            // radioButton6
+            // HelpRB_2
             // 
-            this.radioButton6.Location = new System.Drawing.Point(10, 73);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(204, 46);
-            this.radioButton6.TabIndex = 1;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Первичная специализированная медико-санитарная помощь (поликлиника-узкий специали" +
+            this.HelpRB_2.Location = new System.Drawing.Point(10, 73);
+            this.HelpRB_2.Name = "HelpRB_2";
+            this.HelpRB_2.Size = new System.Drawing.Size(204, 46);
+            this.HelpRB_2.TabIndex = 1;
+            this.HelpRB_2.TabStop = true;
+            this.HelpRB_2.Text = "Первичная специализированная медико-санитарная помощь (поликлиника-узкий специали" +
     "ст)";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.HelpRB_2.UseVisualStyleBackColor = true;
+            this.HelpRB_2.CheckedChanged += new System.EventHandler(this.HelpRB_2_CheckedChanged);
             // 
-            // radioButton5
+            // HelpRB_1
             // 
-            this.radioButton5.Location = new System.Drawing.Point(10, 29);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(204, 34);
-            this.radioButton5.TabIndex = 0;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Первичная медико-санитарная помощь (поликлиника-педитр)";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.HelpRB_1.Location = new System.Drawing.Point(10, 29);
+            this.HelpRB_1.Name = "HelpRB_1";
+            this.HelpRB_1.Size = new System.Drawing.Size(204, 34);
+            this.HelpRB_1.TabIndex = 0;
+            this.HelpRB_1.TabStop = true;
+            this.HelpRB_1.Text = "Первичная медико-санитарная помощь (поликлиника-педитр)";
+            this.HelpRB_1.UseVisualStyleBackColor = true;
+            this.HelpRB_1.CheckedChanged += new System.EventHandler(this.HelpRB_1_CheckedChanged);
             // 
-            // dateTimePicker3
+            // TreatmentDate
             // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(108, 24);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(82, 20);
-            this.dateTimePicker3.TabIndex = 1;
+            this.TreatmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.TreatmentDate.Location = new System.Drawing.Point(108, 24);
+            this.TreatmentDate.Name = "TreatmentDate";
+            this.TreatmentDate.Size = new System.Drawing.Size(82, 20);
+            this.TreatmentDate.TabIndex = 1;
             // 
             // label10
             // 
@@ -457,80 +454,20 @@
             // groupBox4
             // 
             this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBox4.Controls.Add(this.groupBox6);
-            this.groupBox4.Controls.Add(this.groupBox5);
+            this.groupBox4.Controls.Add(this.NONORGWithParentRelaxInfoRB);
+            this.groupBox4.Controls.Add(this.NONORGHimselfRelaxInfoRB);
+            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Controls.Add(this.ORGMCRelaxInfoRB);
+            this.groupBox4.Controls.Add(this.ORGHimselfRelaxInfoRB);
+            this.groupBox4.Controls.Add(this.label18);
+            this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Location = new System.Drawing.Point(127, 210);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(414, 101);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Информация об отдыхе";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.radioButton4);
-            this.groupBox6.Controls.Add(this.radioButton3);
-            this.groupBox6.Location = new System.Drawing.Point(200, 19);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(200, 68);
-            this.groupBox6.TabIndex = 1;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Неорганизованный отдых";
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(16, 42);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(174, 17);
-            this.radioButton4.TabIndex = 2;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "С законным представителем";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(16, 19);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(110, 17);
-            this.radioButton3.TabIndex = 1;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Самостоятельно";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.radioButton2);
-            this.groupBox5.Controls.Add(this.radioButton1);
-            this.groupBox5.Location = new System.Drawing.Point(12, 19);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(171, 68);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Организованный отдых";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(16, 42);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(146, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "По путевке Мать и дитя";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(16, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(110, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Самостоятельно";
-            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -550,6 +487,28 @@
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Инофрмация о ребенке";
+            // 
+            // ClientMenuStrip
+            // 
+            this.ClientMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FoundClient,
+            this.AddClient});
+            this.ClientMenuStrip.Name = "ClientMenuStrip";
+            this.ClientMenuStrip.Size = new System.Drawing.Size(125, 48);
+            // 
+            // FoundClient
+            // 
+            this.FoundClient.Name = "FoundClient";
+            this.FoundClient.Size = new System.Drawing.Size(124, 22);
+            this.FoundClient.Text = "Найти";
+            this.FoundClient.Click += new System.EventHandler(this.FoundClient_Click);
+            // 
+            // AddClient
+            // 
+            this.AddClient.Name = "AddClient";
+            this.AddClient.Size = new System.Drawing.Size(124, 22);
+            this.AddClient.Text = "Добавить";
+            this.AddClient.Click += new System.EventHandler(this.AddClient_Click);
             // 
             // ClientAddressTB
             // 
@@ -630,7 +589,7 @@
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox2.Controls.Add(this.cbShortNameOrg);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.EventDate);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.cbMO);
             this.groupBox2.Controls.Add(this.label2);
@@ -690,13 +649,13 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Название детской оздоровительной организации";
             // 
-            // dateTimePicker1
+            // EventDate
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(550, 61);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(82, 20);
-            this.dateTimePicker1.TabIndex = 5;
+            this.EventDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.EventDate.Location = new System.Drawing.Point(550, 61);
+            this.EventDate.Name = "EventDate";
+            this.EventDate.Size = new System.Drawing.Size(82, 20);
+            this.EventDate.TabIndex = 5;
             // 
             // label3
             // 
@@ -782,6 +741,12 @@
             this.AddArea.Text = "Добавить";
             this.AddArea.Click += new System.EventHandler(this.AddArea_Click);
             // 
+            // EditArea
+            // 
+            this.EditArea.Name = "EditArea";
+            this.EditArea.Size = new System.Drawing.Size(153, 22);
+            this.EditArea.Text = "Редактировать";
+            // 
             // RemoveArea
             // 
             this.RemoveArea.Name = "RemoveArea";
@@ -799,48 +764,100 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Район";
             // 
-            // EditArea
+            // label5
             // 
-            this.EditArea.Name = "EditArea";
-            this.EditArea.Size = new System.Drawing.Size(153, 22);
-            this.EditArea.Text = "Редактировать";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(19, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Организованный отдых";
             // 
-            // ClientMenuStrip
+            // label18
             // 
-            this.ClientMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.FoundClient,
-            this.AddClient,
-            this.EditClient,
-            this.RemoveClient});
-            this.ClientMenuStrip.Name = "ClientMenuStrip";
-            this.ClientMenuStrip.Size = new System.Drawing.Size(154, 92);
+            this.label18.Font = new System.Drawing.Font("Microsoft JhengHei", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.Location = new System.Drawing.Point(10, 34);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(44, 59);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "{";
             // 
-            // AddClient
+            // ORGMCRelaxInfoRB
             // 
-            this.AddClient.Name = "AddClient";
-            this.AddClient.Size = new System.Drawing.Size(153, 22);
-            this.AddClient.Text = "Добавить";
-            this.AddClient.Click += new System.EventHandler(this.AddClient_Click);
+            this.ORGMCRelaxInfoRB.AutoSize = true;
+            this.ORGMCRelaxInfoRB.Location = new System.Drawing.Point(35, 70);
+            this.ORGMCRelaxInfoRB.Name = "ORGMCRelaxInfoRB";
+            this.ORGMCRelaxInfoRB.Size = new System.Drawing.Size(146, 17);
+            this.ORGMCRelaxInfoRB.TabIndex = 3;
+            this.ORGMCRelaxInfoRB.TabStop = true;
+            this.ORGMCRelaxInfoRB.Text = "По путевке Мать и дитя";
+            this.ORGMCRelaxInfoRB.UseVisualStyleBackColor = true;
+            this.ORGMCRelaxInfoRB.CheckedChanged += new System.EventHandler(this.ORGMCRelaxInfoRB_CheckedChanged);
             // 
-            // EditClient
+            // ORGHimselfRelaxInfoRB
             // 
-            this.EditClient.Name = "EditClient";
-            this.EditClient.Size = new System.Drawing.Size(153, 22);
-            this.EditClient.Text = "Редактировать";
-            this.EditClient.Click += new System.EventHandler(this.EditClient_Click);
+            this.ORGHimselfRelaxInfoRB.AutoSize = true;
+            this.ORGHimselfRelaxInfoRB.Location = new System.Drawing.Point(35, 47);
+            this.ORGHimselfRelaxInfoRB.Name = "ORGHimselfRelaxInfoRB";
+            this.ORGHimselfRelaxInfoRB.Size = new System.Drawing.Size(110, 17);
+            this.ORGHimselfRelaxInfoRB.TabIndex = 2;
+            this.ORGHimselfRelaxInfoRB.TabStop = true;
+            this.ORGHimselfRelaxInfoRB.Text = "Самостоятельно";
+            this.ORGHimselfRelaxInfoRB.UseVisualStyleBackColor = true;
+            this.ORGHimselfRelaxInfoRB.CheckedChanged += new System.EventHandler(this.ORGHimselfRelaxInfoRB_CheckedChanged);
             // 
-            // RemoveClient
+            // label19
             // 
-            this.RemoveClient.Name = "RemoveClient";
-            this.RemoveClient.Size = new System.Drawing.Size(153, 22);
-            this.RemoveClient.Text = "Удалить";
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(214, 19);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(139, 13);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "Неорганизованный отдых";
             // 
-            // FoundClient
+            // label20
             // 
-            this.FoundClient.Name = "FoundClient";
-            this.FoundClient.Size = new System.Drawing.Size(153, 22);
-            this.FoundClient.Text = "Найти";
-            this.FoundClient.Click += new System.EventHandler(this.FoundClient_Click);
+            this.label20.Font = new System.Drawing.Font("Microsoft JhengHei", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label20.Location = new System.Drawing.Point(208, 34);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(44, 59);
+            this.label20.TabIndex = 5;
+            this.label20.Text = "{";
+            // 
+            // NONORGWithParentRelaxInfoRB
+            // 
+            this.NONORGWithParentRelaxInfoRB.AutoSize = true;
+            this.NONORGWithParentRelaxInfoRB.Location = new System.Drawing.Point(232, 70);
+            this.NONORGWithParentRelaxInfoRB.Name = "NONORGWithParentRelaxInfoRB";
+            this.NONORGWithParentRelaxInfoRB.Size = new System.Drawing.Size(174, 17);
+            this.NONORGWithParentRelaxInfoRB.TabIndex = 7;
+            this.NONORGWithParentRelaxInfoRB.TabStop = true;
+            this.NONORGWithParentRelaxInfoRB.Text = "С законным представителем";
+            this.NONORGWithParentRelaxInfoRB.UseVisualStyleBackColor = true;
+            this.NONORGWithParentRelaxInfoRB.CheckedChanged += new System.EventHandler(this.NONORGWithParentRelaxInfoRB_CheckedChanged);
+            // 
+            // NONORGHimselfRelaxInfoRB
+            // 
+            this.NONORGHimselfRelaxInfoRB.AutoSize = true;
+            this.NONORGHimselfRelaxInfoRB.Location = new System.Drawing.Point(232, 47);
+            this.NONORGHimselfRelaxInfoRB.Name = "NONORGHimselfRelaxInfoRB";
+            this.NONORGHimselfRelaxInfoRB.Size = new System.Drawing.Size(110, 17);
+            this.NONORGHimselfRelaxInfoRB.TabIndex = 6;
+            this.NONORGHimselfRelaxInfoRB.TabStop = true;
+            this.NONORGHimselfRelaxInfoRB.Text = "Самостоятельно";
+            this.NONORGHimselfRelaxInfoRB.UseVisualStyleBackColor = true;
+            this.NONORGHimselfRelaxInfoRB.CheckedChanged += new System.EventHandler(this.NONORGHimselfRelaxInfoRB_CheckedChanged);
+            // 
+            // MKB10TB
+            // 
+            this.MKB10TB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MKB10TB.Enabled = false;
+            this.MKB10TB.FormattingEnabled = true;
+            this.MKB10TB.Location = new System.Drawing.Point(6, 62);
+            this.MKB10TB.Name = "MKB10TB";
+            this.MKB10TB.Size = new System.Drawing.Size(76, 21);
+            this.MKB10TB.TabIndex = 8;
+            this.MKB10TB.SelectedIndexChanged += new System.EventHandler(this.MKB10TB_SelectedIndexChanged);
             // 
             // AddEventForm
             // 
@@ -863,18 +880,15 @@
             this.DepartMenuStrip.ResumeLayout(false);
             this.DoctorMenuStrip.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.ClientMenuStrip.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.HelthOrgMenuStrip.ResumeLayout(false);
             this.MOMenuStrip.ResumeLayout(false);
             this.AreaMenuStrip.ResumeLayout(false);
-            this.ClientMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -897,37 +911,30 @@
         private System.Windows.Forms.TextBox ClientFIOTB;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker EventDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.ComboBox cbHealthStatus;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker TransferDate;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox TransferTB;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox DepartmentTB;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox SpecialityTB;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox DiagTB;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.RadioButton HelpRB_3;
+        private System.Windows.Forms.RadioButton HelpRB_2;
+        private System.Windows.Forms.RadioButton HelpRB_1;
+        private System.Windows.Forms.DateTimePicker TreatmentDate;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button CancelBTN;
         private System.Windows.Forms.Button AddBTN;
@@ -956,8 +963,15 @@
         private System.Windows.Forms.ContextMenuStrip ClientMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem FoundClient;
         private System.Windows.Forms.ToolStripMenuItem AddClient;
-        private System.Windows.Forms.ToolStripMenuItem EditClient;
-        private System.Windows.Forms.ToolStripMenuItem RemoveClient;
+        private System.Windows.Forms.RadioButton NONORGWithParentRelaxInfoRB;
+        private System.Windows.Forms.RadioButton NONORGHimselfRelaxInfoRB;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.RadioButton ORGMCRelaxInfoRB;
+        private System.Windows.Forms.RadioButton ORGHimselfRelaxInfoRB;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox MKB10TB;
     }
 }
 

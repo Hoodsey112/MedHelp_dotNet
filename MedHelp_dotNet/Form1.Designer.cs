@@ -45,6 +45,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.MKB10TB = new System.Windows.Forms.ComboBox();
             this.DepartmentTB = new System.Windows.Forms.TextBox();
             this.DepartMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddDepart = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,6 +65,14 @@
             this.TreatmentDate = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.NONORGWithParentRelaxInfoRB = new System.Windows.Forms.RadioButton();
+            this.NONORGHimselfRelaxInfoRB = new System.Windows.Forms.RadioButton();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.ORGMCRelaxInfoRB = new System.Windows.Forms.RadioButton();
+            this.ORGHimselfRelaxInfoRB = new System.Windows.Forms.RadioButton();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ClientMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.FoundClient = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,15 +106,7 @@
             this.EditArea = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveArea = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.ORGMCRelaxInfoRB = new System.Windows.Forms.RadioButton();
-            this.ORGHimselfRelaxInfoRB = new System.Windows.Forms.RadioButton();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.NONORGWithParentRelaxInfoRB = new System.Windows.Forms.RadioButton();
-            this.NONORGHimselfRelaxInfoRB = new System.Windows.Forms.RadioButton();
-            this.MKB10TB = new System.Windows.Forms.ComboBox();
+            this.TransfertedCheck = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.HealthStatusMeniStrip.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -219,6 +220,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.TransfertedCheck);
             this.groupBox10.Controls.Add(this.TransferDate);
             this.groupBox10.Controls.Add(this.label16);
             this.groupBox10.Controls.Add(this.TransferTB);
@@ -232,6 +234,7 @@
             // 
             // TransferDate
             // 
+            this.TransferDate.Enabled = false;
             this.TransferDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.TransferDate.Location = new System.Drawing.Point(6, 106);
             this.TransferDate.Name = "TransferDate";
@@ -249,6 +252,7 @@
             // 
             // TransferTB
             // 
+            this.TransferTB.Enabled = false;
             this.TransferTB.Location = new System.Drawing.Point(7, 62);
             this.TransferTB.Name = "TransferTB";
             this.TransferTB.Size = new System.Drawing.Size(176, 20);
@@ -291,6 +295,17 @@
             this.groupBox9.Size = new System.Drawing.Size(209, 165);
             this.groupBox9.TabIndex = 3;
             this.groupBox9.TabStop = false;
+            // 
+            // MKB10TB
+            // 
+            this.MKB10TB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MKB10TB.Enabled = false;
+            this.MKB10TB.FormattingEnabled = true;
+            this.MKB10TB.Location = new System.Drawing.Point(6, 62);
+            this.MKB10TB.Name = "MKB10TB";
+            this.MKB10TB.Size = new System.Drawing.Size(76, 21);
+            this.MKB10TB.TabIndex = 8;
+            this.MKB10TB.SelectedIndexChanged += new System.EventHandler(this.MKB10TB_SelectedIndexChanged);
             // 
             // DepartmentTB
             // 
@@ -468,6 +483,90 @@
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Информация об отдыхе";
+            // 
+            // NONORGWithParentRelaxInfoRB
+            // 
+            this.NONORGWithParentRelaxInfoRB.AutoSize = true;
+            this.NONORGWithParentRelaxInfoRB.Location = new System.Drawing.Point(232, 70);
+            this.NONORGWithParentRelaxInfoRB.Name = "NONORGWithParentRelaxInfoRB";
+            this.NONORGWithParentRelaxInfoRB.Size = new System.Drawing.Size(174, 17);
+            this.NONORGWithParentRelaxInfoRB.TabIndex = 7;
+            this.NONORGWithParentRelaxInfoRB.TabStop = true;
+            this.NONORGWithParentRelaxInfoRB.Text = "С законным представителем";
+            this.NONORGWithParentRelaxInfoRB.UseVisualStyleBackColor = true;
+            this.NONORGWithParentRelaxInfoRB.CheckedChanged += new System.EventHandler(this.NONORGWithParentRelaxInfoRB_CheckedChanged);
+            // 
+            // NONORGHimselfRelaxInfoRB
+            // 
+            this.NONORGHimselfRelaxInfoRB.AutoSize = true;
+            this.NONORGHimselfRelaxInfoRB.Location = new System.Drawing.Point(232, 47);
+            this.NONORGHimselfRelaxInfoRB.Name = "NONORGHimselfRelaxInfoRB";
+            this.NONORGHimselfRelaxInfoRB.Size = new System.Drawing.Size(110, 17);
+            this.NONORGHimselfRelaxInfoRB.TabIndex = 6;
+            this.NONORGHimselfRelaxInfoRB.TabStop = true;
+            this.NONORGHimselfRelaxInfoRB.Text = "Самостоятельно";
+            this.NONORGHimselfRelaxInfoRB.UseVisualStyleBackColor = true;
+            this.NONORGHimselfRelaxInfoRB.CheckedChanged += new System.EventHandler(this.NONORGHimselfRelaxInfoRB_CheckedChanged);
+            // 
+            // label20
+            // 
+            this.label20.Font = new System.Drawing.Font("Microsoft JhengHei", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label20.Location = new System.Drawing.Point(208, 34);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(44, 59);
+            this.label20.TabIndex = 5;
+            this.label20.Text = "{";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(214, 19);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(139, 13);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "Неорганизованный отдых";
+            // 
+            // ORGMCRelaxInfoRB
+            // 
+            this.ORGMCRelaxInfoRB.AutoSize = true;
+            this.ORGMCRelaxInfoRB.Location = new System.Drawing.Point(35, 70);
+            this.ORGMCRelaxInfoRB.Name = "ORGMCRelaxInfoRB";
+            this.ORGMCRelaxInfoRB.Size = new System.Drawing.Size(146, 17);
+            this.ORGMCRelaxInfoRB.TabIndex = 3;
+            this.ORGMCRelaxInfoRB.TabStop = true;
+            this.ORGMCRelaxInfoRB.Text = "По путевке Мать и дитя";
+            this.ORGMCRelaxInfoRB.UseVisualStyleBackColor = true;
+            this.ORGMCRelaxInfoRB.CheckedChanged += new System.EventHandler(this.ORGMCRelaxInfoRB_CheckedChanged);
+            // 
+            // ORGHimselfRelaxInfoRB
+            // 
+            this.ORGHimselfRelaxInfoRB.AutoSize = true;
+            this.ORGHimselfRelaxInfoRB.Location = new System.Drawing.Point(35, 47);
+            this.ORGHimselfRelaxInfoRB.Name = "ORGHimselfRelaxInfoRB";
+            this.ORGHimselfRelaxInfoRB.Size = new System.Drawing.Size(110, 17);
+            this.ORGHimselfRelaxInfoRB.TabIndex = 2;
+            this.ORGHimselfRelaxInfoRB.TabStop = true;
+            this.ORGHimselfRelaxInfoRB.Text = "Самостоятельно";
+            this.ORGHimselfRelaxInfoRB.UseVisualStyleBackColor = true;
+            this.ORGHimselfRelaxInfoRB.CheckedChanged += new System.EventHandler(this.ORGHimselfRelaxInfoRB_CheckedChanged);
+            // 
+            // label18
+            // 
+            this.label18.Font = new System.Drawing.Font("Microsoft JhengHei", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label18.Location = new System.Drawing.Point(10, 34);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(44, 59);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "{";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(19, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(127, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Организованный отдых";
             // 
             // groupBox3
             // 
@@ -764,100 +863,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Район";
             // 
-            // label5
+            // TransfertedCheck
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Организованный отдых";
-            // 
-            // label18
-            // 
-            this.label18.Font = new System.Drawing.Font("Microsoft JhengHei", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label18.Location = new System.Drawing.Point(10, 34);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(44, 59);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "{";
-            // 
-            // ORGMCRelaxInfoRB
-            // 
-            this.ORGMCRelaxInfoRB.AutoSize = true;
-            this.ORGMCRelaxInfoRB.Location = new System.Drawing.Point(35, 70);
-            this.ORGMCRelaxInfoRB.Name = "ORGMCRelaxInfoRB";
-            this.ORGMCRelaxInfoRB.Size = new System.Drawing.Size(146, 17);
-            this.ORGMCRelaxInfoRB.TabIndex = 3;
-            this.ORGMCRelaxInfoRB.TabStop = true;
-            this.ORGMCRelaxInfoRB.Text = "По путевке Мать и дитя";
-            this.ORGMCRelaxInfoRB.UseVisualStyleBackColor = true;
-            this.ORGMCRelaxInfoRB.CheckedChanged += new System.EventHandler(this.ORGMCRelaxInfoRB_CheckedChanged);
-            // 
-            // ORGHimselfRelaxInfoRB
-            // 
-            this.ORGHimselfRelaxInfoRB.AutoSize = true;
-            this.ORGHimselfRelaxInfoRB.Location = new System.Drawing.Point(35, 47);
-            this.ORGHimselfRelaxInfoRB.Name = "ORGHimselfRelaxInfoRB";
-            this.ORGHimselfRelaxInfoRB.Size = new System.Drawing.Size(110, 17);
-            this.ORGHimselfRelaxInfoRB.TabIndex = 2;
-            this.ORGHimselfRelaxInfoRB.TabStop = true;
-            this.ORGHimselfRelaxInfoRB.Text = "Самостоятельно";
-            this.ORGHimselfRelaxInfoRB.UseVisualStyleBackColor = true;
-            this.ORGHimselfRelaxInfoRB.CheckedChanged += new System.EventHandler(this.ORGHimselfRelaxInfoRB_CheckedChanged);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(214, 19);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(139, 13);
-            this.label19.TabIndex = 4;
-            this.label19.Text = "Неорганизованный отдых";
-            // 
-            // label20
-            // 
-            this.label20.Font = new System.Drawing.Font("Microsoft JhengHei", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label20.Location = new System.Drawing.Point(208, 34);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(44, 59);
-            this.label20.TabIndex = 5;
-            this.label20.Text = "{";
-            // 
-            // NONORGWithParentRelaxInfoRB
-            // 
-            this.NONORGWithParentRelaxInfoRB.AutoSize = true;
-            this.NONORGWithParentRelaxInfoRB.Location = new System.Drawing.Point(232, 70);
-            this.NONORGWithParentRelaxInfoRB.Name = "NONORGWithParentRelaxInfoRB";
-            this.NONORGWithParentRelaxInfoRB.Size = new System.Drawing.Size(174, 17);
-            this.NONORGWithParentRelaxInfoRB.TabIndex = 7;
-            this.NONORGWithParentRelaxInfoRB.TabStop = true;
-            this.NONORGWithParentRelaxInfoRB.Text = "С законным представителем";
-            this.NONORGWithParentRelaxInfoRB.UseVisualStyleBackColor = true;
-            this.NONORGWithParentRelaxInfoRB.CheckedChanged += new System.EventHandler(this.NONORGWithParentRelaxInfoRB_CheckedChanged);
-            // 
-            // NONORGHimselfRelaxInfoRB
-            // 
-            this.NONORGHimselfRelaxInfoRB.AutoSize = true;
-            this.NONORGHimselfRelaxInfoRB.Location = new System.Drawing.Point(232, 47);
-            this.NONORGHimselfRelaxInfoRB.Name = "NONORGHimselfRelaxInfoRB";
-            this.NONORGHimselfRelaxInfoRB.Size = new System.Drawing.Size(110, 17);
-            this.NONORGHimselfRelaxInfoRB.TabIndex = 6;
-            this.NONORGHimselfRelaxInfoRB.TabStop = true;
-            this.NONORGHimselfRelaxInfoRB.Text = "Самостоятельно";
-            this.NONORGHimselfRelaxInfoRB.UseVisualStyleBackColor = true;
-            this.NONORGHimselfRelaxInfoRB.CheckedChanged += new System.EventHandler(this.NONORGHimselfRelaxInfoRB_CheckedChanged);
-            // 
-            // MKB10TB
-            // 
-            this.MKB10TB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.MKB10TB.Enabled = false;
-            this.MKB10TB.FormattingEnabled = true;
-            this.MKB10TB.Location = new System.Drawing.Point(6, 62);
-            this.MKB10TB.Name = "MKB10TB";
-            this.MKB10TB.Size = new System.Drawing.Size(76, 21);
-            this.MKB10TB.TabIndex = 8;
-            this.MKB10TB.SelectedIndexChanged += new System.EventHandler(this.MKB10TB_SelectedIndexChanged);
+            this.TransfertedCheck.AutoSize = true;
+            this.TransfertedCheck.Location = new System.Drawing.Point(170, 11);
+            this.TransfertedCheck.Name = "TransfertedCheck";
+            this.TransfertedCheck.Size = new System.Drawing.Size(15, 14);
+            this.TransfertedCheck.TabIndex = 4;
+            this.TransfertedCheck.UseVisualStyleBackColor = true;
+            this.TransfertedCheck.CheckedChanged += new System.EventHandler(this.TransfertedCheck_CheckedChanged);
             // 
             // AddEventForm
             // 
@@ -972,6 +986,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox MKB10TB;
+        private System.Windows.Forms.CheckBox TransfertedCheck;
     }
 }
 

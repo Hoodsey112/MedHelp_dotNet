@@ -15,7 +15,8 @@ namespace MedHelp_dotNet
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddEventForm());
+            Application.Run(new MainForm());
+            //Application.Run(new AddEventForm());
         }
     }
 }

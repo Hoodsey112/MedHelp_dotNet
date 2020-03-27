@@ -55,7 +55,6 @@
     <Compile Include="Classes\HealthOrgClass.cs" />
     <Compile Include="Classes\MKBClass.cs" />
     <Compile Include="Classes\MOClass.cs" />
-    <Compile Include="Classes\QueryClass.cs" />
     <Compile Include="ClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +73,12 @@
     <Compile Include="HealthOrgForm.Designer.cs">
       <DependentUpon>HealthOrgForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ClientForm.resx">
@@ -84,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HealthOrgForm.resx">
       <DependentUpon>HealthOrgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

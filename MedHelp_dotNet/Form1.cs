@@ -21,6 +21,8 @@ namespace MedHelp_dotNet
         public Classes.ClientClass client;
         bool firstStart = true;
         int RelaxInfo = 0;
+        string HelpName = "";
+        
         public AddEventForm()
         {
             InitializeComponent();
@@ -305,7 +307,52 @@ namespace MedHelp_dotNet
 
         private void AddBTN_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Checked RadioButton is {RelaxInfo}");
+            if (cbArea.SelectedItem != null)
+            {
+                if (cbMO.SelectedItem != null)
+                {
+                    if (cbShortNameOrg.SelectedItem != null)
+                    {
+                        if (client != null)
+                        {
+                            if (RelaxInfo != 0)
+                            {
+                                if (HelpName != "")
+                                {
+                                    if (TransfertedCheck.Checked)
+                                    {
+                                        if (TransferTB.Text != "")
+                                        {
+                                            if (cbHealthStatus.SelectedItem != null)
+                                            {
+                                                Classes.EventClass.InsertEvent(int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, MKB[MKB10TB.SelectedIndex].DiagName, MKB[MKB10TB.SelectedIndex].DiagID, SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString());
+                                                MessageBox.Show("Данные успешно сохранены", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            }
+                                            else MessageBox.Show("Вы не указали состояние ребенка по степени тяжести", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        }
+                                        else MessageBox.Show("Вы не указали информацию о направлении(переводе)", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    }
+                                    else
+                                    {
+                                        if (cbHealthStatus.SelectedItem != null)
+                                        {
+                                            Classes.EventClass.InsertEvent(int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagName : DiagTB.Text, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString());
+                                            MessageBox.Show("Данные успешно сохранены", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        }
+                                        else MessageBox.Show("Вы не указали состояние ребенка по степени тяжести", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    }
+                                }
+                                else MessageBox.Show("Вы не указали информацию об оказанной помощи", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                            else MessageBox.Show("Вы не указали информацию об отдыхе", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                        else MessageBox.Show("Вы не указали данные ребенка", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    else MessageBox.Show("Вы не выбрали ДОО", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else MessageBox.Show("Вы не выбрали МО", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else MessageBox.Show("Вы не выбрали район","Внимание",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void HelpRB_1_CheckedChanged(object sender, EventArgs e)
@@ -316,6 +363,7 @@ namespace MedHelp_dotNet
                 MKB10TB.Enabled = true;
                 SpecialityTB.Enabled = false;
                 DepartmentTB.Enabled = false;
+                HelpName = HelpRB_1.Text;
             }
         }
 
@@ -327,6 +375,7 @@ namespace MedHelp_dotNet
                 MKB10TB.Enabled = true;
                 SpecialityTB.Enabled = true;
                 DepartmentTB.Enabled = false;
+                HelpName = HelpRB_2.Text;
             }
         }
 
@@ -338,6 +387,7 @@ namespace MedHelp_dotNet
                 MKB10TB.Enabled = true;
                 SpecialityTB.Enabled = false;
                 DepartmentTB.Enabled = true;
+                HelpName = HelpRB_3.Text;
             }
         }
 
@@ -352,6 +402,20 @@ namespace MedHelp_dotNet
         private void CancelBTN_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void TransfertedCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (TransfertedCheck.Checked)
+            {
+                TransferTB.Enabled = true;
+                TransferDate.Enabled = true;
+            }
+            else
+            {
+                TransferTB.Enabled = false;
+                TransferDate.Enabled = false;
+            }
         }
     }
 }

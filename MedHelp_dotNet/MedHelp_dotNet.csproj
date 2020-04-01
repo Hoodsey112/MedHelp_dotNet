@@ -53,6 +53,7 @@
     <Compile Include="Classes\ConnectionClass.cs" />
     <Compile Include="Classes\EventClass.cs" />
     <Compile Include="Classes\HealthOrgClass.cs" />
+    <Compile Include="Classes\HealthStatusClass.cs" />
     <Compile Include="Classes\MKBClass.cs" />
     <Compile Include="Classes\MOClass.cs" />
     <Compile Include="ClientForm.cs">

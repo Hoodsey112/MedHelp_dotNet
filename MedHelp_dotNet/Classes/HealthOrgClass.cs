@@ -54,6 +54,45 @@ namespace MedHelp_dotNet.Classes
             else return null;
         }
 
+        public static HealthOrgClass[] LoadHealthOrgList()
+        {
+            List<HealthOrgClass> healthClass = new List<HealthOrgClass>();
+            string query = $"select id, FullName, ShortName, Address, area_id from childrenshealthorganization where deleted = 0";
+
+            using (MySqlConnection sqlConnection = ConnectionClass.GetStringConnection())
+            {
+                sqlConnection.Open();
+
+                using (MySqlCommand sqlCommand = new MySqlCommand(query, sqlConnection))
+                {
+                    using (MySqlDataReader reader = sqlCommand.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                healthClass.Add(new HealthOrgClass { id = int.Parse(reader["id"].ToString()), FullName = reader["FullName"].ToString(), ShortName = reader["ShortName"].ToString(), Address = reader["Address"].ToString(), area_id = int.Parse(reader["area_id"].ToString()) });
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            if (healthClass.Count > 0)
+            {
+                HealthOrgClass[] ho = new HealthOrgClass[healthClass.Count];
+
+                for (int i = 0; i < healthClass.Count; i++)
+                {
+                    ho[i] = healthClass[i];
+                }
+
+                return ho;
+            }
+            else return null;
+        }
+
         public static HealthOrgClass LoadHealthOrgList(int id, int area_id)
         {
             HealthOrgClass healthClass = new HealthOrgClass();

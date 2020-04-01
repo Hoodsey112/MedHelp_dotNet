@@ -6,13 +6,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace MedHelp_dotNet
 {
     public partial class MainForm : Form
     {
+        bool firstStart = true;
+
+        public XmlDocument xmlDoc;
         DataTable eventsData = new DataTable();
         Classes.AreaClass[] areas = Classes.AreaClass.LoadListArea();
+        Classes.MOClass[] medOrgN;
+        Classes.HealthOrgClass[] HealthOrg;
+        int cntCheck = 4;
+        string str = "'Организованный отдых (Самостоятельно)', 'Организованный отдых (По путевке Мать и дитя)', 'Неорганизованный отдых (Самостоятельно)', 'Неорганизованный отдых (С законным представителем)'";
+
         public MainForm()
         {
             InitializeComponent();
@@ -21,22 +30,43 @@ namespace MedHelp_dotNet
             eventsData = Classes.EventClass.LoadEvent();
             dataGridView1.DataSource = eventsData;
 
+            cbHealthStatus.DataSource = null;
+            cbHealthStatus.DataSource = Classes.HealthStatusClass.LoadHealthStatus();
+
             cbArea.DataSource = areas;
             cbArea.DisplayMember = "name";
             cbArea.ValueMember = "id";
             cbArea.SelectedIndex = -1;
+
+            firstStart = false;
         }
 
         private void AreaCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (AreaCB.Checked) cbArea.Enabled = true;
-            else cbArea.Enabled = false;
+            if (AreaCB.Checked)
+            {
+                cbArea.Enabled = true;
+                if (cbArea.SelectedItem != null) eventsData.DefaultView.RowFilter = string.Format($"Convert([areaName], System.String) = '{areas[cbArea.SelectedIndex].name}'");
+            }
+            else
+            {
+                cbArea.Enabled = false;
+                eventsData.DefaultView.RowFilter = string.Format($"Convert([areaName], System.String) like '%'");
+            }
         }
 
         private void medOrgCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (medOrgCB.Checked) cbMedOrg.Enabled = true;
-            else cbMedOrg.Enabled = false;
+            if (medOrgCB.Checked)
+            {
+                cbMedOrg.Enabled = true;
+                if (cbMedOrg.SelectedItem != null) eventsData.DefaultView.RowFilter = string.Format($"Convert([medOrgName], System.String) = '{medOrgN[cbMedOrg.SelectedIndex].name}'");
+            }
+            else
+            {
+                cbMedOrg.Enabled = false;
+                eventsData.DefaultView.RowFilter = string.Format($"Convert([medOrgName], System.String) like '%'");
+            }
         }
 
         private void eventDateCB_CheckedChanged(object sender, EventArgs e)
@@ -59,14 +89,30 @@ namespace MedHelp_dotNet
 
         private void DOOCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (DOOCB.Checked) cbDOO.Enabled = true;
-            else cbDOO.Enabled = false;
+            if (DOOCB.Checked)
+            {
+                cbDOO.Enabled = true;
+                if (cbDOO.SelectedItem != null) eventsData.DefaultView.RowFilter = string.Format($"Convert([DOOName], System.String) = '{HealthOrg[cbDOO.SelectedIndex].FullName}'");
+            }
+            else
+            {
+                cbDOO.Enabled = false;
+                eventsData.DefaultView.RowFilter = string.Format($"Convert([DOOName], System.String) like '%'");
+            }
         }
 
         private void ClientFIOCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (ClientFIOCB.Checked) ClientFIOTB.Enabled = true;
-            else ClientFIOTB.Enabled = false;
+            if (ClientFIOCB.Checked)
+            {
+                ClientFIOTB.Enabled = true;
+                if (ClientFIOTB.Text.Length != 0) eventsData.DefaultView.RowFilter = string.Format($"Convert([ClientFIO], System.String) like '{ClientFIOTB.Text}%'");
+            }
+            else
+            {
+                ClientFIOTB.Enabled = false;
+                eventsData.DefaultView.RowFilter = string.Format($"Convert([ClientFIO], System.String) like '%'");
+            }
         }
 
         private void AgeCB_CheckedChanged(object sender, EventArgs e)
@@ -107,20 +153,230 @@ namespace MedHelp_dotNet
 
         private void TransfertedCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (TransfertedCB.Checked) TransfertedTB.Enabled = true;
-            else TransfertedTB.Enabled = false;
+            if (TransfertedCB.Checked)
+            {
+                TransfertedTB.Enabled = true;
+                if (TransfertedTB.Text.Length > 0) eventsData.DefaultView.RowFilter = $"[TransfertedDepart] like '{TransfertedTB.Text}%'";
+            }
+            else
+            {
+                TransfertedTB.Enabled = false;
+                eventsData.DefaultView.RowFilter = $"[TransfertedDepart] like '%'";
+            }
         }
 
         private void HealthStatusCB_CheckedChanged(object sender, EventArgs e)
         {
-            if (HealthStatusCB.Checked) cbHealthStatus.Enabled = true;
-            else cbHealthStatus.Enabled = false;
+            if (HealthStatusCB.Checked)
+            {
+                cbHealthStatus.Enabled = true;
+                if (cbHealthStatus.SelectedItem != null) eventsData.DefaultView.RowFilter = $"[HealthStatus] = '{cbHealthStatus.SelectedItem.ToString()}'";
+            }
+            else
+            {
+                cbHealthStatus.Enabled = false;
+                eventsData.DefaultView.RowFilter = $"[HealthStatus] like '%'";
+            }
         }
 
         private void cbArea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbArea.SelectedIndex != -1) eventsData.DefaultView.RowFilter = string.Format($"Convert([areaName], System.String) = '{areas[cbArea.SelectedIndex].name}'");
-            else eventsData.DefaultView.RowFilter = string.Format($"Convert([areaName], System.String) like '%'");
+            if (!firstStart)
+            {
+                if (cbArea.SelectedItem != null)
+                {
+                    eventsData.DefaultView.RowFilter = $"[areaName] like '{areas[cbArea.SelectedIndex].name}'";//string.Format($"Convert([areaName], System.String) like '{areas[cbArea.SelectedIndex].name}'");
+                }
+                else eventsData.DefaultView.RowFilter = string.Format($"Convert([areaName], System.String) like '%'");
+            }
+        }
+
+        private void cbMedOrg_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!firstStart)
+            {
+                if (cbMedOrg.SelectedItem != null)
+                {
+                    eventsData.DefaultView.RowFilter = $"[medOrgName] like '{medOrgN[cbMedOrg.SelectedIndex].name}'";//string.Format($"Convert([medOrgName], System.String) = '{medOrgN[cbMedOrg.SelectedIndex].name}'");
+                }
+                else eventsData.DefaultView.RowFilter = $"[medOrgName] like '%'";
+            }
+        }
+
+        private void cbDOO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!firstStart)
+            {
+                if (cbDOO.SelectedItem != null)
+                {
+                    eventsData.DefaultView.RowFilter = $"[DOOName] = '{HealthOrg[cbDOO.SelectedIndex].FullName}'";//string.Format($"Convert([DOOName], System.String) = '{HealthOrg[cbDOO.SelectedIndex].FullName}'");
+                }
+                else eventsData.DefaultView.RowFilter = $"[DOOName] like '%'";
+            }
+        }
+
+        private void ClientFIOTB_TextChanged(object sender, EventArgs e)
+        {
+            if (ClientFIOCB.Checked) eventsData.DefaultView.RowFilter = $"[ClientFIO] like '{ClientFIOTB.Text}%'";//string.Format($"Convert([ClientFIO], System.String) like '{ClientFIOTB.Text}%'");
+            else eventsData.DefaultView.RowFilter = $"[ClientFIO] like '%'";
+        }
+
+        private void cbMedOrg_DropDown(object sender, EventArgs e)
+        {
+            if (AreaCB.Checked) medOrgN = Classes.MOClass.LoadMOList(int.Parse(cbArea.SelectedValue.ToString()));
+            else medOrgN = Classes.MOClass.LoadMOList();
+            
+            cbMedOrg.DataSource = medOrgN;
+            cbMedOrg.DisplayMember = "name";
+            cbMedOrg.ValueMember = "id";
+            //cbMedOrg.SelectedIndex = -1;
+        }
+
+        private void cbDOO_DropDown(object sender, EventArgs e)
+        {
+            if (AreaCB.Checked) HealthOrg = Classes.HealthOrgClass.LoadHealthOrgList(int.Parse(cbArea.SelectedValue.ToString()));
+            else HealthOrg = Classes.HealthOrgClass.LoadHealthOrgList();
+
+            cbDOO.DataSource = HealthOrg;
+            cbDOO.DisplayMember = "ShortName";
+            cbDOO.ValueMember = "id";
+        }
+
+        private void eventDate_From_ValueChanged(object sender, EventArgs e)
+        {
+            if (eventDateCB.Checked) eventsData.DefaultView.RowFilter = $"[eventDate] >= '{eventDate_From.Value.ToString("dd.MM.yyyy")}' and [eventDate] <= '{eventDate_To.Value.ToString("dd.MM.yyyy")}'";
+            else eventsData.DefaultView.RowFilter = string.Format($"[eventDate] like '%'");
+        }
+
+        private void eventDate_To_ValueChanged(object sender, EventArgs e)
+        {
+            if (eventDateCB.Checked) eventsData.DefaultView.RowFilter = $"[eventDate] >= '{eventDate_From.Value.ToString("dd.MM.yyyy")}' and [eventDate] <= '{eventDate_To.Value.ToString("dd.MM.yyyy")}'";
+            else eventsData.DefaultView.RowFilter = string.Format($"[eventDate] like '%'");
+        }
+
+        private void TreatmentDateDP_From_ValueChanged(object sender, EventArgs e)
+        {
+            if (TreatmentCB.Checked) eventsData.DefaultView.RowFilter = $"[TreatmentDate] >= '{TreatmentDateDP_From.Value.ToString("dd.MM.yyyy")}' and [TreatmentDate] <= '{TreatmentDateDP_To.Value.ToString("dd.MM.yyyy")}'";
+            else eventsData.DefaultView.RowFilter = $"[eventDate] like '%'";
+        }
+
+        private void TreatmentDateDP_To_ValueChanged(object sender, EventArgs e)
+        {
+            if (TreatmentCB.Checked) eventsData.DefaultView.RowFilter = $"[TreatmentDate] >= '{TreatmentDateDP_From.Value.ToString("dd.MM.yyyy")}' and [TreatmentDate] <= '{TreatmentDateDP_To.Value.ToString("dd.MM.yyyy")}'";
+            else eventsData.DefaultView.RowFilter = $"[eventDate] like '%'";
+        }
+
+        private void TransfertedTB_TextChanged(object sender, EventArgs e)
+        {
+            if (TransfertedCB.Checked) eventsData.DefaultView.RowFilter = $"[TransfertedDepart] like '{TransfertedTB.Text}%'";
+            else eventsData.DefaultView.RowFilter = $"[TransfertedDepart] like '%'";
+        }
+
+        private void cbHealthStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (HealthStatusCB.Checked) eventsData.DefaultView.RowFilter = $"[HealthStatus] = '{cbHealthStatus.SelectedItem.ToString()}'";
+        }
+
+        private void RelaxInfo_Child2_CheckedChanged(object sender, EventArgs e)
+        {
+            eventsData.DefaultView.RowFilter = CheckRelaxInfo(RelaxInfo_Child2);
+        }
+
+        private void RelaxInfo_Child3_CheckedChanged(object sender, EventArgs e)
+        {
+            eventsData.DefaultView.RowFilter = CheckRelaxInfo(RelaxInfo_Child3);
+        }
+
+        private void RelaxInfo_Child5_CheckedChanged(object sender, EventArgs e)
+        {
+            eventsData.DefaultView.RowFilter = CheckRelaxInfo(RelaxInfo_Child5);
+        }
+
+        private void RelaxInfo_Child6_CheckedChanged(object sender, EventArgs e)
+        {
+            eventsData.DefaultView.RowFilter = CheckRelaxInfo(RelaxInfo_Child6);
+        }
+
+        private string CheckRelaxInfo(CheckBox checkBox)
+        {
+            if (checkBox.Checked)
+            {
+                if (cntCheck == 0)
+                {
+                    switch(checkBox.Name)
+                    {
+                        case "RelaxInfo_Child2":
+                            cntCheck++;
+                            str = "'Организованный отдых (Самостоятельно)'";
+                            break;
+                        case "RelaxInfo_Child3":
+                            cntCheck++;
+                            str = "'Организованный отдых (По путевке Мать и дитя)'";
+                            break;
+                        case "RelaxInfo_Child5":
+                            cntCheck++;
+                            str = "'Неорганизованный отдых (Самостоятельно)'";
+                            break;
+                        case "RelaxInfo_Child6":
+                            cntCheck++;
+                            str = "'Неорганизованный отдых (С законным представителем)'";
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (checkBox.Name)
+                    {
+                        case "RelaxInfo_Child2":
+                            cntCheck++;
+                            str += ", 'Организованный отдых (Самостоятельно)'";
+                            break;
+                        case "RelaxInfo_Child3":
+                            cntCheck++;
+                            str += ", 'Организованный отдых (По путевке Мать и дитя)'";
+                            break;
+                        case "RelaxInfo_Child5":
+                            cntCheck++;
+                            str += ", 'Неорганизованный отдых (Самостоятельно)'";
+                            break;
+                        case "RelaxInfo_Child6":
+                            cntCheck++;
+                            str += ", 'Неорганизованный отдых (С законным представителем)'";
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                if (cntCheck > 0)
+                {
+                    switch (checkBox.Name)
+                    {
+                        case "RelaxInfo_Child2":
+                            cntCheck--;
+                            if (str.IndexOf("'Организованный отдых (Самостоятельно)'", 0) == 0) str = str.Remove(str.IndexOf("'Организованный отдых (Самостоятельно)'", 0), "'Организованный отдых (Самостоятельно)', ".Length);
+                            else str = str.Remove(str.IndexOf("'Организованный отдых (Самостоятельно)'", 0) - 2, ", 'Организованный отдых (Самостоятельно)'".Length);
+                            break;
+                        case "RelaxInfo_Child3":
+                            cntCheck--;
+                            if (str.IndexOf("'Организованный отдых (По путевке Мать и дитя)'", 0) == 0) str = str.Remove(str.IndexOf("'Организованный отдых (По путевке Мать и дитя)'", 0), "'Организованный отдых (По путевке Мать и дитя)', ".Length);
+                            else str = str.Remove(str.IndexOf("'Организованный отдых (По путевке Мать и дитя)'", 0) - 2, ", 'Организованный отдых (По путевке Мать и дитя)'".Length);
+                            break;
+                        case "RelaxInfo_Child5":
+                            cntCheck--;
+                            if (str.IndexOf("'Неорганизованный отдых (Самостоятельно)'", 0) == 0) str = str.Remove(str.IndexOf("'Неорганизованный отдых (Самостоятельно)'", 0), "'Неорганизованный отдых (Самостоятельно)', ".Length);
+                            else str = str.Remove(str.IndexOf("'Неорганизованный отдых (Самостоятельно)'", 0) - 2, ", 'Неорганизованный отдых (Самостоятельно)'".Length);
+                            break;
+                        case "RelaxInfo_Child6":
+                            cntCheck--;
+                            if (str.IndexOf("'Неорганизованный отдых (С законным представителем)'", 0) == 0) str = str.Remove(str.IndexOf("'Неорганизованный отдых (С законным представителем)'", 0), "'Неорганизованный отдых (С законным представителем)', ".Length);
+                            else str = str.Remove(str.IndexOf("'Неорганизованный отдых (С законным представителем)'", 0) - 2, ", 'Неорганизованный отдых (С законным представителем)'".Length);
+                            break;
+                    }
+                }
+            }
+            string condition = $"[relaxName] in ({str}) ";
+            return condition;
         }
     }
 }

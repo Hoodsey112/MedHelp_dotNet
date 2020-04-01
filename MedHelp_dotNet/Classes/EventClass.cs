@@ -132,7 +132,7 @@ namespace MedHelp_dotNet.Classes
                                  " CONCAT((YEAR(current_date())-YEAR(c.birthDate)) - if(DAYOFYEAR(current_date()) > DAYOFYEAR(c.birthDate),0,1),' лет '," +
                                  " (IF(MONTH(CURDATE()) - MONTH(c.birthDate) < 0, MONTH(CURDATE()) - MONTH(c.birthDate) + 12, MONTH(CURDATE()) - MONTH(c.birthDate))),' мес.') AS clientAge," +
                                  " c.Address as clientAddress," +
-                                 " r.Name as relaxName," +
+                                 " CONCAT(r1.Name, ' (', r.Name, ')') as relaxName," +
                                  " e.TreatmentDate," +
                                  " e.HelpName," +
                                  " e.DiagName," +
@@ -148,6 +148,7 @@ namespace MedHelp_dotNet.Classes
                           " join childrenshealthorganization as doo on e.doo_id = doo.id" +
                           " join client as c on e.client_id = c.id" +
                           " join relaxinfo as r on e.relax_id = r.id" +
+                          " join relaxinfo as r1 on r.parent_id = r1.id" +
                           " where e.deleted = 0" +
                           "   and doo.deleted = 0" +
                           "   and c.deleted = 0" +

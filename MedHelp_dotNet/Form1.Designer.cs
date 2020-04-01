@@ -39,6 +39,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.TransfertedCheck = new System.Windows.Forms.CheckBox();
             this.TransferDate = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
             this.TransferTB = new System.Windows.Forms.TextBox();
@@ -106,7 +107,6 @@
             this.EditArea = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveArea = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.TransfertedCheck = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.HealthStatusMeniStrip.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -166,6 +166,7 @@
             // cbHealthStatus
             // 
             this.cbHealthStatus.ContextMenuStrip = this.HealthStatusMeniStrip;
+            this.cbHealthStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHealthStatus.FormattingEnabled = true;
             this.cbHealthStatus.Location = new System.Drawing.Point(232, 519);
             this.cbHealthStatus.Name = "cbHealthStatus";
@@ -231,6 +232,16 @@
             this.groupBox10.TabIndex = 3;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "По тяжести состояния направле/переведен в реанимацию";
+            // 
+            // TransfertedCheck
+            // 
+            this.TransfertedCheck.AutoSize = true;
+            this.TransfertedCheck.Location = new System.Drawing.Point(170, 11);
+            this.TransfertedCheck.Name = "TransfertedCheck";
+            this.TransfertedCheck.Size = new System.Drawing.Size(15, 14);
+            this.TransfertedCheck.TabIndex = 4;
+            this.TransfertedCheck.UseVisualStyleBackColor = true;
+            this.TransfertedCheck.CheckedChanged += new System.EventHandler(this.TransfertedCheck_CheckedChanged);
             // 
             // TransferDate
             // 
@@ -862,16 +873,6 @@
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Район";
-            // 
-            // TransfertedCheck
-            // 
-            this.TransfertedCheck.AutoSize = true;
-            this.TransfertedCheck.Location = new System.Drawing.Point(170, 11);
-            this.TransfertedCheck.Name = "TransfertedCheck";
-            this.TransfertedCheck.Size = new System.Drawing.Size(15, 14);
-            this.TransfertedCheck.TabIndex = 4;
-            this.TransfertedCheck.UseVisualStyleBackColor = true;
-            this.TransfertedCheck.CheckedChanged += new System.EventHandler(this.TransfertedCheck_CheckedChanged);
             // 
             // AddEventForm
             // 

@@ -28,59 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.AreaCB = new System.Windows.Forms.CheckBox();
-            this.medOrgCB = new System.Windows.Forms.CheckBox();
-            this.eventDateCB = new System.Windows.Forms.CheckBox();
-            this.cbArea = new System.Windows.Forms.ComboBox();
-            this.cbMedOrg = new System.Windows.Forms.ComboBox();
-            this.eventDate_From = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.eventDate_To = new System.Windows.Forms.DateTimePicker();
-            this.cbDOO = new System.Windows.Forms.ComboBox();
-            this.DOOCB = new System.Windows.Forms.CheckBox();
-            this.ClientFIOCB = new System.Windows.Forms.CheckBox();
-            this.ClientFIOTB = new System.Windows.Forms.TextBox();
-            this.ageTB_From = new System.Windows.Forms.TextBox();
-            this.AgeCB = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ageTB_To = new System.Windows.Forms.TextBox();
-            this.TreatmentCB = new System.Windows.Forms.CheckBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.cbHealthStatus = new System.Windows.Forms.ComboBox();
+            this.HealthStatusCB = new System.Windows.Forms.CheckBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.TransfertedTB = new System.Windows.Forms.TextBox();
+            this.TransfertedCB = new System.Windows.Forms.CheckBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.RelaxInfo_Child6 = new System.Windows.Forms.CheckBox();
+            this.RelaxInfo_Child5 = new System.Windows.Forms.CheckBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.TreatmentDateDP_From = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.TreatmentDateDP_To = new System.Windows.Forms.DateTimePicker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.TransfertedCB = new System.Windows.Forms.CheckBox();
-            this.TransfertedTB = new System.Windows.Forms.TextBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.HealthStatusCB = new System.Windows.Forms.CheckBox();
-            this.cbHealthStatus = new System.Windows.Forms.ComboBox();
+            this.TreatmentCB = new System.Windows.Forms.CheckBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.RelaxInfo_Child3 = new System.Windows.Forms.CheckBox();
+            this.RelaxInfo_Child2 = new System.Windows.Forms.CheckBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.ageTB_From = new System.Windows.Forms.TextBox();
+            this.AgeCB = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ageTB_To = new System.Windows.Forms.TextBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.ClientFIOTB = new System.Windows.Forms.TextBox();
+            this.ClientFIOCB = new System.Windows.Forms.CheckBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.cbDOO = new System.Windows.Forms.ComboBox();
+            this.DOOCB = new System.Windows.Forms.CheckBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.eventDate_From = new System.Windows.Forms.DateTimePicker();
+            this.eventDateCB = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.eventDate_To = new System.Windows.Forms.DateTimePicker();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cbMedOrg = new System.Windows.Forms.ComboBox();
+            this.medOrgCB = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbArea = new System.Windows.Forms.ComboBox();
+            this.AreaCB = new System.Windows.Forms.CheckBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medOrg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EventDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,19 +98,25 @@
             this.TransfertedDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransfertedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HealthStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.AddEventForm = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AddEventStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox12.SuspendLayout();
             this.groupBox13.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.AddEventForm.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -120,10 +124,9 @@
             this.groupBox1.Controls.Add(this.groupBox13);
             this.groupBox1.Controls.Add(this.groupBox12);
             this.groupBox1.Controls.Add(this.groupBox11);
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox5);
+            this.groupBox1.Controls.Add(this.RelaxInfo_Child6);
+            this.groupBox1.Controls.Add(this.RelaxInfo_Child5);
             this.groupBox1.Controls.Add(this.groupBox10);
-            this.groupBox1.Controls.Add(this.checkBox6);
             this.groupBox1.Controls.Add(this.groupBox9);
             this.groupBox1.Controls.Add(this.groupBox8);
             this.groupBox1.Controls.Add(this.groupBox7);
@@ -138,329 +141,135 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Фильтр";
             // 
-            // dataGridView1
+            // groupBox13
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.area,
-            this.medOrg,
-            this.EventDate,
-            this.DOOName,
-            this.DOOAddress,
-            this.ClientFIO,
-            this.birthDate,
-            this.clientAge,
-            this.ClientAddress,
-            this.RelaxInfo,
-            this.TreatmentDate,
-            this.HelpName,
-            this.DiagName,
-            this.DiagID,
-            this.Speciality,
-            this.Department,
-            this.TransfertedDepartment,
-            this.TransfertedDate,
-            this.HealthStatus});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 380);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 270);
-            this.dataGridView1.TabIndex = 1;
+            this.groupBox13.Controls.Add(this.cbHealthStatus);
+            this.groupBox13.Controls.Add(this.HealthStatusCB);
+            this.groupBox13.Location = new System.Drawing.Point(249, 314);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(225, 42);
+            this.groupBox13.TabIndex = 30;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Состояние ребенка по степ. тяж.";
             // 
-            // groupBox2
+            // cbHealthStatus
             // 
-            this.groupBox2.Location = new System.Drawing.Point(498, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(290, 362);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Отчет";
+            this.cbHealthStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbHealthStatus.Enabled = false;
+            this.cbHealthStatus.FormattingEnabled = true;
+            this.cbHealthStatus.Location = new System.Drawing.Point(27, 14);
+            this.cbHealthStatus.Name = "cbHealthStatus";
+            this.cbHealthStatus.Size = new System.Drawing.Size(192, 21);
+            this.cbHealthStatus.TabIndex = 1;
+            this.cbHealthStatus.SelectedIndexChanged += new System.EventHandler(this.cbHealthStatus_SelectedIndexChanged);
             // 
-            // AreaCB
+            // HealthStatusCB
             // 
-            this.AreaCB.AutoSize = true;
-            this.AreaCB.Location = new System.Drawing.Point(7, 18);
-            this.AreaCB.Name = "AreaCB";
-            this.AreaCB.Size = new System.Drawing.Size(15, 14);
-            this.AreaCB.TabIndex = 0;
-            this.AreaCB.UseVisualStyleBackColor = true;
-            this.AreaCB.CheckedChanged += new System.EventHandler(this.AreaCB_CheckedChanged);
+            this.HealthStatusCB.AutoSize = true;
+            this.HealthStatusCB.Location = new System.Drawing.Point(6, 17);
+            this.HealthStatusCB.Name = "HealthStatusCB";
+            this.HealthStatusCB.Size = new System.Drawing.Size(15, 14);
+            this.HealthStatusCB.TabIndex = 0;
+            this.HealthStatusCB.UseVisualStyleBackColor = true;
+            this.HealthStatusCB.CheckedChanged += new System.EventHandler(this.HealthStatusCB_CheckedChanged);
             // 
-            // medOrgCB
+            // groupBox12
             // 
-            this.medOrgCB.AutoSize = true;
-            this.medOrgCB.Location = new System.Drawing.Point(5, 19);
-            this.medOrgCB.Name = "medOrgCB";
-            this.medOrgCB.Size = new System.Drawing.Size(15, 14);
-            this.medOrgCB.TabIndex = 1;
-            this.medOrgCB.UseVisualStyleBackColor = true;
-            this.medOrgCB.CheckedChanged += new System.EventHandler(this.medOrgCB_CheckedChanged);
+            this.groupBox12.Controls.Add(this.TransfertedTB);
+            this.groupBox12.Controls.Add(this.TransfertedCB);
+            this.groupBox12.Location = new System.Drawing.Point(6, 314);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(237, 42);
+            this.groupBox12.TabIndex = 29;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Направлен (переведен)";
             // 
-            // eventDateCB
+            // TransfertedTB
             // 
-            this.eventDateCB.AutoSize = true;
-            this.eventDateCB.Location = new System.Drawing.Point(7, 21);
-            this.eventDateCB.Name = "eventDateCB";
-            this.eventDateCB.Size = new System.Drawing.Size(15, 14);
-            this.eventDateCB.TabIndex = 2;
-            this.eventDateCB.UseVisualStyleBackColor = true;
-            this.eventDateCB.CheckedChanged += new System.EventHandler(this.eventDateCB_CheckedChanged);
+            this.TransfertedTB.Enabled = false;
+            this.TransfertedTB.Location = new System.Drawing.Point(28, 15);
+            this.TransfertedTB.Name = "TransfertedTB";
+            this.TransfertedTB.Size = new System.Drawing.Size(197, 20);
+            this.TransfertedTB.TabIndex = 1;
+            this.TransfertedTB.TextChanged += new System.EventHandler(this.TransfertedTB_TextChanged);
             // 
-            // cbArea
+            // TransfertedCB
             // 
-            this.cbArea.Enabled = false;
-            this.cbArea.FormattingEnabled = true;
-            this.cbArea.Location = new System.Drawing.Point(28, 14);
-            this.cbArea.Name = "cbArea";
-            this.cbArea.Size = new System.Drawing.Size(154, 21);
-            this.cbArea.TabIndex = 3;
-            this.cbArea.SelectedIndexChanged += new System.EventHandler(this.cbArea_SelectedIndexChanged);
+            this.TransfertedCB.AutoSize = true;
+            this.TransfertedCB.Location = new System.Drawing.Point(7, 19);
+            this.TransfertedCB.Name = "TransfertedCB";
+            this.TransfertedCB.Size = new System.Drawing.Size(15, 14);
+            this.TransfertedCB.TabIndex = 0;
+            this.TransfertedCB.UseVisualStyleBackColor = true;
+            this.TransfertedCB.CheckedChanged += new System.EventHandler(this.TransfertedCB_CheckedChanged);
             // 
-            // cbMedOrg
+            // groupBox11
             // 
-            this.cbMedOrg.Enabled = false;
-            this.cbMedOrg.FormattingEnabled = true;
-            this.cbMedOrg.Location = new System.Drawing.Point(26, 15);
-            this.cbMedOrg.Name = "cbMedOrg";
-            this.cbMedOrg.Size = new System.Drawing.Size(237, 21);
-            this.cbMedOrg.TabIndex = 4;
+            this.groupBox11.Controls.Add(this.checkBox9);
+            this.groupBox11.Controls.Add(this.checkBox8);
+            this.groupBox11.Controls.Add(this.checkBox7);
+            this.groupBox11.Location = new System.Drawing.Point(249, 225);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(225, 83);
+            this.groupBox11.TabIndex = 28;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Оказанная помощь";
             // 
-            // eventDate_From
+            // checkBox9
             // 
-            this.eventDate_From.Enabled = false;
-            this.eventDate_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.eventDate_From.Location = new System.Drawing.Point(36, 19);
-            this.eventDate_From.Name = "eventDate_From";
-            this.eventDate_From.Size = new System.Drawing.Size(81, 20);
-            this.eventDate_From.TabIndex = 5;
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(6, 57);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(50, 17);
+            this.checkBox9.TabIndex = 2;
+            this.checkBox9.Text = "СМП";
+            this.checkBox9.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // checkBox8
             // 
-            this.label1.AutoSize = true;
-            this.label1.Enabled = false;
-            this.label1.Location = new System.Drawing.Point(23, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "с";
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(6, 37);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(65, 17);
+            this.checkBox8.TabIndex = 1;
+            this.checkBox8.Text = "ПСМСП";
+            this.checkBox8.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // checkBox7
             // 
-            this.label2.AutoSize = true;
-            this.label2.Enabled = false;
-            this.label2.Location = new System.Drawing.Point(119, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "до";
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(6, 16);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(67, 17);
+            this.checkBox7.TabIndex = 0;
+            this.checkBox7.Text = "ПМСМП";
+            this.checkBox7.UseVisualStyleBackColor = true;
             // 
-            // eventDate_To
+            // RelaxInfo_Child6
             // 
-            this.eventDate_To.Enabled = false;
-            this.eventDate_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.eventDate_To.Location = new System.Drawing.Point(140, 18);
-            this.eventDate_To.Name = "eventDate_To";
-            this.eventDate_To.Size = new System.Drawing.Size(81, 20);
-            this.eventDate_To.TabIndex = 8;
+            this.RelaxInfo_Child6.AutoSize = true;
+            this.RelaxInfo_Child6.Checked = true;
+            this.RelaxInfo_Child6.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.RelaxInfo_Child6.Location = new System.Drawing.Point(56, 282);
+            this.RelaxInfo_Child6.Name = "RelaxInfo_Child6";
+            this.RelaxInfo_Child6.Size = new System.Drawing.Size(175, 17);
+            this.RelaxInfo_Child6.TabIndex = 5;
+            this.RelaxInfo_Child6.Text = "С законным представителем";
+            this.RelaxInfo_Child6.UseVisualStyleBackColor = true;
+            this.RelaxInfo_Child6.CheckedChanged += new System.EventHandler(this.RelaxInfo_Child6_CheckedChanged);
             // 
-            // cbDOO
+            // RelaxInfo_Child5
             // 
-            this.cbDOO.Enabled = false;
-            this.cbDOO.FormattingEnabled = true;
-            this.cbDOO.Location = new System.Drawing.Point(26, 17);
-            this.cbDOO.Name = "cbDOO";
-            this.cbDOO.Size = new System.Drawing.Size(198, 21);
-            this.cbDOO.TabIndex = 10;
-            // 
-            // DOOCB
-            // 
-            this.DOOCB.AutoSize = true;
-            this.DOOCB.Location = new System.Drawing.Point(5, 21);
-            this.DOOCB.Name = "DOOCB";
-            this.DOOCB.Size = new System.Drawing.Size(15, 14);
-            this.DOOCB.TabIndex = 9;
-            this.DOOCB.UseVisualStyleBackColor = true;
-            this.DOOCB.CheckedChanged += new System.EventHandler(this.DOOCB_CheckedChanged);
-            // 
-            // ClientFIOCB
-            // 
-            this.ClientFIOCB.AutoSize = true;
-            this.ClientFIOCB.Location = new System.Drawing.Point(7, 19);
-            this.ClientFIOCB.Name = "ClientFIOCB";
-            this.ClientFIOCB.Size = new System.Drawing.Size(15, 14);
-            this.ClientFIOCB.TabIndex = 11;
-            this.ClientFIOCB.UseVisualStyleBackColor = true;
-            this.ClientFIOCB.CheckedChanged += new System.EventHandler(this.ClientFIOCB_CheckedChanged);
-            // 
-            // ClientFIOTB
-            // 
-            this.ClientFIOTB.Enabled = false;
-            this.ClientFIOTB.Location = new System.Drawing.Point(28, 16);
-            this.ClientFIOTB.Name = "ClientFIOTB";
-            this.ClientFIOTB.Size = new System.Drawing.Size(227, 20);
-            this.ClientFIOTB.TabIndex = 12;
-            // 
-            // ageTB_From
-            // 
-            this.ageTB_From.Enabled = false;
-            this.ageTB_From.Location = new System.Drawing.Point(51, 16);
-            this.ageTB_From.Name = "ageTB_From";
-            this.ageTB_From.Size = new System.Drawing.Size(51, 20);
-            this.ageTB_From.TabIndex = 14;
-            // 
-            // AgeCB
-            // 
-            this.AgeCB.AutoSize = true;
-            this.AgeCB.Location = new System.Drawing.Point(20, 19);
-            this.AgeCB.Name = "AgeCB";
-            this.AgeCB.Size = new System.Drawing.Size(15, 14);
-            this.AgeCB.TabIndex = 13;
-            this.AgeCB.UseVisualStyleBackColor = true;
-            this.AgeCB.CheckedChanged += new System.EventHandler(this.AgeCB_CheckedChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Enabled = false;
-            this.label3.Location = new System.Drawing.Point(105, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(19, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "до";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Enabled = false;
-            this.label4.Location = new System.Drawing.Point(38, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "с";
-            // 
-            // ageTB_To
-            // 
-            this.ageTB_To.Enabled = false;
-            this.ageTB_To.Location = new System.Drawing.Point(126, 16);
-            this.ageTB_To.Name = "ageTB_To";
-            this.ageTB_To.Size = new System.Drawing.Size(51, 20);
-            this.ageTB_To.TabIndex = 17;
-            // 
-            // TreatmentCB
-            // 
-            this.TreatmentCB.AutoSize = true;
-            this.TreatmentCB.Location = new System.Drawing.Point(6, 20);
-            this.TreatmentCB.Name = "TreatmentCB";
-            this.TreatmentCB.Size = new System.Drawing.Size(15, 14);
-            this.TreatmentCB.TabIndex = 18;
-            this.TreatmentCB.UseVisualStyleBackColor = true;
-            this.TreatmentCB.CheckedChanged += new System.EventHandler(this.TreatmentCB_CheckedChanged);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.cbArea);
-            this.groupBox3.Controls.Add(this.AreaCB);
-            this.groupBox3.Location = new System.Drawing.Point(6, 19);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(193, 43);
-            this.groupBox3.TabIndex = 20;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Район";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.cbMedOrg);
-            this.groupBox4.Controls.Add(this.medOrgCB);
-            this.groupBox4.Location = new System.Drawing.Point(205, 19);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(269, 43);
-            this.groupBox4.TabIndex = 21;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Мед. организация";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.eventDate_From);
-            this.groupBox5.Controls.Add(this.eventDateCB);
-            this.groupBox5.Controls.Add(this.label1);
-            this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Controls.Add(this.eventDate_To);
-            this.groupBox5.Location = new System.Drawing.Point(6, 68);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(232, 47);
-            this.groupBox5.TabIndex = 22;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Дата подачи инф-ии";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.cbDOO);
-            this.groupBox6.Controls.Add(this.DOOCB);
-            this.groupBox6.Location = new System.Drawing.Point(244, 68);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(230, 47);
-            this.groupBox6.TabIndex = 23;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Название ДОО";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.ClientFIOTB);
-            this.groupBox7.Controls.Add(this.ClientFIOCB);
-            this.groupBox7.Location = new System.Drawing.Point(6, 122);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(265, 45);
-            this.groupBox7.TabIndex = 24;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "ФИО ребенка";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.ageTB_From);
-            this.groupBox8.Controls.Add(this.AgeCB);
-            this.groupBox8.Controls.Add(this.label4);
-            this.groupBox8.Controls.Add(this.label3);
-            this.groupBox8.Controls.Add(this.ageTB_To);
-            this.groupBox8.Location = new System.Drawing.Point(277, 122);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(197, 45);
-            this.groupBox8.TabIndex = 25;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Возраст";
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.checkBox3);
-            this.groupBox9.Controls.Add(this.checkBox2);
-            this.groupBox9.Controls.Add(this.checkBox1);
-            this.groupBox9.Location = new System.Drawing.Point(6, 173);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(237, 135);
-            this.groupBox9.TabIndex = 26;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Информация об отдыхе";
+            this.RelaxInfo_Child5.AutoSize = true;
+            this.RelaxInfo_Child5.Checked = true;
+            this.RelaxInfo_Child5.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.RelaxInfo_Child5.Location = new System.Drawing.Point(56, 265);
+            this.RelaxInfo_Child5.Name = "RelaxInfo_Child5";
+            this.RelaxInfo_Child5.Size = new System.Drawing.Size(111, 17);
+            this.RelaxInfo_Child5.TabIndex = 4;
+            this.RelaxInfo_Child5.Text = "Самостоятельно";
+            this.RelaxInfo_Child5.UseVisualStyleBackColor = true;
+            this.RelaxInfo_Child5.CheckedChanged += new System.EventHandler(this.RelaxInfo_Child5_CheckedChanged);
             // 
             // groupBox10
             // 
@@ -484,6 +293,7 @@
             this.TreatmentDateDP_From.Name = "TreatmentDateDP_From";
             this.TreatmentDateDP_From.Size = new System.Drawing.Size(81, 20);
             this.TreatmentDateDP_From.TabIndex = 10;
+            this.TreatmentDateDP_From.ValueChanged += new System.EventHandler(this.TreatmentDateDP_From_ValueChanged);
             // 
             // label5
             // 
@@ -513,167 +323,361 @@
             this.TreatmentDateDP_To.Name = "TreatmentDateDP_To";
             this.TreatmentDateDP_To.Size = new System.Drawing.Size(81, 20);
             this.TreatmentDateDP_To.TabIndex = 13;
+            this.TreatmentDateDP_To.ValueChanged += new System.EventHandler(this.TreatmentDateDP_To_ValueChanged);
             // 
-            // checkBox1
+            // TreatmentCB
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(29, 17);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(146, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Организованный отдых";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.TreatmentCB.AutoSize = true;
+            this.TreatmentCB.Location = new System.Drawing.Point(6, 20);
+            this.TreatmentCB.Name = "TreatmentCB";
+            this.TreatmentCB.Size = new System.Drawing.Size(15, 14);
+            this.TreatmentCB.TabIndex = 18;
+            this.TreatmentCB.UseVisualStyleBackColor = true;
+            this.TreatmentCB.CheckedChanged += new System.EventHandler(this.TreatmentCB_CheckedChanged);
             // 
-            // checkBox2
+            // groupBox9
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(51, 34);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(111, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Самостоятельно";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.groupBox9.Controls.Add(this.label8);
+            this.groupBox9.Controls.Add(this.label7);
+            this.groupBox9.Controls.Add(this.RelaxInfo_Child3);
+            this.groupBox9.Controls.Add(this.RelaxInfo_Child2);
+            this.groupBox9.Location = new System.Drawing.Point(6, 173);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(237, 135);
+            this.groupBox9.TabIndex = 26;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Информация об отдыхе";
             // 
-            // checkBox3
+            // RelaxInfo_Child3
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(51, 51);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(147, 17);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "По путевке Мать и дитя";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.RelaxInfo_Child3.AutoSize = true;
+            this.RelaxInfo_Child3.Checked = true;
+            this.RelaxInfo_Child3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.RelaxInfo_Child3.Location = new System.Drawing.Point(51, 51);
+            this.RelaxInfo_Child3.Name = "RelaxInfo_Child3";
+            this.RelaxInfo_Child3.Size = new System.Drawing.Size(147, 17);
+            this.RelaxInfo_Child3.TabIndex = 2;
+            this.RelaxInfo_Child3.Text = "По путевке Мать и дитя";
+            this.RelaxInfo_Child3.UseVisualStyleBackColor = true;
+            this.RelaxInfo_Child3.CheckedChanged += new System.EventHandler(this.RelaxInfo_Child3_CheckedChanged);
             // 
-            // checkBox4
+            // RelaxInfo_Child2
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(56, 282);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(175, 17);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "С законным представителем";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.RelaxInfo_Child2.AutoSize = true;
+            this.RelaxInfo_Child2.Checked = true;
+            this.RelaxInfo_Child2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.RelaxInfo_Child2.Location = new System.Drawing.Point(51, 34);
+            this.RelaxInfo_Child2.Name = "RelaxInfo_Child2";
+            this.RelaxInfo_Child2.Size = new System.Drawing.Size(111, 17);
+            this.RelaxInfo_Child2.TabIndex = 1;
+            this.RelaxInfo_Child2.Text = "Самостоятельно";
+            this.RelaxInfo_Child2.UseVisualStyleBackColor = true;
+            this.RelaxInfo_Child2.CheckedChanged += new System.EventHandler(this.RelaxInfo_Child2_CheckedChanged);
             // 
-            // checkBox5
+            // groupBox8
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(56, 265);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(111, 17);
-            this.checkBox5.TabIndex = 4;
-            this.checkBox5.Text = "Самостоятельно";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.groupBox8.Controls.Add(this.ageTB_From);
+            this.groupBox8.Controls.Add(this.AgeCB);
+            this.groupBox8.Controls.Add(this.label4);
+            this.groupBox8.Controls.Add(this.label3);
+            this.groupBox8.Controls.Add(this.ageTB_To);
+            this.groupBox8.Location = new System.Drawing.Point(277, 122);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(197, 45);
+            this.groupBox8.TabIndex = 25;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Возраст";
             // 
-            // checkBox6
+            // ageTB_From
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(34, 248);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(158, 17);
-            this.checkBox6.TabIndex = 3;
-            this.checkBox6.Text = "Неорганизованный отдых";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.ageTB_From.Enabled = false;
+            this.ageTB_From.Location = new System.Drawing.Point(51, 16);
+            this.ageTB_From.Name = "ageTB_From";
+            this.ageTB_From.Size = new System.Drawing.Size(51, 20);
+            this.ageTB_From.TabIndex = 14;
             // 
-            // groupBox11
+            // AgeCB
             // 
-            this.groupBox11.Controls.Add(this.checkBox9);
-            this.groupBox11.Controls.Add(this.checkBox8);
-            this.groupBox11.Controls.Add(this.checkBox7);
-            this.groupBox11.Location = new System.Drawing.Point(249, 225);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(225, 83);
-            this.groupBox11.TabIndex = 28;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Оказанная помощь";
+            this.AgeCB.AutoSize = true;
+            this.AgeCB.Location = new System.Drawing.Point(20, 19);
+            this.AgeCB.Name = "AgeCB";
+            this.AgeCB.Size = new System.Drawing.Size(15, 14);
+            this.AgeCB.TabIndex = 13;
+            this.AgeCB.UseVisualStyleBackColor = true;
+            this.AgeCB.CheckedChanged += new System.EventHandler(this.AgeCB_CheckedChanged);
             // 
-            // checkBox7
+            // label4
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(6, 16);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(67, 17);
-            this.checkBox7.TabIndex = 0;
-            this.checkBox7.Text = "ПМСМП";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Enabled = false;
+            this.label4.Location = new System.Drawing.Point(38, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(13, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "с";
             // 
-            // checkBox8
+            // label3
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(6, 37);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(65, 17);
-            this.checkBox8.TabIndex = 1;
-            this.checkBox8.Text = "ПСМСП";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Enabled = false;
+            this.label3.Location = new System.Drawing.Point(105, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 13);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "до";
             // 
-            // checkBox9
+            // ageTB_To
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(6, 57);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(50, 17);
-            this.checkBox9.TabIndex = 2;
-            this.checkBox9.Text = "СМП";
-            this.checkBox9.UseVisualStyleBackColor = true;
+            this.ageTB_To.Enabled = false;
+            this.ageTB_To.Location = new System.Drawing.Point(126, 16);
+            this.ageTB_To.Name = "ageTB_To";
+            this.ageTB_To.Size = new System.Drawing.Size(51, 20);
+            this.ageTB_To.TabIndex = 17;
             // 
-            // groupBox12
+            // groupBox7
             // 
-            this.groupBox12.Controls.Add(this.TransfertedTB);
-            this.groupBox12.Controls.Add(this.TransfertedCB);
-            this.groupBox12.Location = new System.Drawing.Point(6, 314);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(237, 42);
-            this.groupBox12.TabIndex = 29;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Направлен (переведен)";
+            this.groupBox7.Controls.Add(this.ClientFIOTB);
+            this.groupBox7.Controls.Add(this.ClientFIOCB);
+            this.groupBox7.Location = new System.Drawing.Point(6, 122);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(265, 45);
+            this.groupBox7.TabIndex = 24;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "ФИО ребенка";
             // 
-            // TransfertedCB
+            // ClientFIOTB
             // 
-            this.TransfertedCB.AutoSize = true;
-            this.TransfertedCB.Location = new System.Drawing.Point(7, 19);
-            this.TransfertedCB.Name = "TransfertedCB";
-            this.TransfertedCB.Size = new System.Drawing.Size(15, 14);
-            this.TransfertedCB.TabIndex = 0;
-            this.TransfertedCB.UseVisualStyleBackColor = true;
-            this.TransfertedCB.CheckedChanged += new System.EventHandler(this.TransfertedCB_CheckedChanged);
+            this.ClientFIOTB.Enabled = false;
+            this.ClientFIOTB.Location = new System.Drawing.Point(28, 16);
+            this.ClientFIOTB.Name = "ClientFIOTB";
+            this.ClientFIOTB.Size = new System.Drawing.Size(227, 20);
+            this.ClientFIOTB.TabIndex = 12;
+            this.ClientFIOTB.TextChanged += new System.EventHandler(this.ClientFIOTB_TextChanged);
             // 
-            // TransfertedTB
+            // ClientFIOCB
             // 
-            this.TransfertedTB.Enabled = false;
-            this.TransfertedTB.Location = new System.Drawing.Point(28, 15);
-            this.TransfertedTB.Name = "TransfertedTB";
-            this.TransfertedTB.Size = new System.Drawing.Size(197, 20);
-            this.TransfertedTB.TabIndex = 1;
+            this.ClientFIOCB.AutoSize = true;
+            this.ClientFIOCB.Location = new System.Drawing.Point(7, 19);
+            this.ClientFIOCB.Name = "ClientFIOCB";
+            this.ClientFIOCB.Size = new System.Drawing.Size(15, 14);
+            this.ClientFIOCB.TabIndex = 11;
+            this.ClientFIOCB.UseVisualStyleBackColor = true;
+            this.ClientFIOCB.CheckedChanged += new System.EventHandler(this.ClientFIOCB_CheckedChanged);
             // 
-            // groupBox13
+            // groupBox6
             // 
-            this.groupBox13.Controls.Add(this.cbHealthStatus);
-            this.groupBox13.Controls.Add(this.HealthStatusCB);
-            this.groupBox13.Location = new System.Drawing.Point(249, 314);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(225, 42);
-            this.groupBox13.TabIndex = 30;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Состояние ребенка по степ. тяж.";
+            this.groupBox6.Controls.Add(this.cbDOO);
+            this.groupBox6.Controls.Add(this.DOOCB);
+            this.groupBox6.Location = new System.Drawing.Point(244, 68);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(230, 47);
+            this.groupBox6.TabIndex = 23;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Название ДОО";
             // 
-            // HealthStatusCB
+            // cbDOO
             // 
-            this.HealthStatusCB.AutoSize = true;
-            this.HealthStatusCB.Location = new System.Drawing.Point(6, 17);
-            this.HealthStatusCB.Name = "HealthStatusCB";
-            this.HealthStatusCB.Size = new System.Drawing.Size(15, 14);
-            this.HealthStatusCB.TabIndex = 0;
-            this.HealthStatusCB.UseVisualStyleBackColor = true;
-            this.HealthStatusCB.CheckedChanged += new System.EventHandler(this.HealthStatusCB_CheckedChanged);
+            this.cbDOO.Enabled = false;
+            this.cbDOO.FormattingEnabled = true;
+            this.cbDOO.Location = new System.Drawing.Point(26, 17);
+            this.cbDOO.Name = "cbDOO";
+            this.cbDOO.Size = new System.Drawing.Size(198, 21);
+            this.cbDOO.TabIndex = 10;
+            this.cbDOO.DropDown += new System.EventHandler(this.cbDOO_DropDown);
+            this.cbDOO.SelectedIndexChanged += new System.EventHandler(this.cbDOO_SelectedIndexChanged);
             // 
-            // cbHealthStatus
+            // DOOCB
             // 
-            this.cbHealthStatus.Enabled = false;
-            this.cbHealthStatus.FormattingEnabled = true;
-            this.cbHealthStatus.Location = new System.Drawing.Point(27, 14);
-            this.cbHealthStatus.Name = "cbHealthStatus";
-            this.cbHealthStatus.Size = new System.Drawing.Size(192, 21);
-            this.cbHealthStatus.TabIndex = 1;
+            this.DOOCB.AutoSize = true;
+            this.DOOCB.Location = new System.Drawing.Point(5, 21);
+            this.DOOCB.Name = "DOOCB";
+            this.DOOCB.Size = new System.Drawing.Size(15, 14);
+            this.DOOCB.TabIndex = 9;
+            this.DOOCB.UseVisualStyleBackColor = true;
+            this.DOOCB.CheckedChanged += new System.EventHandler(this.DOOCB_CheckedChanged);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.eventDate_From);
+            this.groupBox5.Controls.Add(this.eventDateCB);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.eventDate_To);
+            this.groupBox5.Location = new System.Drawing.Point(6, 68);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(232, 47);
+            this.groupBox5.TabIndex = 22;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Дата подачи инф-ии";
+            // 
+            // eventDate_From
+            // 
+            this.eventDate_From.Enabled = false;
+            this.eventDate_From.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.eventDate_From.Location = new System.Drawing.Point(36, 19);
+            this.eventDate_From.Name = "eventDate_From";
+            this.eventDate_From.Size = new System.Drawing.Size(81, 20);
+            this.eventDate_From.TabIndex = 5;
+            this.eventDate_From.ValueChanged += new System.EventHandler(this.eventDate_From_ValueChanged);
+            // 
+            // eventDateCB
+            // 
+            this.eventDateCB.AutoSize = true;
+            this.eventDateCB.Location = new System.Drawing.Point(7, 21);
+            this.eventDateCB.Name = "eventDateCB";
+            this.eventDateCB.Size = new System.Drawing.Size(15, 14);
+            this.eventDateCB.TabIndex = 2;
+            this.eventDateCB.UseVisualStyleBackColor = true;
+            this.eventDateCB.CheckedChanged += new System.EventHandler(this.eventDateCB_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Enabled = false;
+            this.label1.Location = new System.Drawing.Point(23, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "с";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Enabled = false;
+            this.label2.Location = new System.Drawing.Point(119, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "до";
+            // 
+            // eventDate_To
+            // 
+            this.eventDate_To.Enabled = false;
+            this.eventDate_To.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.eventDate_To.Location = new System.Drawing.Point(140, 18);
+            this.eventDate_To.Name = "eventDate_To";
+            this.eventDate_To.Size = new System.Drawing.Size(81, 20);
+            this.eventDate_To.TabIndex = 8;
+            this.eventDate_To.ValueChanged += new System.EventHandler(this.eventDate_To_ValueChanged);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.cbMedOrg);
+            this.groupBox4.Controls.Add(this.medOrgCB);
+            this.groupBox4.Location = new System.Drawing.Point(205, 19);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(269, 43);
+            this.groupBox4.TabIndex = 21;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Мед. организация";
+            // 
+            // cbMedOrg
+            // 
+            this.cbMedOrg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMedOrg.Enabled = false;
+            this.cbMedOrg.FormattingEnabled = true;
+            this.cbMedOrg.Location = new System.Drawing.Point(26, 15);
+            this.cbMedOrg.Name = "cbMedOrg";
+            this.cbMedOrg.Size = new System.Drawing.Size(237, 21);
+            this.cbMedOrg.TabIndex = 4;
+            this.cbMedOrg.DropDown += new System.EventHandler(this.cbMedOrg_DropDown);
+            this.cbMedOrg.SelectedIndexChanged += new System.EventHandler(this.cbMedOrg_SelectedIndexChanged);
+            // 
+            // medOrgCB
+            // 
+            this.medOrgCB.AutoSize = true;
+            this.medOrgCB.Location = new System.Drawing.Point(5, 19);
+            this.medOrgCB.Name = "medOrgCB";
+            this.medOrgCB.Size = new System.Drawing.Size(15, 14);
+            this.medOrgCB.TabIndex = 1;
+            this.medOrgCB.UseVisualStyleBackColor = true;
+            this.medOrgCB.CheckedChanged += new System.EventHandler(this.medOrgCB_CheckedChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbArea);
+            this.groupBox3.Controls.Add(this.AreaCB);
+            this.groupBox3.Location = new System.Drawing.Point(6, 19);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(193, 43);
+            this.groupBox3.TabIndex = 20;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Район";
+            // 
+            // cbArea
+            // 
+            this.cbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbArea.Enabled = false;
+            this.cbArea.FormattingEnabled = true;
+            this.cbArea.Location = new System.Drawing.Point(28, 14);
+            this.cbArea.Name = "cbArea";
+            this.cbArea.Size = new System.Drawing.Size(154, 21);
+            this.cbArea.TabIndex = 3;
+            this.cbArea.SelectedIndexChanged += new System.EventHandler(this.cbArea_SelectedIndexChanged);
+            // 
+            // AreaCB
+            // 
+            this.AreaCB.AutoSize = true;
+            this.AreaCB.Location = new System.Drawing.Point(7, 18);
+            this.AreaCB.Name = "AreaCB";
+            this.AreaCB.Size = new System.Drawing.Size(15, 14);
+            this.AreaCB.TabIndex = 0;
+            this.AreaCB.UseVisualStyleBackColor = true;
+            this.AreaCB.CheckedChanged += new System.EventHandler(this.AreaCB_CheckedChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.area,
+            this.medOrg,
+            this.EventDate,
+            this.DOOName,
+            this.DOOAddress,
+            this.ClientFIO,
+            this.birthDate,
+            this.clientAge,
+            this.ClientAddress,
+            this.RelaxInfo,
+            this.TreatmentDate,
+            this.HelpName,
+            this.DiagName,
+            this.DiagID,
+            this.Speciality,
+            this.Department,
+            this.TransfertedDepartment,
+            this.TransfertedDate,
+            this.HealthStatus});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 380);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(776, 270);
+            this.dataGridView1.TabIndex = 1;
             // 
             // area
             // 
@@ -808,6 +812,46 @@
             this.HealthStatus.Name = "HealthStatus";
             this.HealthStatus.ReadOnly = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(498, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(290, 362);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Отчет";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(25, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(127, 13);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Организованный отдых";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(25, 72);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(139, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Неорганизованный отдых";
+            // 
+            // AddEventForm
+            // 
+            this.AddEventForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddEventStrip});
+            this.AddEventForm.Name = "AddEventForm";
+            this.AddEventForm.Size = new System.Drawing.Size(218, 48);
+            // 
+            // AddEventStrip
+            // 
+            this.AddEventStrip.Name = "AddEventStrip";
+            this.AddEventStrip.Size = new System.Drawing.Size(217, 22);
+            this.AddEventStrip.Text = "Добавить новое обращение";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -820,29 +864,30 @@
             this.Text = "MainForm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.AddEventForm.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -893,12 +938,10 @@
         private System.Windows.Forms.CheckBox checkBox9;
         private System.Windows.Forms.CheckBox checkBox8;
         private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox RelaxInfo_Child6;
+        private System.Windows.Forms.CheckBox RelaxInfo_Child5;
+        private System.Windows.Forms.CheckBox RelaxInfo_Child3;
+        private System.Windows.Forms.CheckBox RelaxInfo_Child2;
         private System.Windows.Forms.DataGridViewTextBoxColumn area;
         private System.Windows.Forms.DataGridViewTextBoxColumn medOrg;
         private System.Windows.Forms.DataGridViewTextBoxColumn EventDate;
@@ -918,5 +961,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TransfertedDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransfertedDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn HealthStatus;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ContextMenuStrip AddEventForm;
+        private System.Windows.Forms.ToolStripMenuItem AddEventStrip;
     }
 }

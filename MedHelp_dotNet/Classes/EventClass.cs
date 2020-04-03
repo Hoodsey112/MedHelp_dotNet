@@ -131,6 +131,7 @@ namespace MedHelp_dotNet.Classes
                                  " c.birthDate as clientBirthDate," +
                                  " CONCAT((YEAR(current_date())-YEAR(c.birthDate)) - if(DAYOFYEAR(current_date()) > DAYOFYEAR(c.birthDate),0,1),' лет '," +
                                  " (IF(MONTH(CURDATE()) - MONTH(c.birthDate) < 0, MONTH(CURDATE()) - MONTH(c.birthDate) + 12, MONTH(CURDATE()) - MONTH(c.birthDate))),' мес.') AS clientAge," +
+                                 " age(c.birthDate, current_date()) as age," +
                                  " c.Address as clientAddress," +
                                  " CONCAT(r1.Name, ' (', r.Name, ')') as relaxName," +
                                  " e.TreatmentDate," +

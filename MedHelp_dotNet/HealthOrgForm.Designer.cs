@@ -47,7 +47,7 @@
             this.ApplyBTN.Location = new System.Drawing.Point(83, 293);
             this.ApplyBTN.Name = "ApplyBTN";
             this.ApplyBTN.Size = new System.Drawing.Size(75, 23);
-            this.ApplyBTN.TabIndex = 0;
+            this.ApplyBTN.TabIndex = 5;
             this.ApplyBTN.Text = "Сохранить";
             this.ApplyBTN.UseVisualStyleBackColor = true;
             this.ApplyBTN.Click += new System.EventHandler(this.ApplyBTN_Click);
@@ -57,7 +57,7 @@
             this.CancelBTN.Location = new System.Drawing.Point(183, 293);
             this.CancelBTN.Name = "CancelBTN";
             this.CancelBTN.Size = new System.Drawing.Size(75, 23);
-            this.CancelBTN.TabIndex = 1;
+            this.CancelBTN.TabIndex = 6;
             this.CancelBTN.Text = "Отмена";
             this.CancelBTN.UseVisualStyleBackColor = true;
             this.CancelBTN.Click += new System.EventHandler(this.CancelBTN_Click);
@@ -75,17 +75,18 @@
             this.groupBox1.Location = new System.Drawing.Point(4, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(338, 282);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Детская оздоровительная организация";
             // 
             // cbArea
             // 
+            this.cbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbArea.FormattingEnabled = true;
             this.cbArea.Location = new System.Drawing.Point(11, 32);
             this.cbArea.Name = "cbArea";
             this.cbArea.Size = new System.Drawing.Size(208, 21);
-            this.cbArea.TabIndex = 7;
+            this.cbArea.TabIndex = 1;
             // 
             // label4
             // 
@@ -102,7 +103,7 @@
             this.ShortNameTB.Multiline = true;
             this.ShortNameTB.Name = "ShortNameTB";
             this.ShortNameTB.Size = new System.Drawing.Size(319, 26);
-            this.ShortNameTB.TabIndex = 5;
+            this.ShortNameTB.TabIndex = 3;
             // 
             // label3
             // 
@@ -119,7 +120,7 @@
             this.AddressTB.Multiline = true;
             this.AddressTB.Name = "AddressTB";
             this.AddressTB.Size = new System.Drawing.Size(319, 46);
-            this.AddressTB.TabIndex = 3;
+            this.AddressTB.TabIndex = 4;
             // 
             // label2
             // 
@@ -136,7 +137,7 @@
             this.FullNameTB.Multiline = true;
             this.FullNameTB.Name = "FullNameTB";
             this.FullNameTB.Size = new System.Drawing.Size(319, 46);
-            this.FullNameTB.TabIndex = 1;
+            this.FullNameTB.TabIndex = 2;
             // 
             // label1
             // 
@@ -156,7 +157,8 @@
             this.Controls.Add(this.ApplyBTN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "HealthOrgForm";
-            this.Text = "HealthOrgForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ДОО";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

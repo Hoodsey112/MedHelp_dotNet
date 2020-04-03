@@ -20,7 +20,7 @@ namespace MedHelp_dotNet
         {
             InitializeComponent();
             LoadArea();
-            
+            EdIn = _EdIn;
             if (_EdIn)
             { 
                 health = Classes.HealthOrgClass.LoadHealthOrgList(_id, _area_id);
@@ -33,9 +33,9 @@ namespace MedHelp_dotNet
         private void LoadArea()
         {
             areaClass = Classes.AreaClass.LoadListArea();
-            cbArea.DataSource = areaClass;
             cbArea.DisplayMember = "name";
             cbArea.ValueMember = "id";
+            cbArea.DataSource = areaClass;
             cbArea.SelectedIndex = -1;
         }
         #endregion
@@ -55,7 +55,8 @@ namespace MedHelp_dotNet
 
         private void SaveData()
         {
-            Classes.HealthOrgClass.InsertHealthOrg(FullNameTB.Text, ShortNameTB.Text, AddressTB.Text, int.Parse(cbArea.SelectedValue.ToString()));
+            if (!EdIn) Classes.HealthOrgClass.InsertHealthOrg(FullNameTB.Text, ShortNameTB.Text, AddressTB.Text, int.Parse(cbArea.SelectedValue.ToString()));
+            else Classes.HealthOrgClass.EditHealthOrg(health.id, health.area_id, FullNameTB.Text, ShortNameTB.Text, AddressTB.Text, int.Parse(cbArea.SelectedValue.ToString()));
             if (DialogResult.OK == MessageBox.Show("Данные успешно сохранены", "Сохранение записи", MessageBoxButtons.OK, MessageBoxIcon.Information)) Close();
         }
 
@@ -63,7 +64,7 @@ namespace MedHelp_dotNet
         {
             try
             {
-                
+                SaveData();
             }
             catch(Exception ex)
             {

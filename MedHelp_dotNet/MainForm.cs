@@ -19,26 +19,43 @@ namespace MedHelp_dotNet
         Classes.AreaClass[] areas = Classes.AreaClass.LoadListArea();
         Classes.MOClass[] medOrgN;
         Classes.HealthOrgClass[] HealthOrg;
-        int cntCheck = 4;
+        int cntCheckRelax = 4;
+        int cntCheckHelp = 3;
         string str = "'Организованный отдых (Самостоятельно)', 'Организованный отдых (По путевке Мать и дитя)', 'Неорганизованный отдых (Самостоятельно)', 'Неорганизованный отдых (С законным представителем)'";
+        string strH = "'Первичная медико-санитарная помощь (поликлиника-педитр)', 'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)', 'Специализированная медицинская помощь (стационар)'";
 
         public MainForm()
         {
             InitializeComponent();
             dataGridView1.AutoGenerateColumns = false;
-            
-            eventsData = Classes.EventClass.LoadEvent();
-            dataGridView1.DataSource = eventsData;
+
+            LoadEvent_Area();
 
             cbHealthStatus.DataSource = null;
             cbHealthStatus.DataSource = Classes.HealthStatusClass.LoadHealthStatus();
 
-            cbArea.DataSource = areas;
+            firstStart = false;
+            KeyPreview = true;
+
+            Server.Text = $"Сервер: {Properties.Settings.Default.server}";
+            DataBase.Text = $"База данных: {Properties.Settings.Default.dataBase}";
+        }
+
+        private void SettingsForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            Server.Text = $"Сервер: {Properties.Settings.Default.server}"; //Отображение адреса сервера(внизу формы)
+            DataBase.Text = $"База: {Properties.Settings.Default.dataBase}"; //Отображение БД(с которой работает пользователь)
+        }
+
+        private void LoadEvent_Area()
+        {
+            eventsData = Classes.EventClass.LoadEvent();
+            dataGridView1.DataSource = eventsData;
+
             cbArea.DisplayMember = "name";
             cbArea.ValueMember = "id";
+            cbArea.DataSource = areas;
             cbArea.SelectedIndex = -1;
-
-            firstStart = false;
         }
 
         private void AreaCB_CheckedChanged(object sender, EventArgs e)
@@ -123,6 +140,8 @@ namespace MedHelp_dotNet
                 ageTB_From.Enabled = true;
                 label4.Enabled = true;
                 ageTB_To.Enabled = true;
+                if (ageTB_From.Text.Length > 0 && ageTB_To.Text.Length > 0) eventsData.DefaultView.RowFilter = $"[age] >= {ageTB_From.Text} and [age] <= {ageTB_To.Text}";
+                else eventsData.DefaultView.RowFilter = $"[age] >= 0";
             }
             else
             {
@@ -130,6 +149,7 @@ namespace MedHelp_dotNet
                 ageTB_From.Enabled = false;
                 label4.Enabled = false;
                 ageTB_To.Enabled = false;
+                eventsData.DefaultView.RowFilter = $"[age] >= 0";
             }
         }
 
@@ -229,7 +249,6 @@ namespace MedHelp_dotNet
             cbMedOrg.DataSource = medOrgN;
             cbMedOrg.DisplayMember = "name";
             cbMedOrg.ValueMember = "id";
-            //cbMedOrg.SelectedIndex = -1;
         }
 
         private void cbDOO_DropDown(object sender, EventArgs e)
@@ -301,24 +320,24 @@ namespace MedHelp_dotNet
         {
             if (checkBox.Checked)
             {
-                if (cntCheck == 0)
+                if (cntCheckRelax == 0)
                 {
                     switch(checkBox.Name)
                     {
                         case "RelaxInfo_Child2":
-                            cntCheck++;
+                            cntCheckRelax++;
                             str = "'Организованный отдых (Самостоятельно)'";
                             break;
                         case "RelaxInfo_Child3":
-                            cntCheck++;
+                            cntCheckRelax++;
                             str = "'Организованный отдых (По путевке Мать и дитя)'";
                             break;
                         case "RelaxInfo_Child5":
-                            cntCheck++;
+                            cntCheckRelax++;
                             str = "'Неорганизованный отдых (Самостоятельно)'";
                             break;
                         case "RelaxInfo_Child6":
-                            cntCheck++;
+                            cntCheckRelax++;
                             str = "'Неорганизованный отдых (С законным представителем)'";
                             break;
                     }
@@ -328,19 +347,19 @@ namespace MedHelp_dotNet
                     switch (checkBox.Name)
                     {
                         case "RelaxInfo_Child2":
-                            cntCheck++;
+                            cntCheckRelax++;
                             str += ", 'Организованный отдых (Самостоятельно)'";
                             break;
                         case "RelaxInfo_Child3":
-                            cntCheck++;
+                            cntCheckRelax++;
                             str += ", 'Организованный отдых (По путевке Мать и дитя)'";
                             break;
                         case "RelaxInfo_Child5":
-                            cntCheck++;
+                            cntCheckRelax++;
                             str += ", 'Неорганизованный отдых (Самостоятельно)'";
                             break;
                         case "RelaxInfo_Child6":
-                            cntCheck++;
+                            cntCheckRelax++;
                             str += ", 'Неорганизованный отдых (С законным представителем)'";
                             break;
                     }
@@ -348,35 +367,198 @@ namespace MedHelp_dotNet
             }
             else
             {
-                if (cntCheck > 0)
+                if (cntCheckRelax > 0)
                 {
                     switch (checkBox.Name)
                     {
                         case "RelaxInfo_Child2":
-                            cntCheck--;
-                            if (str.IndexOf("'Организованный отдых (Самостоятельно)'", 0) == 0) str = str.Remove(str.IndexOf("'Организованный отдых (Самостоятельно)'", 0), "'Организованный отдых (Самостоятельно)', ".Length);
+                            cntCheckRelax--;
+                            if (str.IndexOf("'Организованный отдых (Самостоятельно)'", 0) == 0)
+                            {
+                                if (cntCheckRelax != 0) str = str.Remove(str.IndexOf("'Организованный отдых (Самостоятельно)'", 0), "'Организованный отдых (Самостоятельно)', ".Length);
+                                else str = str.Remove(str.IndexOf("'Организованный отдых (Самостоятельно)'", 0), "'Организованный отдых (Самостоятельно)'".Length);
+                            }
                             else str = str.Remove(str.IndexOf("'Организованный отдых (Самостоятельно)'", 0) - 2, ", 'Организованный отдых (Самостоятельно)'".Length);
                             break;
                         case "RelaxInfo_Child3":
-                            cntCheck--;
-                            if (str.IndexOf("'Организованный отдых (По путевке Мать и дитя)'", 0) == 0) str = str.Remove(str.IndexOf("'Организованный отдых (По путевке Мать и дитя)'", 0), "'Организованный отдых (По путевке Мать и дитя)', ".Length);
+                            cntCheckRelax--;
+                            if (str.IndexOf("'Организованный отдых (По путевке Мать и дитя)'", 0) == 0)
+                            {
+                                if (cntCheckRelax != 0) str = str.Remove(str.IndexOf("'Организованный отдых (По путевке Мать и дитя)'", 0), "'Организованный отдых (По путевке Мать и дитя)', ".Length);
+                                else str = str.Remove(str.IndexOf("'Организованный отдых (По путевке Мать и дитя)'", 0), "'Организованный отдых (По путевке Мать и дитя)'".Length);
+                            }
                             else str = str.Remove(str.IndexOf("'Организованный отдых (По путевке Мать и дитя)'", 0) - 2, ", 'Организованный отдых (По путевке Мать и дитя)'".Length);
                             break;
                         case "RelaxInfo_Child5":
-                            cntCheck--;
-                            if (str.IndexOf("'Неорганизованный отдых (Самостоятельно)'", 0) == 0) str = str.Remove(str.IndexOf("'Неорганизованный отдых (Самостоятельно)'", 0), "'Неорганизованный отдых (Самостоятельно)', ".Length);
+                            cntCheckRelax--;
+                            if (str.IndexOf("'Неорганизованный отдых (Самостоятельно)'", 0) == 0)
+                            {
+                                if (cntCheckRelax != 0) str = str.Remove(str.IndexOf("'Неорганизованный отдых (Самостоятельно)'", 0), "'Неорганизованный отдых (Самостоятельно)', ".Length);
+                                else str = str.Remove(str.IndexOf("'Неорганизованный отдых (Самостоятельно)'", 0), "'Неорганизованный отдых (Самостоятельно)'".Length);
+                            }
                             else str = str.Remove(str.IndexOf("'Неорганизованный отдых (Самостоятельно)'", 0) - 2, ", 'Неорганизованный отдых (Самостоятельно)'".Length);
                             break;
                         case "RelaxInfo_Child6":
-                            cntCheck--;
-                            if (str.IndexOf("'Неорганизованный отдых (С законным представителем)'", 0) == 0) str = str.Remove(str.IndexOf("'Неорганизованный отдых (С законным представителем)'", 0), "'Неорганизованный отдых (С законным представителем)', ".Length);
+                            cntCheckRelax--;
+                            if (str.IndexOf("'Неорганизованный отдых (С законным представителем)'", 0) == 0)
+                            {
+                                if (cntCheckRelax != 0) str = str.Remove(str.IndexOf("'Неорганизованный отдых (С законным представителем)'", 0), "'Неорганизованный отдых (С законным представителем)', ".Length);
+                                else str = str.Remove(str.IndexOf("'Неорганизованный отдых (С законным представителем)'", 0), "'Неорганизованный отдых (С законным представителем)'".Length);
+                            }
                             else str = str.Remove(str.IndexOf("'Неорганизованный отдых (С законным представителем)'", 0) - 2, ", 'Неорганизованный отдых (С законным представителем)'".Length);
                             break;
                     }
                 }
             }
-            string condition = $"[relaxName] in ({str}) ";
+            string condition = "";
+            
+            if (str != "") condition = $"[relaxName] in ({str}) ";
+            else condition = $"[relaxName] is null";
+
             return condition;
+        }
+
+        private string CheckHelp(CheckBox checkBox)
+        {
+            if (checkBox.Checked)
+            {
+                if (cntCheckHelp == 0)
+                {
+                    switch (checkBox.Name)
+                    {
+                        case "PMSMP":
+                            cntCheckHelp++;
+                            strH = "'Первичная медико-санитарная помощь (поликлиника-педитр)'";
+                            break;
+                        case "PSMSP":
+                            cntCheckHelp++;
+                            strH = "'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'";
+                            break;
+                        case "SMP":
+                            cntCheckHelp++;
+                            strH = "'Специализированная медицинская помощь (стационар)'";
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (checkBox.Name)
+                    {
+                        case "PMSMP":
+                            cntCheckHelp++;
+                            strH += ", 'Первичная медико-санитарная помощь (поликлиника-педитр)'";
+                            break;
+                        case "PSMSP":
+                            cntCheckHelp++;
+                            strH += ", 'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'";
+                            break;
+                        case "SMP":
+                            cntCheckHelp++;
+                            strH += ", 'Специализированная медицинская помощь (стационар)'";
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                if (cntCheckHelp > 0)
+                {
+                    switch (checkBox.Name)
+                    {
+                        case "PMSMP":
+                            cntCheckHelp--;
+                            if (strH.IndexOf("'Первичная медико-санитарная помощь (поликлиника-педитр)'", 0) == 0)
+                            {
+                                if (cntCheckHelp != 0) strH = strH.Remove(strH.IndexOf("'Первичная медико-санитарная помощь (поликлиника-педитр)'", 0), "'Первичная медико-санитарная помощь (поликлиника-педитр)', ".Length);
+                                else strH = strH.Remove(strH.IndexOf("'Первичная медико-санитарная помощь (поликлиника-педитр)'", 0), "'Первичная медико-санитарная помощь (поликлиника-педитр)'".Length);
+                            }
+                            else strH = strH.Remove(strH.IndexOf("'Первичная медико-санитарная помощь (поликлиника-педитр)'", 0) - 2, ", 'Первичная медико-санитарная помощь (поликлиника-педитр)'".Length);
+                            break;
+                        case "PSMSP":
+                            cntCheckHelp--;
+                            if (strH.IndexOf("'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'", 0) == 0)
+                            {
+                                if (cntCheckHelp != 0) strH = strH.Remove(strH.IndexOf("'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'", 0), "'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)', ".Length);
+                                else strH = strH.Remove(strH.IndexOf("'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'", 0), "'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'".Length);
+                            }
+                            else strH = strH.Remove(strH.IndexOf("'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'", 0) - 2, ", 'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'".Length);
+                            break;
+                        case "SMP":
+                            cntCheckHelp--;
+                            if (strH.IndexOf("'Специализированная медицинская помощь (стационар)'", 0) == 0)
+                            {
+                                if (cntCheckHelp != 0) strH = strH.Remove(strH.IndexOf("'Специализированная медицинская помощь (стационар)'", 0), "'Специализированная медицинская помощь (стационар)', ".Length);
+                                else strH = strH.Remove(strH.IndexOf("'Специализированная медицинская помощь (стационар)'", 0), "'Специализированная медицинская помощь (стационар)'".Length);
+                            }
+                            else strH = strH.Remove(strH.IndexOf("'Специализированная медицинская помощь (стационар)'", 0) - 2, ", 'Специализированная медицинская помощь (стационар)'".Length);
+                            break;
+                    }
+                }
+            }
+            string condition = "";
+
+            if (strH != "") condition = $"[HelpName] in ({strH}) ";
+            else condition = $"[HelpName] is null";
+
+            return condition;
+        }
+
+        private void PMSMP_CheckedChanged(object sender, EventArgs e)
+        {
+            eventsData.DefaultView.RowFilter = CheckHelp(PMSMP);
+        }
+
+        private void PSMSP_CheckedChanged(object sender, EventArgs e)
+        {
+            eventsData.DefaultView.RowFilter = CheckHelp(PSMSP);
+        }
+
+        private void SMP_CheckedChanged(object sender, EventArgs e)
+        {
+            eventsData.DefaultView.RowFilter = CheckHelp(SMP);
+        }
+
+        private void ageTB_From_TextChanged(object sender, EventArgs e)
+        {
+            if (AgeCB.Checked) eventsData.DefaultView.RowFilter = eventsData.DefaultView.RowFilter = $"[age] >= {ageTB_From.Text} and [age] <= {ageTB_To.Text}";
+            else eventsData.DefaultView.RowFilter = $"[age] >= 0";
+        }
+
+        private void ageTB_To_TextChanged(object sender, EventArgs e)
+        {
+            if (AgeCB.Checked) eventsData.DefaultView.RowFilter = $"[age] >= {ageTB_From.Text} and [age] <= {ageTB_To.Text}";
+            else eventsData.DefaultView.RowFilter = $"[age] >= 0";
+        }
+
+        private void AddEventStrip_Click(object sender, EventArgs e)
+        {
+            using (AddEventForm addForm = new AddEventForm())
+            {
+                addForm.ShowDialog();
+            }
+
+            LoadEvent_Area();
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyData)
+            {
+                case (Keys.S | Keys.Control| Keys.Shift):
+                    {
+                        using (SettingsForm settingsForm = new SettingsForm())
+                        {
+                            settingsForm.FormClosed += new FormClosedEventHandler(SettingsForm_Closed);
+                            settingsForm.ShowDialog();
+                        }
+                            break;
+                    }
+                case (Keys.Q | Keys.Shift | Keys.Control):
+                    {
+                        this.Close();
+                        break;
+                    }
+            }
         }
     }
 }

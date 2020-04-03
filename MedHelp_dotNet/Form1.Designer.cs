@@ -148,7 +148,7 @@
             this.CancelBTN.Location = new System.Drawing.Point(576, 517);
             this.CancelBTN.Name = "CancelBTN";
             this.CancelBTN.Size = new System.Drawing.Size(75, 23);
-            this.CancelBTN.TabIndex = 7;
+            this.CancelBTN.TabIndex = 6;
             this.CancelBTN.Text = "Отмена";
             this.CancelBTN.UseVisualStyleBackColor = true;
             this.CancelBTN.Click += new System.EventHandler(this.CancelBTN_Click);
@@ -158,7 +158,7 @@
             this.AddBTN.Location = new System.Drawing.Point(495, 517);
             this.AddBTN.Name = "AddBTN";
             this.AddBTN.Size = new System.Drawing.Size(75, 23);
-            this.AddBTN.TabIndex = 6;
+            this.AddBTN.TabIndex = 5;
             this.AddBTN.Text = "Добавить";
             this.AddBTN.UseVisualStyleBackColor = true;
             this.AddBTN.Click += new System.EventHandler(this.AddBTN_Click);
@@ -171,7 +171,7 @@
             this.cbHealthStatus.Location = new System.Drawing.Point(232, 519);
             this.cbHealthStatus.Name = "cbHealthStatus";
             this.cbHealthStatus.Size = new System.Drawing.Size(221, 21);
-            this.cbHealthStatus.TabIndex = 5;
+            this.cbHealthStatus.TabIndex = 4;
             // 
             // HealthStatusMeniStrip
             // 
@@ -201,7 +201,7 @@
             this.label17.Location = new System.Drawing.Point(16, 522);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(210, 13);
-            this.label17.TabIndex = 4;
+            this.label17.TabIndex = 0;
             this.label17.Text = "Состояние ребенка по степени тяжести";
             // 
             // groupBox7
@@ -239,7 +239,7 @@
             this.TransfertedCheck.Location = new System.Drawing.Point(170, 11);
             this.TransfertedCheck.Name = "TransfertedCheck";
             this.TransfertedCheck.Size = new System.Drawing.Size(15, 14);
-            this.TransfertedCheck.TabIndex = 4;
+            this.TransfertedCheck.TabIndex = 1;
             this.TransfertedCheck.UseVisualStyleBackColor = true;
             this.TransfertedCheck.CheckedChanged += new System.EventHandler(this.TransfertedCheck_CheckedChanged);
             // 
@@ -267,7 +267,7 @@
             this.TransferTB.Location = new System.Drawing.Point(7, 62);
             this.TransferTB.Name = "TransferTB";
             this.TransferTB.Size = new System.Drawing.Size(176, 20);
-            this.TransferTB.TabIndex = 1;
+            this.TransferTB.TabIndex = 2;
             // 
             // label15
             // 
@@ -304,7 +304,7 @@
             this.groupBox9.Location = new System.Drawing.Point(220, 9);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(209, 165);
-            this.groupBox9.TabIndex = 3;
+            this.groupBox9.TabIndex = 4;
             this.groupBox9.TabStop = false;
             // 
             // MKB10TB
@@ -315,7 +315,7 @@
             this.MKB10TB.Location = new System.Drawing.Point(6, 62);
             this.MKB10TB.Name = "MKB10TB";
             this.MKB10TB.Size = new System.Drawing.Size(76, 21);
-            this.MKB10TB.TabIndex = 8;
+            this.MKB10TB.TabIndex = 2;
             this.MKB10TB.SelectedIndexChanged += new System.EventHandler(this.MKB10TB_SelectedIndexChanged);
             // 
             // DepartmentTB
@@ -327,7 +327,7 @@
             this.DepartmentTB.Name = "DepartmentTB";
             this.DepartmentTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DepartmentTB.Size = new System.Drawing.Size(197, 20);
-            this.DepartmentTB.TabIndex = 7;
+            this.DepartmentTB.TabIndex = 4;
             // 
             // DepartMenuStrip
             // 
@@ -367,7 +367,7 @@
             this.SpecialityTB.Name = "SpecialityTB";
             this.SpecialityTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.SpecialityTB.Size = new System.Drawing.Size(197, 20);
-            this.SpecialityTB.TabIndex = 5;
+            this.SpecialityTB.TabIndex = 3;
             // 
             // DoctorMenuStrip
             // 
@@ -431,7 +431,7 @@
             this.HelpRB_3.Location = new System.Drawing.Point(10, 129);
             this.HelpRB_3.Name = "HelpRB_3";
             this.HelpRB_3.Size = new System.Drawing.Size(204, 34);
-            this.HelpRB_3.TabIndex = 2;
+            this.HelpRB_3.TabIndex = 3;
             this.HelpRB_3.TabStop = true;
             this.HelpRB_3.Text = "Специализированная медицинская помощь (стационар)";
             this.HelpRB_3.UseVisualStyleBackColor = true;
@@ -442,7 +442,7 @@
             this.HelpRB_2.Location = new System.Drawing.Point(10, 73);
             this.HelpRB_2.Name = "HelpRB_2";
             this.HelpRB_2.Size = new System.Drawing.Size(204, 46);
-            this.HelpRB_2.TabIndex = 1;
+            this.HelpRB_2.TabIndex = 2;
             this.HelpRB_2.TabStop = true;
             this.HelpRB_2.Text = "Первичная специализированная медико-санитарная помощь (поликлиника-узкий специали" +
     "ст)";
@@ -454,7 +454,7 @@
             this.HelpRB_1.Location = new System.Drawing.Point(10, 29);
             this.HelpRB_1.Name = "HelpRB_1";
             this.HelpRB_1.Size = new System.Drawing.Size(204, 34);
-            this.HelpRB_1.TabIndex = 0;
+            this.HelpRB_1.TabIndex = 1;
             this.HelpRB_1.TabStop = true;
             this.HelpRB_1.Text = "Первичная медико-санитарная помощь (поликлиника-педитр)";
             this.HelpRB_1.UseVisualStyleBackColor = true;
@@ -501,7 +501,7 @@
             this.NONORGWithParentRelaxInfoRB.Location = new System.Drawing.Point(232, 70);
             this.NONORGWithParentRelaxInfoRB.Name = "NONORGWithParentRelaxInfoRB";
             this.NONORGWithParentRelaxInfoRB.Size = new System.Drawing.Size(174, 17);
-            this.NONORGWithParentRelaxInfoRB.TabIndex = 7;
+            this.NONORGWithParentRelaxInfoRB.TabIndex = 4;
             this.NONORGWithParentRelaxInfoRB.TabStop = true;
             this.NONORGWithParentRelaxInfoRB.Text = "С законным представителем";
             this.NONORGWithParentRelaxInfoRB.UseVisualStyleBackColor = true;
@@ -513,7 +513,7 @@
             this.NONORGHimselfRelaxInfoRB.Location = new System.Drawing.Point(232, 47);
             this.NONORGHimselfRelaxInfoRB.Name = "NONORGHimselfRelaxInfoRB";
             this.NONORGHimselfRelaxInfoRB.Size = new System.Drawing.Size(110, 17);
-            this.NONORGHimselfRelaxInfoRB.TabIndex = 6;
+            this.NONORGHimselfRelaxInfoRB.TabIndex = 3;
             this.NONORGHimselfRelaxInfoRB.TabStop = true;
             this.NONORGHimselfRelaxInfoRB.Text = "Самостоятельно";
             this.NONORGHimselfRelaxInfoRB.UseVisualStyleBackColor = true;
@@ -525,7 +525,7 @@
             this.label20.Location = new System.Drawing.Point(208, 34);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(44, 59);
-            this.label20.TabIndex = 5;
+            this.label20.TabIndex = 0;
             this.label20.Text = "{";
             // 
             // label19
@@ -534,7 +534,7 @@
             this.label19.Location = new System.Drawing.Point(214, 19);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(139, 13);
-            this.label19.TabIndex = 4;
+            this.label19.TabIndex = 0;
             this.label19.Text = "Неорганизованный отдых";
             // 
             // ORGMCRelaxInfoRB
@@ -543,7 +543,7 @@
             this.ORGMCRelaxInfoRB.Location = new System.Drawing.Point(35, 70);
             this.ORGMCRelaxInfoRB.Name = "ORGMCRelaxInfoRB";
             this.ORGMCRelaxInfoRB.Size = new System.Drawing.Size(146, 17);
-            this.ORGMCRelaxInfoRB.TabIndex = 3;
+            this.ORGMCRelaxInfoRB.TabIndex = 2;
             this.ORGMCRelaxInfoRB.TabStop = true;
             this.ORGMCRelaxInfoRB.Text = "По путевке Мать и дитя";
             this.ORGMCRelaxInfoRB.UseVisualStyleBackColor = true;
@@ -555,7 +555,7 @@
             this.ORGHimselfRelaxInfoRB.Location = new System.Drawing.Point(35, 47);
             this.ORGHimselfRelaxInfoRB.Name = "ORGHimselfRelaxInfoRB";
             this.ORGHimselfRelaxInfoRB.Size = new System.Drawing.Size(110, 17);
-            this.ORGHimselfRelaxInfoRB.TabIndex = 2;
+            this.ORGHimselfRelaxInfoRB.TabIndex = 1;
             this.ORGHimselfRelaxInfoRB.TabStop = true;
             this.ORGHimselfRelaxInfoRB.Text = "Самостоятельно";
             this.ORGHimselfRelaxInfoRB.UseVisualStyleBackColor = true;
@@ -567,7 +567,7 @@
             this.label18.Location = new System.Drawing.Point(10, 34);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(44, 59);
-            this.label18.TabIndex = 1;
+            this.label18.TabIndex = 0;
             this.label18.Text = "{";
             // 
             // label5
@@ -628,18 +628,19 @@
             this.ClientAddressTB.Name = "ClientAddressTB";
             this.ClientAddressTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ClientAddressTB.Size = new System.Drawing.Size(246, 51);
-            this.ClientAddressTB.TabIndex = 7;
+            this.ClientAddressTB.TabIndex = 4;
             // 
             // label9
             // 
             this.label9.Location = new System.Drawing.Point(307, 25);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 44);
-            this.label9.TabIndex = 6;
+            this.label9.TabIndex = 0;
             this.label9.Text = "Адрес постоянного проживания";
             // 
             // cbClientSex
             // 
+            this.cbClientSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbClientSex.Enabled = false;
             this.cbClientSex.FormattingEnabled = true;
             this.cbClientSex.Items.AddRange(new object[] {
@@ -648,7 +649,7 @@
             this.cbClientSex.Location = new System.Drawing.Point(222, 48);
             this.cbClientSex.Name = "cbClientSex";
             this.cbClientSex.Size = new System.Drawing.Size(73, 21);
-            this.cbClientSex.TabIndex = 5;
+            this.cbClientSex.TabIndex = 3;
             // 
             // label8
             // 
@@ -656,7 +657,7 @@
             this.label8.Location = new System.Drawing.Point(189, 50);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(27, 13);
-            this.label8.TabIndex = 4;
+            this.label8.TabIndex = 0;
             this.label8.Text = "Пол";
             // 
             // ClientBirthDate
@@ -666,7 +667,7 @@
             this.ClientBirthDate.Location = new System.Drawing.Point(103, 48);
             this.ClientBirthDate.Name = "ClientBirthDate";
             this.ClientBirthDate.Size = new System.Drawing.Size(80, 20);
-            this.ClientBirthDate.TabIndex = 3;
+            this.ClientBirthDate.TabIndex = 2;
             // 
             // label7
             // 
@@ -674,7 +675,7 @@
             this.label7.Location = new System.Drawing.Point(9, 50);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 13);
-            this.label7.TabIndex = 2;
+            this.label7.TabIndex = 0;
             this.label7.Text = "Дата рождения";
             // 
             // ClientFIOTB
@@ -715,11 +716,12 @@
             // cbShortNameOrg
             // 
             this.cbShortNameOrg.ContextMenuStrip = this.HelthOrgMenuStrip;
+            this.cbShortNameOrg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbShortNameOrg.FormattingEnabled = true;
             this.cbShortNameOrg.Location = new System.Drawing.Point(183, 60);
             this.cbShortNameOrg.Name = "cbShortNameOrg";
             this.cbShortNameOrg.Size = new System.Drawing.Size(275, 21);
-            this.cbShortNameOrg.TabIndex = 7;
+            this.cbShortNameOrg.TabIndex = 3;
             // 
             // HelthOrgMenuStrip
             // 
@@ -756,7 +758,7 @@
             this.label4.Location = new System.Drawing.Point(6, 58);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(165, 31);
-            this.label4.TabIndex = 6;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Название детской оздоровительной организации";
             // 
             // EventDate
@@ -765,25 +767,26 @@
             this.EventDate.Location = new System.Drawing.Point(550, 61);
             this.EventDate.Name = "EventDate";
             this.EventDate.Size = new System.Drawing.Size(82, 20);
-            this.EventDate.TabIndex = 5;
+            this.EventDate.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.Location = new System.Drawing.Point(470, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 29);
-            this.label3.TabIndex = 4;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Дата подачи информации";
             // 
             // cbMO
             // 
             this.cbMO.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbMO.ContextMenuStrip = this.MOMenuStrip;
+            this.cbMO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMO.FormattingEnabled = true;
             this.cbMO.Location = new System.Drawing.Point(406, 19);
             this.cbMO.Name = "cbMO";
             this.cbMO.Size = new System.Drawing.Size(229, 21);
-            this.cbMO.TabIndex = 3;
+            this.cbMO.TabIndex = 2;
             // 
             // MOMenuStrip
             // 
@@ -821,13 +824,14 @@
             this.label2.Location = new System.Drawing.Point(256, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 13);
-            this.label2.TabIndex = 2;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Медицинская организация";
             // 
             // cbArea
             // 
             this.cbArea.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbArea.ContextMenuStrip = this.AreaMenuStrip;
+            this.cbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbArea.FormattingEnabled = true;
             this.cbArea.Location = new System.Drawing.Point(50, 19);
             this.cbArea.Name = "cbArea";
@@ -880,7 +884,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 571);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "AddEventForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Новое обращение";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

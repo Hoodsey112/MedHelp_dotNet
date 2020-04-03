@@ -31,9 +31,9 @@ namespace MedHelp_dotNet
             
             //----------------------------------
             MKB = Classes.MKBClass.LoadMKB();//|
-            MKB10TB.DataSource = MKB;        //|
             MKB10TB.DisplayMember = "DiagID";//|
             MKB10TB.ValueMember = "DiagName";//|
+            MKB10TB.DataSource = MKB;        //|
             MKB10TB.SelectedIndex = -1;      //|
             //----------------------------------
 
@@ -61,9 +61,9 @@ namespace MedHelp_dotNet
         private void LoadArea()
         {
             areaClass = Classes.AreaClass.LoadListArea();
-            cbArea.DataSource = areaClass;
             cbArea.DisplayMember = "name";
             cbArea.ValueMember = "id";
+            cbArea.DataSource = areaClass;
             cbArea.SelectedIndex = -1;
         }
 
@@ -111,18 +111,18 @@ namespace MedHelp_dotNet
         private void LoadMOList()
         {
             moClass = Classes.MOClass.LoadMOList(int.Parse(cbArea.SelectedValue.ToString()));
-            cbMO.DataSource = moClass;
             cbMO.ValueMember = "id";
             cbMO.DisplayMember = "name";
+            cbMO.DataSource = moClass;
             cbMO.SelectedIndex = -1;
         }
 
         private void LoadHealthOrgList()
         {
             healthClass = Classes.HealthOrgClass.LoadHealthOrgList(int.Parse(cbArea.SelectedValue.ToString()));
-            cbShortNameOrg.DataSource = healthClass;
             cbShortNameOrg.ValueMember = "id";
             cbShortNameOrg.DisplayMember = "ShortName";
+            cbShortNameOrg.DataSource = healthClass;
             cbShortNameOrg.SelectedIndex = -1;
         }
 
@@ -151,6 +151,7 @@ namespace MedHelp_dotNet
             {
                 hoForm.ShowDialog();
             }
+            LoadHealthOrgList();
         }
 
         private void EditOrg_Click(object sender, EventArgs e)
@@ -159,6 +160,7 @@ namespace MedHelp_dotNet
             {
                 hoForm.ShowDialog();
             }
+            LoadHealthOrgList();
         }
 
         private void HelthOrgMenuStrip_Opening(object sender, CancelEventArgs e)

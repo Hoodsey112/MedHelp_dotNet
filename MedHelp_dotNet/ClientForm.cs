@@ -103,5 +103,24 @@ namespace MedHelp_dotNet
             StatusForm = 3;
             CheckStatus();
         }
+
+        private void clientDGV_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            AddEventForm main = this.Owner as AddEventForm;
+            if (main != null)
+            {
+                main.client.id = int.Parse(clientDGV.Rows[clientDGV.CurrentRow.Index].Cells[0].Value.ToString());
+                main.client.FIO = clientDGV.Rows[clientDGV.CurrentRow.Index].Cells[1].Value.ToString();
+                main.client.birthDate = DateTime.Parse(clientDGV.Rows[clientDGV.CurrentRow.Index].Cells[2].Value.ToString());
+                main.client.sex = clientDGV.Rows[clientDGV.CurrentRow.Index].Cells[3].Value.ToString();
+                main.client.Address = clientDGV.Rows[clientDGV.CurrentRow.Index].Cells[4].Value.ToString();
+            }
+            Close();
+        }
+
+        private void CancelBTN_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

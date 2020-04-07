@@ -178,7 +178,17 @@ namespace MedHelp_dotNet
         {
             using (ClientForm cForm = new ClientForm(1))
             {
+                client = new Classes.ClientClass();
+                cForm.Owner = this;
                 cForm.ShowDialog();
+            }
+
+            if (client != null)
+            {
+                ClientFIOTB.Text = client.FIO;
+                ClientBirthDate.Value = client.birthDate;
+                cbClientSex.SelectedItem = client.sex;
+                ClientAddressTB.Text = client.Address;
             }
         }
 
@@ -191,10 +201,13 @@ namespace MedHelp_dotNet
                 cForm.ShowDialog();
             }
 
-            ClientFIOTB.Text = client.FIO;
-            ClientBirthDate.Value = client.birthDate;
-            cbClientSex.SelectedItem = client.sex;
-            ClientAddressTB.Text = client.Address;
+            if (client != null)
+            {
+                ClientFIOTB.Text = client.FIO;
+                ClientBirthDate.Value = client.birthDate;
+                cbClientSex.SelectedItem = client.sex;
+                ClientAddressTB.Text = client.Address;
+            }
         }
 
         private void ORGHimselfRelaxInfoRB_CheckedChanged(object sender, EventArgs e)

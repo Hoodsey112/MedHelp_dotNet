@@ -560,5 +560,14 @@ namespace MedHelp_dotNet
                     }
             }
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Classes.ExcelClass.ExportData(eventsData.DefaultView);
+        }
     }
 }

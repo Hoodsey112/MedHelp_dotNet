@@ -166,7 +166,6 @@
             // cbHealthStatus
             // 
             this.cbHealthStatus.ContextMenuStrip = this.HealthStatusMeniStrip;
-            this.cbHealthStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbHealthStatus.FormattingEnabled = true;
             this.cbHealthStatus.Location = new System.Drawing.Point(232, 519);
             this.cbHealthStatus.Name = "cbHealthStatus";
@@ -716,7 +715,6 @@
             // cbShortNameOrg
             // 
             this.cbShortNameOrg.ContextMenuStrip = this.HelthOrgMenuStrip;
-            this.cbShortNameOrg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbShortNameOrg.FormattingEnabled = true;
             this.cbShortNameOrg.Location = new System.Drawing.Point(183, 60);
             this.cbShortNameOrg.Name = "cbShortNameOrg";
@@ -781,7 +779,6 @@
             // 
             this.cbMO.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbMO.ContextMenuStrip = this.MOMenuStrip;
-            this.cbMO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMO.FormattingEnabled = true;
             this.cbMO.Location = new System.Drawing.Point(406, 19);
             this.cbMO.Name = "cbMO";
@@ -831,7 +828,6 @@
             // 
             this.cbArea.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbArea.ContextMenuStrip = this.AreaMenuStrip;
-            this.cbArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbArea.FormattingEnabled = true;
             this.cbArea.Location = new System.Drawing.Point(50, 19);
             this.cbArea.Name = "cbArea";

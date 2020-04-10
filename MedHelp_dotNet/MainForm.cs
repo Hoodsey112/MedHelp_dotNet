@@ -567,7 +567,12 @@ namespace MedHelp_dotNet
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Classes.ExcelClass.ExportData(eventsData.DefaultView);
+            Classes.ExcelClass.ExportExcelData(eventsData.DefaultView);
+        }
+
+        private void WordExportBTN_Click(object sender, EventArgs e)
+        {
+            Classes.WordClass.ExportWordData();
         }
     }
 }

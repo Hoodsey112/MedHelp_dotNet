@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Data;
 using _Word = Microsoft.Office.Interop.Word;
-using _tools = Microsoft.Office.Tools.Word;
 using System.Reflection;
 
 namespace MedHelp_dotNet.Classes
 {
     public class WordClass
     {
-        static _Word._Application WordApp = new _Word.Application();
-        static _Word._Document WordDoc;
-
-        public static void ExportWordData()
+        public static void ExportWordData(DataTable wordData, DateTime PeriodDateFrom, DateTime PeriodDateTo)
         {
+            _Word._Application WordApp = new _Word.Application();
+            _Word._Document WordDoc = new _Word.Document();
+
             object oMissing = Missing.Value;
             object oEndOfDoc = "\\endofdoc";
 
@@ -22,7 +19,11 @@ namespace MedHelp_dotNet.Classes
 
             _Word.Paragraph oPara1;
             oPara1 = WordDoc.Content.Paragraphs.Add(ref oMissing);
-            oPara1.Range.Text = $"Информация о детях, обратившихся за медицинской помощью в медицинские организации Краснодарского края из оздоровительных организаций всех форм собственности Краснодарского края за {"январь-февраль 2020 года"}";
+            
+            if (PeriodDateFrom.ToString("MMMMyyyy") == PeriodDateTo.ToString("MMMMyyyy")) oPara1.Range.Text = $"Информация о детях, обратившихся за медицинской помощью в медицинские организации Краснодарского края из оздоровительных организаций всех форм собственности Краснодарского края за {PeriodDateTo:MMMM yyyy}";
+            else if (PeriodDateFrom.ToString("yyyy") == PeriodDateTo.ToString("yyyy")) oPara1.Range.Text = $"Информация о детях, обратившихся за медицинской помощью в медицинские организации Краснодарского края из оздоровительных организаций всех форм собственности Краснодарского края за {PeriodDateFrom:MMMM}-{PeriodDateTo:MMMM yyyy}";
+            else oPara1.Range.Text = $"Информация о детях, обратившихся за медицинской помощью в медицинские организации Краснодарского края из оздоровительных организаций всех форм собственности Краснодарского края за {PeriodDateFrom:MMMM yyyy}-{PeriodDateTo:MMMM yyyy}";
+            
             oPara1.Range.Font.Bold = 1;
             oPara1.Range.Paragraphs.Alignment = _Word.WdParagraphAlignment.wdAlignParagraphJustify;
             oPara1.Range.Font.Name = "Times New Roman";
@@ -32,7 +33,7 @@ namespace MedHelp_dotNet.Classes
 
             _Word.Table oTable;
             _Word.Range wrdRng = WordDoc.Bookmarks.get_Item(ref oEndOfDoc).Range;
-            oTable = WordDoc.Tables.Add(wrdRng, 7, 10, ref oMissing, ref oMissing); // Размерность таблицы 7х10 (7 строк, 10 столбцов)
+            oTable = WordDoc.Tables.Add(wrdRng, 2 + wordData.Rows.Count, 10, ref oMissing, ref oMissing); // Размерность таблицы Nх10 (N - кол-во строк зависит от кол-ва строк в принимаемом аргументе, 10 столбцов)
             oTable.AutoFitBehavior(_Word.WdAutoFitBehavior.wdAutoFitFixed); // wdAutoFitFixed - фиксированный размер столбцов
             oTable.Rows.SetLeftIndent(-75, _Word.WdRulerStyle.wdAdjustNone); //Смещение таблицы влево на 75 единиц
             oTable.Range.ParagraphFormat.SpaceBefore = 6;
@@ -90,6 +91,14 @@ namespace MedHelp_dotNet.Classes
 
             oTable.Cell(2, 5).Range.Orientation = _Word.WdTextOrientation.wdTextOrientationUpward; //Направление текста вверх на 90 градусов
             oTable.Cell(2, 6).Range.Orientation = _Word.WdTextOrientation.wdTextOrientationUpward; //Направление текста вверх на 90 градусов
+
+            for (int i = 0; i < wordData.Rows.Count; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    oTable.Cell(i + 3, j + 1).Range.Text = wordData.Rows[i][j].ToString();
+                }
+            }
 
             object oRng = WordDoc.Bookmarks.get_Item(ref oEndOfDoc).Range;
 

@@ -46,77 +46,6 @@ namespace MedHelp_dotNet.Classes
             }
         }
 
-        /*public static EventClass[] LoadEvent()
-        {
-            List<EventClass> events = new List<EventClass>();
-            string query = "select e.id," +
-                                 " a.name as AreaName," +
-                                 " mo.name as medOrgName," +
-                                 " e.eventDate," +
-                                 " doo.FullName as DOOName," +
-                                 " doo.Address as DOOAddress," +
-                                 " c.FIO as clientFIO," +
-                                 " c.birthDate as clientBirthDate," +
-                                 " CONCAT((YEAR(current_date())-YEAR(c.birthDate)) - if(DAYOFYEAR(current_date()) > DAYOFYEAR(c.birthDate),0,1),' лет '," +
-                                 " (IF(MONTH(CURDATE()) - MONTH(c.birthDate) < 0, MONTH(CURDATE()) - MONTH(c.birthDate) + 12, MONTH(CURDATE()) - MONTH(c.birthDate))),' мес.') AS clientAge," +
-                                 " r.Name as relaxName," +
-                                 " e.TreatmentDate," +
-                                 " e.HelpName," +
-                                 " e.DiagName," +
-                                 " e.DiagID," +
-                                 " e.Speciality," +
-                                 " e.Department," +
-                                 " e.TransfertedDepartment," +
-                                 " e.TransfertedDate," +
-                                 " e.HealthStatus" +
-                          " from event as e" +
-                          " join area as a on e.area_id = a.id" +
-                          " join medorganisation as mo on e.medOrg_id = mo.id" +
-                          " join childrenshealthorganization as doo on e.doo_id = doo.id" +
-                          " join client as c on e.client_id = c.id" +
-                          " join relaxinfo as r on e.relax_id = r.id" +
-                          " where e.deleted = 0" +
-                          "   and doo.deleted = 0" +
-                          "   and c.deleted = 0" +
-                          "   and a.deleted = 0" +
-                          "   and mo.deleted = 0";
-
-            using (MySqlConnection sqlConnection = ConnectionClass.GetStringConnection())
-            {
-                sqlConnection.Open();
-
-                using (MySqlCommand sqlCommand = new MySqlCommand(query, sqlConnection))
-                {
-                    using (MySqlDataReader reader = sqlCommand.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                events.Add(new EventClass { id = int.Parse(reader["id"].ToString()), areaName = reader["AreaName"].ToString(), medOrgName = reader["name"].ToString(), eventDate = DateTime.Parse(reader["eventDate"].ToString()), DOOName = reader["DOOName"].ToString(), DOOAddress = reader["DOOAddress"].ToString(), clientFIO = reader["clientFIO"].ToString(), clientBirthDate = DateTime.Parse(reader["clientBirthDate"].ToString()), clientAge = reader["clientAge"].ToString(), clientAddress = reader["clientAddress"].ToString(), 
-                                                            relaxName = reader["relaxName"].ToString(), TreatmentDate = DateTime.Parse(reader["TreatmentDate"].ToString()), HelpName = reader["HelpName"].ToString(), DiagName = reader["DiagName"].ToString(), DiagID = reader["DiagID"].ToString(), Speciality = reader["Speciality"].ToString(), Department = reader["Department"].ToString(), TransfertedDepart = reader["TransfertedDepart"].ToString(), TransfertedDate = DateTime.Parse(reader["TransfertedDate"].ToString()), HealthStatus = reader["HealthStatus"].ToString()
-                                });
-                            }
-                        }
-                    }
-
-                }
-            }
-
-            if (events.Count > 0)
-            {
-                EventClass[] _events = new EventClass[events.Count];
-
-                for (int i = 0; i < events.Count; i++)
-                {
-                    _events[i] = events[i];
-                }
-
-                return _events;
-            }
-            else return null;
-        }*/
-
         public static DataTable LoadEvent()
         {
             DataTable events = new DataTable();
@@ -167,6 +96,152 @@ namespace MedHelp_dotNet.Classes
             }
             
             return events;
+        }
+
+        public static DataTable LoadDataToReport(string areaCondition, string medOrgCondition, string eventDateCondition, string DOOCondition, string ageCondition, string TreatmentDateCondition, string relaxCondition, string medHelpCondition, string HealthStatusCondition)//int area_id, int medOrg_id
+        {
+            DataTable events = new DataTable();
+
+            string query = "SELECT a.name," +
+                                 " IF(_all.AllEvent IS NULL, 0, _all.AllEvent) AllEvent," +
+                                 " IF(orgRelax.samost IS NULL, 0, orgRelax.samost) orgSamost," +
+                                 " IF(orgRelax.MotherAndChild IS NULL, 0, orgRelax.MotherAndChild) MotherAndChild," +
+                                 " IF(norgRelax.samost IS NULL, 0, norgRelax.samost) noorgSamost," +
+                                 " IF(norgRelax._WithParent IS NULL, 0, norgRelax._WithParent) WithParent," +
+                                 " IF(medHelp.PMSP IS NULL, 0, medHelp.PMSP) PMSP," +
+                                 " IF(medHelp.PSMSP IS NULL, 0, medHelp.PSMSP) PSMSP," +
+                                 " IF(medHelp.SMP IS NULL, 0, medHelp.SMP) SMP," +
+                                 " IF(reanim.ambulance IS NULL, 0, reanim.ambulance) ambulance" +
+                          " FROM(" +
+                               " SELECT e.area_id," +
+                                      " COUNT(e.id) AllEvent" +
+                               " FROM event e" +
+                               " join client c on e.client_id = c.id" +
+                               " WHERE e.deleted = 0" +
+                               areaCondition +
+                               medOrgCondition +
+                               eventDateCondition +
+                               DOOCondition +
+                               ageCondition +
+                               TreatmentDateCondition +
+                               relaxCondition+
+                               medHelpCondition +
+                               HealthStatusCondition +
+                               " GROUP BY 1) _all" +
+                          " LEFT JOIN (SELECT e.area_id," +
+                                            " CASE WHEN ri.name = 'Самостоятельно' THEN COUNT(e.id) ELSE 0 end samost," +
+                                            " CASE WHEN ri.name = 'По путевке Мать и дитя' THEN COUNT(e.id) ELSE 0 end MotherAndChild" +
+                                     " FROM event e" +
+                                     " JOIN relaxinfo ri ON e.relax_id = ri.id" +
+                                     " JOIN relaxinfo ri1 ON ri.parent_id = ri1.id" +
+                                     " join client c on e.client_id = c.id" +
+                                     " WHERE e.deleted = 0" +
+                                       " AND ri1.id = 1" +
+                                       areaCondition +
+                                       medOrgCondition +
+                                       eventDateCondition +
+                                       DOOCondition +
+                                       ageCondition +
+                                       TreatmentDateCondition +
+                                       relaxCondition +
+                                       medHelpCondition +
+                                       HealthStatusCondition +
+                                     " GROUP BY 1) orgRelax ON orgRelax.area_id = _all.area_id" +
+                          " LEFT JOIN(SELECT e.area_id," +
+                                           " CASE WHEN ri.name = 'Самостоятельно' THEN COUNT(e.id) ELSE 0 end samost," +
+                                           " CASE WHEN ri.name = 'С законным представителем' THEN COUNT(e.id) ELSE 0 end _WithParent" +
+                                    " FROM event e" +
+                                    " JOIN relaxinfo ri ON e.relax_id = ri.id" +
+                                    " JOIN relaxinfo ri1 ON ri.parent_id = ri1.id" +
+                                    " join client c on e.client_id = c.id" +
+                                    " WHERE e.deleted = 0" +
+                                      " AND ri1.id = 4" +
+                                      areaCondition +
+                                      medOrgCondition +
+                                      eventDateCondition +
+                                      DOOCondition +
+                                      ageCondition +
+                                      TreatmentDateCondition +
+                                      relaxCondition +
+                                      medHelpCondition +
+                                      HealthStatusCondition +
+                                    " GROUP BY 1) norgRelax ON norgRelax.area_id = _all.area_id" +
+                          " LEFT JOIN(SELECT e.area_id," +
+                                           " CASE WHEN HelpName = 'Специализированная медицинская помощь (стационар)' THEN COUNT(e.id) ELSE 0 END SMP," +
+                                           " CASE WHEN HelpName = 'Первичная медико-санитарная помощь (поликлиника-педиатр)' THEN COUNT(e.id) ELSE 0 END PMSP," +
+                                           " CASE WHEN HelpName = 'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)' THEN COUNT(e.id) ELSE 0 END PSMSP" +
+                                    " FROM event e" +
+                                    " join client c on e.client_id = c.id" +
+                                    " WHERE e.deleted = 0" +
+                                       areaCondition +
+                                       medOrgCondition +
+                                       eventDateCondition +
+                                       DOOCondition +
+                                       ageCondition +
+                                       TreatmentDateCondition +
+                                       relaxCondition +
+                                       medHelpCondition +
+                                       HealthStatusCondition +
+                                    " GROUP BY 1) medHelp ON medHelp.area_id = _all.area_id" +
+                          " LEFT JOIN(SELECT e.area_id," +
+                                           " CASE WHEN (TransfertedDepart IS NOT NULL AND TransfertedDepart<> '') THEN COUNT(e.id) ELSE 0 END ambulance" +
+                                    " FROM event e" +
+                                    " join client c on e.client_id = c.id" +
+                                    " WHERE e.deleted = 0" +
+                                      " AND (TransfertedDepart IS NOT NULL AND TransfertedDepart <> '')" +
+                                      areaCondition +
+                                      medOrgCondition +
+                                      eventDateCondition +
+                                      DOOCondition +
+                                      ageCondition +
+                                      TreatmentDateCondition +
+                                      relaxCondition +
+                                      medHelpCondition +
+                                      HealthStatusCondition +
+                                    " GROUP BY 1) reanim ON _all.area_id = reanim.area_id" +
+                          " JOIN area a ON _all.area_id = a.id";
+
+            using (MySqlConnection sqlConnection = ConnectionClass.GetStringConnection())
+            {
+                sqlConnection.Open();
+
+                using (MySqlCommand sqlCommand = new MySqlCommand(query, sqlConnection))
+                {
+                    events.Load(sqlCommand.ExecuteReader());
+                }
+            }
+
+            return events;
+        }
+
+        public static DateTime[] SetMinMaxDate()
+        {
+            DateTime[] dateTimes = new DateTime[2];
+            string query = "SELECT MIN(TreatmentDate) minDate, MAX(TreatmentDate) maxDate FROM event e";
+
+            using (MySqlConnection sqlConnection = ConnectionClass.GetStringConnection())
+            {
+                sqlConnection.Open();
+
+                using (MySqlCommand sqlCommand = new MySqlCommand(query, sqlConnection))
+                {
+                    using (MySqlDataReader reader = sqlCommand.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while(reader.Read())
+                            {
+                                for (int i = 0; i < 2; i++)
+                                {
+                                    dateTimes[i] = reader.GetDateTime(i);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return dateTimes;
         }
     }
 }

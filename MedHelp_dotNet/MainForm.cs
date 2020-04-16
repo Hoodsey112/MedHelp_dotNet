@@ -22,7 +22,7 @@ namespace MedHelp_dotNet
         int cntCheckRelax = 4;
         int cntCheckHelp = 3;
         string str = "'Организованный отдых (Самостоятельно)', 'Организованный отдых (По путевке Мать и дитя)', 'Неорганизованный отдых (Самостоятельно)', 'Неорганизованный отдых (С законным представителем)'";
-        string strH = "'Первичная медико-санитарная помощь (поликлиника-педитр)', 'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)', 'Специализированная медицинская помощь (стационар)'";
+        string strH = "1, 2, 3";
         string relaxCon= "2, 3, 5, 6";
         string relaxCondition= " and e.relax_id in (2, 3, 5, 6)";
         string areaCondition = "";
@@ -30,7 +30,7 @@ namespace MedHelp_dotNet
         string eventDateCondition = "";
         string DOOCondition = "";
         string TreatmentDateCondition = "";
-        string medHelpCondition = " and HelpName in ('Первичная медико-санитарная помощь (поликлиника-педитр)', 'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)', 'Специализированная медицинская помощь (стационар)')";
+        string medHelpCondition = " and HelpName in (1, 2, 3)";
         string HealthStatusCondition = "";
         string ageCondition = "";
 
@@ -594,15 +594,15 @@ namespace MedHelp_dotNet
                     {
                         case "PMSMP":
                             cntCheckHelp++;
-                            strH = "'Первичная медико-санитарная помощь (поликлиника-педитр)'";
+                            strH = "1";
                             break;
                         case "PSMSP":
                             cntCheckHelp++;
-                            strH = "'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'";
+                            strH = "2";
                             break;
                         case "SMP":
                             cntCheckHelp++;
-                            strH = "'Специализированная медицинская помощь (стационар)'";
+                            strH = "3";
                             break;
                     }
                 }
@@ -612,15 +612,15 @@ namespace MedHelp_dotNet
                     {
                         case "PMSMP":
                             cntCheckHelp++;
-                            strH += ", 'Первичная медико-санитарная помощь (поликлиника-педитр)'";
+                            strH += ", 1";
                             break;
                         case "PSMSP":
                             cntCheckHelp++;
-                            strH += ", 'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'";
+                            strH += ", 2";
                             break;
                         case "SMP":
                             cntCheckHelp++;
-                            strH += ", 'Специализированная медицинская помощь (стационар)'";
+                            strH += ", 3";
                             break;
                     }
                 }
@@ -633,33 +633,33 @@ namespace MedHelp_dotNet
                     {
                         case "PMSMP":
                             cntCheckHelp--;
-                            if (strH.IndexOf("'Первичная медико-санитарная помощь (поликлиника-педитр)'", 0) == 0)
+                            if (strH.IndexOf("1", 0) == 0)
                             {
-                                if (cntCheckHelp != 0) strH = strH.Remove(strH.IndexOf("'Первичная медико-санитарная помощь (поликлиника-педитр)'", 0), "'Первичная медико-санитарная помощь (поликлиника-педитр)', ".Length);
-                                else strH = strH.Remove(strH.IndexOf("'Первичная медико-санитарная помощь (поликлиника-педитр)'", 0), "'Первичная медико-санитарная помощь (поликлиника-педитр)'".Length);
+                                if (cntCheckHelp != 0) strH = strH.Remove(strH.IndexOf("1", 0), 3);
+                                else strH = strH.Remove(strH.IndexOf("1", 0), 1);
                             }
                             else
                             {
-                                strH = strH.Remove(strH.IndexOf("'Первичная медико-санитарная помощь (поликлиника-педитр)'", 0) - 2, ", 'Первичная медико-санитарная помощь (поликлиника-педитр)'".Length);
+                                strH = strH.Remove(strH.IndexOf("1", 0) - 2, 3);
                             }
                             break;
                         case "PSMSP":
                             cntCheckHelp--;
-                            if (strH.IndexOf("'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'", 0) == 0)
+                            if (strH.IndexOf("2", 0) == 0)
                             {
-                                if (cntCheckHelp != 0) strH = strH.Remove(strH.IndexOf("'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'", 0), "'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)', ".Length);
-                                else strH = strH.Remove(strH.IndexOf("'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'", 0), "'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'".Length);
+                                if (cntCheckHelp != 0) strH = strH.Remove(strH.IndexOf("2", 0), 3);
+                                else strH = strH.Remove(strH.IndexOf("2", 0), 1);
                             }
-                            else strH = strH.Remove(strH.IndexOf("'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'", 0) - 2, ", 'Первичная специализированная медико-санитарная помощь (поликлиника-узкий специалист)'".Length);
+                            else strH = strH.Remove(strH.IndexOf("2", 0) - 2, 3);
                             break;
                         case "SMP":
                             cntCheckHelp--;
-                            if (strH.IndexOf("'Специализированная медицинская помощь (стационар)'", 0) == 0)
+                            if (strH.IndexOf("3", 0) == 0)
                             {
-                                if (cntCheckHelp != 0) strH = strH.Remove(strH.IndexOf("'Специализированная медицинская помощь (стационар)'", 0), "'Специализированная медицинская помощь (стационар)', ".Length);
-                                else strH = strH.Remove(strH.IndexOf("'Специализированная медицинская помощь (стационар)'", 0), "'Специализированная медицинская помощь (стационар)'".Length);
+                                if (cntCheckHelp != 0) strH = strH.Remove(strH.IndexOf("3", 0), 3);
+                                else strH = strH.Remove(strH.IndexOf("3", 0), 1);
                             }
-                            else strH = strH.Remove(strH.IndexOf("'Специализированная медицинская помощь (стационар)'", 0) - 2, ", 'Специализированная медицинская помощь (стационар)'".Length);
+                            else strH = strH.Remove(strH.IndexOf("3", 0) - 2, 3);
                             break;
                     }
                 }
@@ -673,7 +673,7 @@ namespace MedHelp_dotNet
             }
             else
             {
-                condition = $"[HelpName] is null";
+                condition = $"[HelpName] = 0";
                 medHelpCondition = "";
             }
 
@@ -771,16 +771,22 @@ namespace MedHelp_dotNet
                 dateTimes = Classes.EventClass.SetMinMaxDate();
 
                 DataTable wordExport = new DataTable();
+                DataTable textExport = new DataTable();
+                
                 wordExport = Classes.EventClass.LoadDataToReport(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, relaxCondition, medHelpCondition, HealthStatusCondition);
+                textExport = Classes.EventClass.ReportWord(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, relaxCondition, medHelpCondition, HealthStatusCondition);
 
-                Classes.WordClass.ExportWordData(wordExport, dateTimes[0], dateTimes[1]);
+                Classes.WordClass.ExportWordData(wordExport, textExport, dateTimes[0], dateTimes[1]);
             }
             else
             {
                 DataTable wordExport = new DataTable();
-                wordExport = Classes.EventClass.LoadDataToReport(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, relaxCondition, medHelpCondition, HealthStatusCondition);
+                DataTable textExport = new DataTable();
 
-                Classes.WordClass.ExportWordData(wordExport, TreatmentDateDP_From.Value, TreatmentDateDP_To.Value);
+                wordExport = Classes.EventClass.LoadDataToReport(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, relaxCondition, medHelpCondition, HealthStatusCondition);
+                textExport = Classes.EventClass.ReportWord(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, relaxCondition, medHelpCondition, HealthStatusCondition);
+
+                Classes.WordClass.ExportWordData(wordExport, textExport, TreatmentDateDP_From.Value, TreatmentDateDP_To.Value);
             }   
         }
     }

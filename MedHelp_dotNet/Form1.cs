@@ -21,7 +21,7 @@ namespace MedHelp_dotNet
         public Classes.ClientClass client;
         bool firstStart = true;
         int RelaxInfo = 0;
-        string HelpName = "";
+        int HelpName = 0;
         
         public AddEventForm()
         {
@@ -242,7 +242,7 @@ namespace MedHelp_dotNet
                         {
                             if (RelaxInfo != 0)
                             {
-                                if (HelpName != "")
+                                if (HelpName != 0)
                                 {
                                     if (TransfertedCheck.Checked)
                                     {
@@ -288,7 +288,7 @@ namespace MedHelp_dotNet
                 MKB10TB.Enabled = true;
                 SpecialityTB.Enabled = false;
                 DepartmentTB.Enabled = false;
-                HelpName = HelpRB_1.Text;
+                HelpName = 1;
             }
         }
 
@@ -300,7 +300,7 @@ namespace MedHelp_dotNet
                 MKB10TB.Enabled = true;
                 SpecialityTB.Enabled = true;
                 DepartmentTB.Enabled = false;
-                HelpName = HelpRB_2.Text;
+                HelpName = 2;
             }
         }
 
@@ -312,7 +312,7 @@ namespace MedHelp_dotNet
                 MKB10TB.Enabled = true;
                 SpecialityTB.Enabled = false;
                 DepartmentTB.Enabled = true;
-                HelpName = HelpRB_3.Text;
+                HelpName = 3;
             }
         }
 

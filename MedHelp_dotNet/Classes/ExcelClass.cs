@@ -6,10 +6,9 @@ namespace MedHelp_dotNet.Classes
 {
     public class ExcelClass
     {
-        static _Excel.Application ExcelApp = new _Excel.Application();
-        
         public static void ExportExcelData(DataView exportData)
         {
+            _Excel.Application ExcelApp = new _Excel.Application();
             ExcelApp.Workbooks.Add();
             _Excel._Worksheet workSheet = (_Excel.Worksheet)ExcelApp.ActiveSheet;
             workSheet.PageSetup.Orientation = _Excel.XlPageOrientation.xlLandscape;
@@ -173,6 +172,7 @@ namespace MedHelp_dotNet.Classes
                         case 0:
                         case 8:
                         case 9:
+                        case 13:
                             break;
                         case 3:
                         case 7:

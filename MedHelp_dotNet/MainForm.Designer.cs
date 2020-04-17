@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.cbHealthStatus = new System.Windows.Forms.ComboBox();
@@ -81,17 +81,6 @@
             this.cbArea = new System.Windows.Forms.ComboBox();
             this.AreaCB = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.AddEventForm = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.AddEventStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.ExcelExportBTN = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.WordExportBTN = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.SettingStrip = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Server = new System.Windows.Forms.ToolStripStatusLabel();
-            this.DataBase = new System.Windows.Forms.ToolStripStatusLabel();
             this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medOrg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EventDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,6 +102,17 @@
             this.TransfertedDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransfertedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HealthStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddEventForm = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AddEventStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.ExcelExportBTN = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.WordExportBTN = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.SettingStrip = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Server = new System.Windows.Forms.ToolStripStatusLabel();
+            this.DataBase = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -675,20 +675,20 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.area,
@@ -713,14 +713,14 @@
             this.TransfertedDate,
             this.HealthStatus});
             this.dataGridView1.ContextMenuStrip = this.AddEventForm;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.Location = new System.Drawing.Point(12, 380);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -729,107 +729,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(776, 279);
             this.dataGridView1.TabIndex = 3;
-            // 
-            // AddEventForm
-            // 
-            this.AddEventForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddEventStrip});
-            this.AddEventForm.Name = "AddEventForm";
-            this.AddEventForm.Size = new System.Drawing.Size(218, 26);
-            // 
-            // AddEventStrip
-            // 
-            this.AddEventStrip.Name = "AddEventStrip";
-            this.AddEventStrip.Size = new System.Drawing.Size(217, 22);
-            this.AddEventStrip.Text = "Добавить новое обращение";
-            this.AddEventStrip.Click += new System.EventHandler(this.AddEventStrip_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.ExcelExportBTN);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.WordExportBTN);
-            this.groupBox2.Location = new System.Drawing.Point(498, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(290, 167);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Отчет";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(120, 107);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(127, 13);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Экспорт данных в Excel";
-            // 
-            // ExcelExportBTN
-            // 
-            this.ExcelExportBTN.BackgroundImage = global::MedHelp_dotNet.Properties.Resources._1486565571_microsoft_office_excel_81549;
-            this.ExcelExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ExcelExportBTN.Location = new System.Drawing.Point(57, 87);
-            this.ExcelExportBTN.Name = "ExcelExportBTN";
-            this.ExcelExportBTN.Size = new System.Drawing.Size(57, 57);
-            this.ExcelExportBTN.TabIndex = 2;
-            this.ExcelExportBTN.UseVisualStyleBackColor = true;
-            this.ExcelExportBTN.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(120, 45);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(127, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Экспорт данных в Word";
-            // 
-            // WordExportBTN
-            // 
-            this.WordExportBTN.BackgroundImage = global::MedHelp_dotNet.Properties.Resources._1486565572_microsoft_office_word_81551;
-            this.WordExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.WordExportBTN.Location = new System.Drawing.Point(57, 23);
-            this.WordExportBTN.Name = "WordExportBTN";
-            this.WordExportBTN.Size = new System.Drawing.Size(57, 57);
-            this.WordExportBTN.TabIndex = 0;
-            this.WordExportBTN.UseVisualStyleBackColor = true;
-            this.WordExportBTN.Click += new System.EventHandler(this.WordExportBTN_Click);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SettingStrip,
-            this.Server,
-            this.DataBase});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 676);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
-            this.statusStrip1.TabIndex = 4;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // SettingStrip
-            // 
-            this.SettingStrip.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.SettingStrip.Name = "SettingStrip";
-            this.SettingStrip.Size = new System.Drawing.Size(65, 17);
-            this.SettingStrip.Text = "Настройки";
-            // 
-            // Server
-            // 
-            this.Server.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.Server.Name = "Server";
-            this.Server.Size = new System.Drawing.Size(52, 17);
-            this.Server.Text = "Сервер:";
-            // 
-            // DataBase
-            // 
-            this.DataBase.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.DataBase.Name = "DataBase";
-            this.DataBase.Size = new System.Drawing.Size(80, 17);
-            this.DataBase.Text = "База данных:";
             // 
             // area
             // 
@@ -980,6 +879,107 @@
             this.HealthStatus.Name = "HealthStatus";
             this.HealthStatus.ReadOnly = true;
             // 
+            // AddEventForm
+            // 
+            this.AddEventForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddEventStrip});
+            this.AddEventForm.Name = "AddEventForm";
+            this.AddEventForm.Size = new System.Drawing.Size(218, 26);
+            // 
+            // AddEventStrip
+            // 
+            this.AddEventStrip.Name = "AddEventStrip";
+            this.AddEventStrip.Size = new System.Drawing.Size(217, 22);
+            this.AddEventStrip.Text = "Добавить новое обращение";
+            this.AddEventStrip.Click += new System.EventHandler(this.AddEventStrip_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.ExcelExportBTN);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.WordExportBTN);
+            this.groupBox2.Location = new System.Drawing.Point(498, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(290, 167);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Отчет";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(120, 107);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(127, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Экспорт данных в Excel";
+            // 
+            // ExcelExportBTN
+            // 
+            this.ExcelExportBTN.BackgroundImage = global::MedHelp_dotNet.Properties.Resources._1486565571_microsoft_office_excel_81549;
+            this.ExcelExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ExcelExportBTN.Location = new System.Drawing.Point(57, 87);
+            this.ExcelExportBTN.Name = "ExcelExportBTN";
+            this.ExcelExportBTN.Size = new System.Drawing.Size(57, 57);
+            this.ExcelExportBTN.TabIndex = 2;
+            this.ExcelExportBTN.UseVisualStyleBackColor = true;
+            this.ExcelExportBTN.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(120, 45);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(127, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Экспорт данных в Word";
+            // 
+            // WordExportBTN
+            // 
+            this.WordExportBTN.BackgroundImage = global::MedHelp_dotNet.Properties.Resources._1486565572_microsoft_office_word_81551;
+            this.WordExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.WordExportBTN.Location = new System.Drawing.Point(57, 23);
+            this.WordExportBTN.Name = "WordExportBTN";
+            this.WordExportBTN.Size = new System.Drawing.Size(57, 57);
+            this.WordExportBTN.TabIndex = 1;
+            this.WordExportBTN.UseVisualStyleBackColor = true;
+            this.WordExportBTN.Click += new System.EventHandler(this.WordExportBTN_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SettingStrip,
+            this.Server,
+            this.DataBase});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 676);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // SettingStrip
+            // 
+            this.SettingStrip.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.SettingStrip.Name = "SettingStrip";
+            this.SettingStrip.Size = new System.Drawing.Size(65, 17);
+            this.SettingStrip.Text = "Настройки";
+            // 
+            // Server
+            // 
+            this.Server.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.Server.Name = "Server";
+            this.Server.Size = new System.Drawing.Size(52, 17);
+            this.Server.Text = "Сервер:";
+            // 
+            // DataBase
+            // 
+            this.DataBase.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.DataBase.Name = "DataBase";
+            this.DataBase.Size = new System.Drawing.Size(80, 17);
+            this.DataBase.Text = "База данных:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -992,7 +992,7 @@
             this.MinimumSize = new System.Drawing.Size(808, 689);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
+            this.Text = "Обращения за мед помощью";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.groupBox1.ResumeLayout(false);

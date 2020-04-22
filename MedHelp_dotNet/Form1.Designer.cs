@@ -76,7 +76,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ClientMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.FoundClient = new System.Windows.Forms.ToolStripMenuItem();
             this.AddClient = new System.Windows.Forms.ToolStripMenuItem();
             this.ClientAddressTB = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -308,7 +307,8 @@
             // 
             // MKB10TB
             // 
-            this.MKB10TB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.MKB10TB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.MKB10TB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.MKB10TB.Enabled = false;
             this.MKB10TB.FormattingEnabled = true;
             this.MKB10TB.Location = new System.Drawing.Point(6, 62);
@@ -600,23 +600,15 @@
             // ClientMenuStrip
             // 
             this.ClientMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.FoundClient,
             this.AddClient});
             this.ClientMenuStrip.Name = "ClientMenuStrip";
-            this.ClientMenuStrip.Size = new System.Drawing.Size(125, 48);
-            // 
-            // FoundClient
-            // 
-            this.FoundClient.Name = "FoundClient";
-            this.FoundClient.Size = new System.Drawing.Size(124, 22);
-            this.FoundClient.Text = "Найти";
-            this.FoundClient.Click += new System.EventHandler(this.FoundClient_Click);
+            this.ClientMenuStrip.Size = new System.Drawing.Size(160, 26);
             // 
             // AddClient
             // 
             this.AddClient.Name = "AddClient";
-            this.AddClient.Size = new System.Drawing.Size(124, 22);
-            this.AddClient.Text = "Добавить";
+            this.AddClient.Size = new System.Drawing.Size(159, 22);
+            this.AddClient.Text = "Найти/Добавить";
             this.AddClient.Click += new System.EventHandler(this.AddClient_Click);
             // 
             // ClientAddressTB
@@ -978,7 +970,6 @@
         private System.Windows.Forms.ToolStripMenuItem EditMO;
         private System.Windows.Forms.ToolStripMenuItem EditArea;
         private System.Windows.Forms.ContextMenuStrip ClientMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem FoundClient;
         private System.Windows.Forms.ToolStripMenuItem AddClient;
         private System.Windows.Forms.RadioButton NONORGWithParentRelaxInfoRB;
         private System.Windows.Forms.RadioButton NONORGHimselfRelaxInfoRB;

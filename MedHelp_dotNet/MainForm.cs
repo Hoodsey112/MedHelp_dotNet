@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using NLog;
@@ -60,7 +55,7 @@ namespace MedHelp_dotNet
             }
             catch(Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -75,6 +70,7 @@ namespace MedHelp_dotNet
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 eventsData = Classes.EventClass.LoadEvent();
                 dataGridView1.DataSource = eventsData;
 
@@ -82,10 +78,12 @@ namespace MedHelp_dotNet
                 cbArea.ValueMember = "id";
                 cbArea.DataSource = areas;
                 cbArea.SelectedIndex = -1;
+                Cursor.Current = Cursors.Default;
             }
             catch(Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -94,6 +92,7 @@ namespace MedHelp_dotNet
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if (AreaCB.Checked)
                 {
                     cbArea.Enabled = true;
@@ -109,10 +108,12 @@ namespace MedHelp_dotNet
                     eventsData.DefaultView.RowFilter = string.Format($"Convert([areaName], System.String) like '%'");
                     areaCondition = "";
                 }
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -121,6 +122,7 @@ namespace MedHelp_dotNet
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if (medOrgCB.Checked)
                 {
                     cbMedOrg.Enabled = true;
@@ -136,10 +138,12 @@ namespace MedHelp_dotNet
                     eventsData.DefaultView.RowFilter = string.Format($"Convert([medOrgName], System.String) like '%'");
                     medOrgCondition = "";
                 }
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -148,6 +152,7 @@ namespace MedHelp_dotNet
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if (eventDateCB.Checked)
                 {
                     eventDate_From.Enabled = true;
@@ -168,10 +173,12 @@ namespace MedHelp_dotNet
                     eventsData.DefaultView.RowFilter = string.Format($"[eventDate] >= '{DateTime.MinValue:dd.MM.yyyy}'");
                     eventDateCondition = "";
                 }
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -180,6 +187,7 @@ namespace MedHelp_dotNet
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if (DOOCB.Checked)
                 {
                     cbDOO.Enabled = true;
@@ -195,10 +203,12 @@ namespace MedHelp_dotNet
                     eventsData.DefaultView.RowFilter = string.Format($"Convert([DOOName], System.String) like '%'");
                     DOOCondition = "";
                 }
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -207,6 +217,7 @@ namespace MedHelp_dotNet
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if (ClientFIOCB.Checked)
                 {
                     ClientFIOTB.Enabled = true;
@@ -217,10 +228,12 @@ namespace MedHelp_dotNet
                     ClientFIOTB.Enabled = false;
                     eventsData.DefaultView.RowFilter = string.Format($"Convert([ClientFIO], System.String) like '%'");
                 }
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -257,7 +270,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -289,7 +302,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -311,7 +324,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -338,7 +351,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -347,6 +360,7 @@ namespace MedHelp_dotNet
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if (!firstStart)
                 {
                     if (cbArea.SelectedItem != null)
@@ -360,10 +374,12 @@ namespace MedHelp_dotNet
                         areaCondition = "";
                     }
                 }
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -372,6 +388,7 @@ namespace MedHelp_dotNet
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if (!firstStart)
                 {
                     if (cbMedOrg.SelectedItem != null)
@@ -385,10 +402,12 @@ namespace MedHelp_dotNet
                         medOrgCondition = $"";
                     }
                 }
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -397,6 +416,7 @@ namespace MedHelp_dotNet
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if (!firstStart)
                 {
                     if (cbDOO.SelectedItem != null)
@@ -410,10 +430,12 @@ namespace MedHelp_dotNet
                         DOOCondition = "";
                     }
                 }
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -427,7 +449,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -436,16 +458,19 @@ namespace MedHelp_dotNet
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if (AreaCB.Checked) medOrgN = Classes.MOClass.LoadMOList(int.Parse(cbArea.SelectedValue.ToString()));
                 else medOrgN = Classes.MOClass.LoadMOList();
 
                 cbMedOrg.DataSource = medOrgN;
                 cbMedOrg.DisplayMember = "name";
                 cbMedOrg.ValueMember = "id";
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -454,16 +479,19 @@ namespace MedHelp_dotNet
         {
             try
             {
+                Cursor.Current = Cursors.WaitCursor;
                 if (AreaCB.Checked) HealthOrg = Classes.HealthOrgClass.LoadHealthOrgList(int.Parse(cbArea.SelectedValue.ToString()));
                 else HealthOrg = Classes.HealthOrgClass.LoadHealthOrgList();
 
                 cbDOO.DataSource = HealthOrg;
                 cbDOO.DisplayMember = "ShortName";
                 cbDOO.ValueMember = "id";
+                Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -485,7 +513,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -507,7 +535,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -529,7 +557,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -551,7 +579,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -565,7 +593,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -582,7 +610,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -595,7 +623,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -608,7 +636,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -621,7 +649,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -634,7 +662,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -808,7 +836,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
@@ -913,7 +941,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
@@ -927,7 +955,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -940,7 +968,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -953,7 +981,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -975,7 +1003,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -997,7 +1025,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -1017,7 +1045,8 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -1048,7 +1077,8 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -1067,7 +1097,7 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -1082,7 +1112,8 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -1119,7 +1150,45 @@ namespace MedHelp_dotNet
             }
             catch (Exception ex)
             {
-                logger.Error(ex, $"#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DuplicateBTN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                using (DuplicateForm dupForm = new DuplicateForm())
+                {
+                    dupForm.ShowDialog();
+                }
+                LoadEvent_Area();
+                Cursor.Current = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void deleteEvent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                Classes.EventClass.RemoveEvent(int.Parse(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString()));
+                LoadEvent_Area();
+                Cursor.Current = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

@@ -81,19 +81,6 @@
             this.cbArea = new System.Windows.Forms.ComboBox();
             this.AreaCB = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.AddEventForm = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.AddEventStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.SettingStrip = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Server = new System.Windows.Forms.ToolStripStatusLabel();
-            this.DataBase = new System.Windows.Forms.ToolStripStatusLabel();
-            this.DuplicateBTN = new System.Windows.Forms.Button();
-            this.ExcelExportBTN = new System.Windows.Forms.Button();
-            this.WordExportBTN = new System.Windows.Forms.Button();
-            this.deleteEvent = new System.Windows.Forms.ToolStripMenuItem();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.area = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.medOrg = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,6 +103,20 @@
             this.TransfertedDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransfertedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HealthStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddEventForm = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AddEventStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteEvent = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.ExcelExportBTN = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.WordExportBTN = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.SettingStrip = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Server = new System.Windows.Forms.ToolStripStatusLabel();
+            this.DataBase = new System.Windows.Forms.ToolStripStatusLabel();
+            this.DuplicateBTN = new System.Windows.Forms.Button();
+            this.EditEventStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -734,126 +735,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(776, 279);
             this.dataGridView1.TabIndex = 3;
             // 
-            // AddEventForm
-            // 
-            this.AddEventForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddEventStrip,
-            this.deleteEvent});
-            this.AddEventForm.Name = "AddEventForm";
-            this.AddEventForm.Size = new System.Drawing.Size(218, 48);
-            // 
-            // AddEventStrip
-            // 
-            this.AddEventStrip.Name = "AddEventStrip";
-            this.AddEventStrip.Size = new System.Drawing.Size(217, 22);
-            this.AddEventStrip.Text = "Добавить новое обращение";
-            this.AddEventStrip.Click += new System.EventHandler(this.AddEventStrip_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.ExcelExportBTN);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.WordExportBTN);
-            this.groupBox2.Location = new System.Drawing.Point(498, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(290, 167);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Отчет";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(120, 107);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(127, 13);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Экспорт данных в Excel";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(120, 45);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(127, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Экспорт данных в Word";
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SettingStrip,
-            this.Server,
-            this.DataBase});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 676);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
-            this.statusStrip1.TabIndex = 4;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // SettingStrip
-            // 
-            this.SettingStrip.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.SettingStrip.Name = "SettingStrip";
-            this.SettingStrip.Size = new System.Drawing.Size(65, 17);
-            this.SettingStrip.Text = "Настройки";
-            // 
-            // Server
-            // 
-            this.Server.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.Server.Name = "Server";
-            this.Server.Size = new System.Drawing.Size(52, 17);
-            this.Server.Text = "Сервер:";
-            // 
-            // DataBase
-            // 
-            this.DataBase.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
-            this.DataBase.Name = "DataBase";
-            this.DataBase.Size = new System.Drawing.Size(80, 17);
-            this.DataBase.Text = "База данных:";
-            // 
-            // DuplicateBTN
-            // 
-            this.DuplicateBTN.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.DuplicateBTN.Location = new System.Drawing.Point(498, 185);
-            this.DuplicateBTN.Name = "DuplicateBTN";
-            this.DuplicateBTN.Size = new System.Drawing.Size(290, 23);
-            this.DuplicateBTN.TabIndex = 6;
-            this.DuplicateBTN.Text = "Дубли";
-            this.DuplicateBTN.UseVisualStyleBackColor = true;
-            this.DuplicateBTN.Click += new System.EventHandler(this.DuplicateBTN_Click);
-            // 
-            // ExcelExportBTN
-            // 
-            this.ExcelExportBTN.BackgroundImage = global::MedHelp_dotNet.Properties.Resources._1486565571_microsoft_office_excel_81549;
-            this.ExcelExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ExcelExportBTN.Location = new System.Drawing.Point(57, 87);
-            this.ExcelExportBTN.Name = "ExcelExportBTN";
-            this.ExcelExportBTN.Size = new System.Drawing.Size(57, 57);
-            this.ExcelExportBTN.TabIndex = 2;
-            this.ExcelExportBTN.UseVisualStyleBackColor = true;
-            this.ExcelExportBTN.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // WordExportBTN
-            // 
-            this.WordExportBTN.BackgroundImage = global::MedHelp_dotNet.Properties.Resources._1486565572_microsoft_office_word_81551;
-            this.WordExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.WordExportBTN.Location = new System.Drawing.Point(57, 23);
-            this.WordExportBTN.Name = "WordExportBTN";
-            this.WordExportBTN.Size = new System.Drawing.Size(57, 57);
-            this.WordExportBTN.TabIndex = 1;
-            this.WordExportBTN.UseVisualStyleBackColor = true;
-            this.WordExportBTN.Click += new System.EventHandler(this.WordExportBTN_Click);
-            // 
-            // deleteEvent
-            // 
-            this.deleteEvent.Name = "deleteEvent";
-            this.deleteEvent.Size = new System.Drawing.Size(217, 22);
-            this.deleteEvent.Text = "Удалить обращение";
-            this.deleteEvent.Click += new System.EventHandler(this.deleteEvent_Click);
-            // 
             // id
             // 
             this.id.DataPropertyName = "id";
@@ -1011,6 +892,134 @@
             this.HealthStatus.Name = "HealthStatus";
             this.HealthStatus.ReadOnly = true;
             // 
+            // AddEventForm
+            // 
+            this.AddEventForm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddEventStrip,
+            this.EditEventStrip,
+            this.deleteEvent});
+            this.AddEventForm.Name = "AddEventForm";
+            this.AddEventForm.Size = new System.Drawing.Size(218, 92);
+            // 
+            // AddEventStrip
+            // 
+            this.AddEventStrip.Name = "AddEventStrip";
+            this.AddEventStrip.Size = new System.Drawing.Size(217, 22);
+            this.AddEventStrip.Text = "Добавить новое обращение";
+            this.AddEventStrip.Click += new System.EventHandler(this.AddEventStrip_Click);
+            // 
+            // deleteEvent
+            // 
+            this.deleteEvent.Name = "deleteEvent";
+            this.deleteEvent.Size = new System.Drawing.Size(217, 22);
+            this.deleteEvent.Text = "Удалить обращение";
+            this.deleteEvent.Click += new System.EventHandler(this.deleteEvent_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.ExcelExportBTN);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.WordExportBTN);
+            this.groupBox2.Location = new System.Drawing.Point(498, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(290, 167);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Отчет";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(120, 107);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(127, 13);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Экспорт данных в Excel";
+            // 
+            // ExcelExportBTN
+            // 
+            this.ExcelExportBTN.BackgroundImage = global::MedHelp_dotNet.Properties.Resources._1486565571_microsoft_office_excel_81549;
+            this.ExcelExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ExcelExportBTN.Location = new System.Drawing.Point(57, 87);
+            this.ExcelExportBTN.Name = "ExcelExportBTN";
+            this.ExcelExportBTN.Size = new System.Drawing.Size(57, 57);
+            this.ExcelExportBTN.TabIndex = 2;
+            this.ExcelExportBTN.UseVisualStyleBackColor = true;
+            this.ExcelExportBTN.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(120, 45);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(127, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Экспорт данных в Word";
+            // 
+            // WordExportBTN
+            // 
+            this.WordExportBTN.BackgroundImage = global::MedHelp_dotNet.Properties.Resources._1486565572_microsoft_office_word_81551;
+            this.WordExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.WordExportBTN.Location = new System.Drawing.Point(57, 23);
+            this.WordExportBTN.Name = "WordExportBTN";
+            this.WordExportBTN.Size = new System.Drawing.Size(57, 57);
+            this.WordExportBTN.TabIndex = 1;
+            this.WordExportBTN.UseVisualStyleBackColor = true;
+            this.WordExportBTN.Click += new System.EventHandler(this.WordExportBTN_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SettingStrip,
+            this.Server,
+            this.DataBase});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 676);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // SettingStrip
+            // 
+            this.SettingStrip.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.SettingStrip.Name = "SettingStrip";
+            this.SettingStrip.Size = new System.Drawing.Size(65, 17);
+            this.SettingStrip.Text = "Настройки";
+            // 
+            // Server
+            // 
+            this.Server.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.Server.Name = "Server";
+            this.Server.Size = new System.Drawing.Size(52, 17);
+            this.Server.Text = "Сервер:";
+            // 
+            // DataBase
+            // 
+            this.DataBase.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+            this.DataBase.Name = "DataBase";
+            this.DataBase.Size = new System.Drawing.Size(80, 17);
+            this.DataBase.Text = "База данных:";
+            // 
+            // DuplicateBTN
+            // 
+            this.DuplicateBTN.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.DuplicateBTN.Location = new System.Drawing.Point(498, 185);
+            this.DuplicateBTN.Name = "DuplicateBTN";
+            this.DuplicateBTN.Size = new System.Drawing.Size(290, 23);
+            this.DuplicateBTN.TabIndex = 6;
+            this.DuplicateBTN.Text = "Дубли";
+            this.DuplicateBTN.UseVisualStyleBackColor = true;
+            this.DuplicateBTN.Click += new System.EventHandler(this.DuplicateBTN_Click);
+            // 
+            // EditEventStrip
+            // 
+            this.EditEventStrip.Name = "EditEventStrip";
+            this.EditEventStrip.Size = new System.Drawing.Size(217, 22);
+            this.EditEventStrip.Text = "Редактировать обращение";
+            this.EditEventStrip.Click += new System.EventHandler(this.EditEventStrip_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1148,5 +1157,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TransfertedDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransfertedDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn HealthStatus;
+        private System.Windows.Forms.ToolStripMenuItem EditEventStrip;
     }
 }

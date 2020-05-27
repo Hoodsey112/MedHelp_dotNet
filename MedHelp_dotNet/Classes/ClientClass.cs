@@ -42,6 +42,53 @@ namespace MedHelp_dotNet.Classes
             }
         }
 
+        public static ClientClass LoadClientData(int client_id)
+        {
+            try
+            {
+                ClientClass client = new ClientClass();
+
+
+                string query = $"select id," +
+                                      " FIO," +
+                                      " birthDate," +
+                                      " if(sex = 1, 'Мужской', if(sex = 2, 'Женский', 'Не указан')) sex," +
+                                      " Address" +
+                                     $" from client where deleted = 0 and id = {client_id}";
+
+                using (MySqlConnection sqlConnection = ConnectionClass.GetStringConnection())
+                {
+                    sqlConnection.Open();
+
+                    using (MySqlCommand sqlCommand = new MySqlCommand(query, sqlConnection))
+                    {
+                        using (MySqlDataReader sqlReader = sqlCommand.ExecuteReader())
+                        {
+                            if (sqlReader.HasRows)
+                            {
+                                while(sqlReader.Read())
+                                {
+                                    client.id = sqlReader.GetInt32(0);
+                                    client.FIO = sqlReader.GetString(1);
+                                    client.birthDate = sqlReader.GetDateTime(2);
+                                    client.sex = sqlReader.GetString(3);
+                                    client.Address = sqlReader.GetString(4);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return client;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
         public static void InsertClientData(string FIO, DateTime birthDate, string Address, int sex)
         {
             try

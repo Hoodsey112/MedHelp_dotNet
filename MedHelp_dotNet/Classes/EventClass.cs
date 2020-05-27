@@ -37,7 +37,7 @@ namespace MedHelp_dotNet.Classes
             try
             {
                 string query = "insert into event (area_id, medOrg_id, eventDate, doo_id, client_id, relax_id, TreatmentDate, HelpName, DiagName, DiagID, Speciality, Department, TransfertedDepart, TransfertedDate, HealthStatus)" +
-                             $" value ({area_id}, {medOrg_id}, '{eventDate.ToString("yyyy-MM-dd")}', {doo_id}, {client_id}, {relax_id}, '{TreatmentDate.ToString("yyyy-MM-dd")}', '{HelpName}', '{DiagName}', '{DiagID}', '{Speciality}', '{Department}', '{TransfertedDepart}', '{(TransfertedDate.ToString("yyyy-MM-dd") == DateTime.MinValue.ToString("yyyy-MM-dd") ? "0000-00-00" : TransfertedDate.ToString("yyyy - MM - dd"))}', '{HealthStatus}')";
+                             $" value ({area_id}, {medOrg_id}, '{eventDate:yyyy-MM-dd}', {doo_id}, {client_id}, {relax_id}, '{TreatmentDate:yyyy-MM-dd}', '{HelpName}', '{DiagName}', '{DiagID}', '{Speciality}', '{Department}', '{TransfertedDepart}', '{(TransfertedDate.ToString("yyyy-MM-dd") == DateTime.MinValue.ToString("yyyy-MM-dd") ? "0000-00-00" : TransfertedDate.ToString("yyyy-MM-dd"))}', '{HealthStatus}')";
 
                 using (MySqlConnection sqlConnection = ConnectionClass.GetStringConnection())
                 {
@@ -53,6 +53,78 @@ namespace MedHelp_dotNet.Classes
             {
                 logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public static void UpdateEvent(int event_id, int area_id, int medOrg_id, DateTime eventDate, int doo_id, int client_id, int relax_id, DateTime TreatmentDate, int HelpName, string DiagName, string DiagID, string Speciality, string Department, string TransfertedDepart, DateTime TransfertedDate, string HealthStatus)
+        {
+            try
+            { 
+                string query = $"update event set area_id = {area_id}, medOrg_id = {medOrg_id}, eventDate = '{eventDate:yyyy-MM-dd}', doo_id = {doo_id}, client_id = {client_id}, relax_id = {relax_id}, TreatmentDate = '{TreatmentDate:yyyy-MM-dd}', HelpName = '{HelpName}', DiagName = '{DiagName}', DiagID = '{DiagID}', Speciality = '{Speciality}', Department = '{Department}', TransfertedDepart = '{TransfertedDepart}', TransfertedDate = '{TransfertedDate:yyyy-MM-dd}', HealthStatus = '{HealthStatus}' where id = {event_id} and deleted = 0";
+
+                using (MySqlConnection sqlConnection = ConnectionClass.GetStringConnection())
+                {
+                    sqlConnection.Open();
+
+                    using (MySqlCommand sqlCommand = new MySqlCommand(query, sqlConnection))
+                    {
+                        sqlCommand.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
+
+        public static DataTable EditEvent(int event_id)
+        {
+            try
+            {
+                DataTable editData = new DataTable();
+
+                string query = "select e.id," +
+                                     " a.name as AreaName," +
+                                     " mo.name as medOrgName," +
+                                     " e.eventDate," +
+                                     " doo.ShortName as DOOName," +
+                                     " e.client_id," +
+                                     " e.relax_id," +
+                                     " e.TreatmentDate," + //7
+                                     " e.HelpName," +
+                                     " e.DiagName," +
+                                     " e.DiagID," +
+                                     " e.Speciality," + //11
+                                     " e.Department," +
+                                     " e.TransfertedDepart," + //13
+                                     " if (e.TransfertedDate = '0000-00-00', CURRENT_DATE(), e.TransfertedDate) as TransfertedDate," +
+                                     " e.HealthStatus" + //15
+                              " from event as e" +
+                              " join area as a on e.area_id = a.id" +
+                              " join medorganisation as mo on e.medOrg_id = mo.id" +
+                              " join childrenshealthorganization as doo on e.doo_id = doo.id" +
+                              " where e.deleted = 0" +
+                             $"   and e.id = {event_id}";
+
+                using (MySqlConnection sqlConnection = ConnectionClass.GetStringConnection())
+                {
+                    sqlConnection.Open();
+
+                    using (MySqlCommand sqlCommand = new MySqlCommand(query, sqlConnection))
+                    {
+                        editData.Load(sqlCommand.ExecuteReader());
+                    }
+                }
+
+                return editData;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
         }
 
@@ -97,7 +169,8 @@ namespace MedHelp_dotNet.Classes
                               "   and doo.deleted = 0" +
                               "   and c.deleted = 0" +
                               "   and a.deleted = 0" +
-                              "   and mo.deleted = 0";
+                              "   and mo.deleted = 0" +
+                              " order by e.id asc";
 
                 using (MySqlConnection sqlConnection = ConnectionClass.GetStringConnection())
                 {
@@ -254,7 +327,7 @@ namespace MedHelp_dotNet.Classes
                                      " _area.AllEvent," +
                                      " ri.name," +
                                      " _relax.relaxCNT," +
-                                     " doo.ShortName," +
+                                     " doo.FullName," +
                                      " _doo.dooCNT," +
                                      " hc.FullName," +
                                      " _help.helpCNT," +

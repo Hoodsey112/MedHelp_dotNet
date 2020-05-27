@@ -1035,7 +1035,7 @@ namespace MedHelp_dotNet
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
-                using (AddEventForm addForm = new AddEventForm())
+                using (AddEventForm addForm = new AddEventForm(0))
                 {
                     addForm.ShowDialog();
                 }
@@ -1182,6 +1182,27 @@ namespace MedHelp_dotNet
             {
                 Cursor.Current = Cursors.WaitCursor;
                 Classes.EventClass.RemoveEvent(int.Parse(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString()));
+                LoadEvent_Area();
+                Cursor.Current = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void EditEventStrip_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                using (AddEventForm addForm = new AddEventForm(int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString())))
+                {
+                    addForm.ShowDialog();
+                }
+
                 LoadEvent_Area();
                 Cursor.Current = Cursors.Default;
             }

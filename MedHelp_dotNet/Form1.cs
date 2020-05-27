@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
+using Microsoft.Office.Interop.Excel;
 using NLog;
 
 namespace MedHelp_dotNet
@@ -16,14 +17,17 @@ namespace MedHelp_dotNet
         Classes.MOClass[] moClass;
         Classes.HealthOrgClass[] healthClass;
         Classes.MKBClass[] MKB;
+        System.Data.DataTable editData;
         //List<Classes.MKBClass> MKB = new List<Classes.MKBClass>();
 
         public Classes.ClientClass client;
         bool firstStart = true;
+        bool update = false;
         int RelaxInfo = 0;
         int HelpName = 0;
-        
-        public AddEventForm()
+        int event_id = 0;
+
+        public AddEventForm(int _event_id)
         {
             try
             {
@@ -40,11 +44,104 @@ namespace MedHelp_dotNet
                 //----------------------------------
 
                 firstStart = false;
+                if (_event_id != 0)
+                {
+                    update = true;
+                    event_id = _event_id;
+                    EditData(_event_id);
+                    AddBTN.Text = "Сохранить";
+                }
             }
             catch(Exception ex)
             {
                 logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void EditData(int event_id)
+        {
+            editData = Classes.EventClass.EditEvent(event_id);
+            client = Classes.ClientClass.LoadClientData(int.Parse(editData.Rows[0][5].ToString()));
+
+            if (client.FIO != null)
+            {
+                ClientFIOTB.Text = client.FIO;
+                ClientBirthDate.Value = client.birthDate;
+                cbClientSex.SelectedItem = client.sex;
+                ClientAddressTB.Text = client.Address;
+            }
+
+            cbArea.Text = editData.Rows[0][1].ToString();
+            cbMO.Text = editData.Rows[0][2].ToString();
+            EventDate.Value = DateTime.Parse(editData.Rows[0][3].ToString());
+            cbShortNameOrg.Text = editData.Rows[0][4].ToString();
+            switch(editData.Rows[0][6].ToString())
+            {
+                case "2":
+                    ORGHimselfRelaxInfoRB.Checked = true;
+                    break;
+                case "3":
+                    ORGMCRelaxInfoRB.Checked = true;
+                    break;
+                case "5":
+                    NONORGHimselfRelaxInfoRB.Checked = true;
+                    break;
+                case "6":
+                    NONORGWithParentRelaxInfoRB.Checked = true;
+                    break;
+            }
+            TreatmentDate.Value = DateTime.Parse(editData.Rows[0][7].ToString());
+
+            switch(editData.Rows[0][8].ToString())
+            {
+                case "1":
+                    HelpRB_1.Checked = true;
+
+                    MKB10TB.Text = editData.Rows[0][10].ToString();
+                    DiagTB.Text = editData.Rows[0][9].ToString();
+                    /*
+                    DiagTB.Enabled = true;
+                    MKB10TB.Enabled = true;
+                    SpecialityTB.Enabled = false;
+                    DepartmentTB.Enabled = false;
+                     */
+                    break;
+                case "2":
+                    HelpRB_2.Checked = true;
+
+                    MKB10TB.Text = editData.Rows[0][10].ToString();
+                    DiagTB.Text = editData.Rows[0][9].ToString();
+                    SpecialityTB.Text = editData.Rows[0][11].ToString();
+                    /*
+                    DiagTB.Enabled = true;
+                    MKB10TB.Enabled = true;
+                    SpecialityTB.Enabled = true;
+                    DepartmentTB.Enabled = false;
+                    */
+                    break;
+                case "3":
+                    HelpRB_3.Checked = true;
+
+                    MKB10TB.Text = editData.Rows[0][10].ToString();
+                    DiagTB.Text = editData.Rows[0][9].ToString();
+                    DepartmentTB.Text = editData.Rows[0][12].ToString();
+                    /*
+                    DiagTB.Enabled = true;
+                    MKB10TB.Enabled = true;
+                    SpecialityTB.Enabled = false;
+                    DepartmentTB.Enabled = true;
+                     */
+                    break;
+            }
+
+            cbHealthStatus.Text = editData.Rows[0][15].ToString();
+
+            if (editData.Rows[0][13].ToString() != "")
+            {
+                TransfertedCheck.Checked = true;
+                TransferTB.Text = editData.Rows[0][13].ToString();
+                TransferDate.Value = DateTime.Parse(editData.Rows[0][14].ToString());
             }
         }
 
@@ -497,7 +594,9 @@ namespace MedHelp_dotNet
                                             {
                                                 if (cbHealthStatus.SelectedItem != null)
                                                 {
-                                                    Classes.EventClass.InsertEvent(int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, MKB[MKB10TB.SelectedIndex].DiagName, MKB[MKB10TB.SelectedIndex].DiagID, SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString());
+                                                    if (update != true) Classes.EventClass.InsertEvent(int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, DiagTB.Text /*MKB[MKB10TB.SelectedIndex].DiagName*/, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString());
+                                                    else Classes.EventClass.UpdateEvent(event_id, int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, DiagTB.Text /*MKB[MKB10TB.SelectedIndex].DiagName*/, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString());
+                                                    
                                                     MessageBox.Show("Данные успешно сохранены", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                     ClearAll();
                                                 }
@@ -509,7 +608,8 @@ namespace MedHelp_dotNet
                                         {
                                             if (cbHealthStatus.SelectedItem != null)
                                             {
-                                                Classes.EventClass.InsertEvent(int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagName : DiagTB.Text, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString());
+                                                if (update != true) Classes.EventClass.InsertEvent(int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, DiagTB.Text /* MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagName : DiagTB.Text*/, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString());
+                                                else Classes.EventClass.UpdateEvent(event_id, int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, DiagTB.Text /*MKB[MKB10TB.SelectedIndex].DiagName*/, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString());
                                                 MessageBox.Show("Данные успешно сохранены", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 ClearAll();
                                             }

@@ -30,6 +30,18 @@ namespace MedHelp_dotNet
         string medHelpCondition = " and HelpName in (1, 2, 3)";
         string HealthStatusCondition = "";
         string ageCondition = "";
+        string areaFilter = "[areaName] like '%'";
+        string medOrgFilter = "[medOrgName] like '%'";
+        string eventDateFilter = "[eventDate] > '01.01.1753'";
+        string DOOFilter = "[DOOName] like '%'";
+        string clientFilter = "[ClientFIO] like '%'";
+        string ageFilter = "[age] >= 0";
+        string relaxFilter = "[relaxName] in ('Организованный отдых (Самостоятельно)', 'Организованный отдых (По путевке Мать и дитя)', 'Неорганизованный отдых (Самостоятельно)', 'Неорганизованный отдых (С законным представителем)')";
+        string TreatmentFilter = "[TreatmentDate] > '01.01.1753'";
+        string helpFilter = "[HelpName] in (1, 2, 3)";
+        string transfertedFilter = "[TransfertedDepart] like '%'";
+        string healthFilter = "[HealthStatus] like '%'";
+
 
         public MainForm()
         {
@@ -88,6 +100,15 @@ namespace MedHelp_dotNet
             }
         }
 
+        private void SelectFilter()
+        {
+            if (!firstStart)
+            {
+                eventsData.DefaultView.RowFilter = $"{areaFilter} and {medOrgFilter} and {DOOFilter} and {clientFilter} and {ageFilter} and {relaxFilter} and {helpFilter} and {transfertedFilter} and {healthFilter} and {eventDateFilter} and {TreatmentFilter}"; //
+                TableCNTRows.Text = eventsData.DefaultView.Count.ToString();
+            }
+        }
+
         private void AreaCB_CheckedChanged(object sender, EventArgs e)
         {
             try
@@ -98,16 +119,17 @@ namespace MedHelp_dotNet
                     cbArea.Enabled = true;
                     if (cbArea.SelectedItem != null)
                     {
-                        eventsData.DefaultView.RowFilter = string.Format($"Convert([areaName], System.String) = '{areas[cbArea.SelectedIndex].name}'");
+                        areaFilter = $"[areaName] = '{areas[cbArea.SelectedIndex].name}'";
                         areaCondition = $"and e.area_id = {areas[cbArea.SelectedIndex].id}";
                     }
                 }
                 else
                 {
                     cbArea.Enabled = false;
-                    eventsData.DefaultView.RowFilter = string.Format($"Convert([areaName], System.String) like '%'");
+                    areaFilter = $"[areaName] like '%'";
                     areaCondition = "";
                 }
+                SelectFilter();
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
@@ -128,16 +150,17 @@ namespace MedHelp_dotNet
                     cbMedOrg.Enabled = true;
                     if (cbMedOrg.SelectedItem != null)
                     {
-                        eventsData.DefaultView.RowFilter = string.Format($"Convert([medOrgName], System.String) = '{medOrgN[cbMedOrg.SelectedIndex].name}'");
+                        medOrgFilter = $"[medOrgName] = '{medOrgN[cbMedOrg.SelectedIndex].name}'";
                         medOrgCondition = $"and e.medOrg_id = {medOrgN[cbMedOrg.SelectedIndex].id}";
                     }
                 }
                 else
                 {
                     cbMedOrg.Enabled = false;
-                    eventsData.DefaultView.RowFilter = string.Format($"Convert([medOrgName], System.String) like '%'");
+                    medOrgFilter = $"[medOrgName] like '%'";
                     medOrgCondition = "";
                 }
+                SelectFilter();
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
@@ -160,7 +183,7 @@ namespace MedHelp_dotNet
                     label1.Enabled = true;
                     label2.Enabled = true;
 
-                    eventsData.DefaultView.RowFilter = $"[eventDate] >= '{eventDate_From.Value:dd.MM.yyyy}' and [eventDate] <= '{eventDate_To.Value:dd.MM.yyyy}'";
+                    eventDateFilter = $"[eventDate] >= '{eventDate_From.Value:dd.MM.yyyy}' and [eventDate] <= '{eventDate_To.Value:dd.MM.yyyy}'";
                     eventDateCondition = $" and e.eventDate between '{eventDate_From.Value:yyyy-MM-dd}' and '{eventDate_To.Value:yyyy-MM-dd}'";
                 }
                 else
@@ -170,9 +193,10 @@ namespace MedHelp_dotNet
                     label1.Enabled = false;
                     label2.Enabled = false;
 
-                    eventsData.DefaultView.RowFilter = string.Format($"[eventDate] >= '{DateTime.MinValue:dd.MM.yyyy}'");
+                    eventDateFilter = $"[eventDate] >= '{DateTime.MinValue:dd.MM.yyyy}'";
                     eventDateCondition = "";
                 }
+                SelectFilter();
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
@@ -193,16 +217,17 @@ namespace MedHelp_dotNet
                     cbDOO.Enabled = true;
                     if (cbDOO.SelectedItem != null)
                     {
-                        eventsData.DefaultView.RowFilter = string.Format($"Convert([DOOName], System.String) = '{HealthOrg[cbDOO.SelectedIndex].FullName}'");
+                        DOOFilter = $"[DOOName] = '{HealthOrg[cbDOO.SelectedIndex].FullName}'";
                         DOOCondition = $" and e.doo_id = {HealthOrg[cbDOO.SelectedIndex].id}";
                     }
                 }
                 else
                 {
                     cbDOO.Enabled = false;
-                    eventsData.DefaultView.RowFilter = string.Format($"Convert([DOOName], System.String) like '%'");
+                    DOOFilter = $"[DOOName] like '%'";
                     DOOCondition = "";
                 }
+                SelectFilter();
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
@@ -221,13 +246,14 @@ namespace MedHelp_dotNet
                 if (ClientFIOCB.Checked)
                 {
                     ClientFIOTB.Enabled = true;
-                    if (ClientFIOTB.Text.Length != 0) eventsData.DefaultView.RowFilter = string.Format($"Convert([ClientFIO], System.String) like '{ClientFIOTB.Text}%'");
+                    if (ClientFIOTB.Text.Length != 0) clientFilter = $"[ClientFIO] like '{ClientFIOTB.Text}%'";
                 }
                 else
                 {
                     ClientFIOTB.Enabled = false;
-                    eventsData.DefaultView.RowFilter = string.Format($"Convert([ClientFIO], System.String) like '%'");
+                    clientFilter = $"[ClientFIO] like '%'";
                 }
+                SelectFilter();
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
@@ -250,12 +276,12 @@ namespace MedHelp_dotNet
                     ageTB_To.Enabled = true;
                     if (ageTB_From.Text.Length > 0 && ageTB_To.Text.Length > 0)
                     {
-                        eventsData.DefaultView.RowFilter = $"[age] >= {ageTB_From.Text} and [age] <= {ageTB_To.Text}";
+                        ageFilter = $"[age] >= {ageTB_From.Text} and [age] <= {ageTB_To.Text}";
                         ageCondition = $" and age(c.birthDate, current_date()) BETWEEN {ageTB_From.Text} AND {ageTB_To.Text}";
                     }
                     else
                     {
-                        eventsData.DefaultView.RowFilter = $"[age] >= 0";
+                        ageFilter = $"[age] >= 0";
                         ageCondition = "";
                     }
                 }
@@ -265,8 +291,9 @@ namespace MedHelp_dotNet
                     ageTB_From.Enabled = false;
                     label4.Enabled = false;
                     ageTB_To.Enabled = false;
-                    eventsData.DefaultView.RowFilter = $"[age] >= 0";
+                    ageFilter = $"[age] >= 0";
                 }
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -286,7 +313,7 @@ namespace MedHelp_dotNet
                     label6.Enabled = true;
                     TreatmentDateDP_To.Enabled = true;
 
-                    eventsData.DefaultView.RowFilter = $"[TreatmentDate] >= '{TreatmentDateDP_From.Value:dd.MM.yyyy}' and [TreatmentDate] <= '{TreatmentDateDP_To.Value:dd.MM.yyyy}'";
+                    TreatmentFilter = $"[TreatmentDate] >= '{TreatmentDateDP_From.Value:dd.MM.yyyy}' and [TreatmentDate] <= '{TreatmentDateDP_To.Value:dd.MM.yyyy}'";
                     TreatmentDateCondition = $" and TreatmentDate between '{TreatmentDateDP_From.Value:yyyy-MM-dd}' and '{TreatmentDateDP_To.Value:yyyy-MM-dd}'";
                 }
                 else
@@ -296,9 +323,10 @@ namespace MedHelp_dotNet
                     label6.Enabled = false;
                     TreatmentDateDP_To.Enabled = false;
 
-                    eventsData.DefaultView.RowFilter = $"[TreatmentDate] >= '{DateTime.MinValue:dd.MM.yyyy}'";
+                    TreatmentFilter = $"[TreatmentDate] >= '{DateTime.MinValue:dd.MM.yyyy}'";
                     TreatmentDateCondition = $" and TreatmentDate between '{TreatmentDateDP_From.Value:yyyy-MM-dd}' and '{TreatmentDateDP_To.Value:yyyy-MM-dd}'";
                 }
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -314,13 +342,14 @@ namespace MedHelp_dotNet
                 if (TransfertedCB.Checked)
                 {
                     TransfertedTB.Enabled = true;
-                    if (TransfertedTB.Text.Length > 0) eventsData.DefaultView.RowFilter = $"[TransfertedDepart] like '{TransfertedTB.Text}%'";
+                    if (TransfertedTB.Text.Length > 0) transfertedFilter = $"[TransfertedDepart] like '{TransfertedTB.Text}%'";
                 }
                 else
                 {
                     TransfertedTB.Enabled = false;
-                    eventsData.DefaultView.RowFilter = $"[TransfertedDepart] like '%'";
+                    transfertedFilter = $"[TransfertedDepart] like '%'";
                 }
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -338,16 +367,17 @@ namespace MedHelp_dotNet
                     cbHealthStatus.Enabled = true;
                     if (cbHealthStatus.SelectedItem != null)
                     {
-                        eventsData.DefaultView.RowFilter = $"[HealthStatus] = '{cbHealthStatus.SelectedItem.ToString()}'";
+                        healthFilter = $"[HealthStatus] = '{cbHealthStatus.SelectedItem.ToString()}'";
                         HealthStatusCondition = $" and HealthStatus = '{cbHealthStatus.SelectedItem.ToString()}'";
                     }
                 }
                 else
                 {
                     cbHealthStatus.Enabled = false;
-                    eventsData.DefaultView.RowFilter = $"[HealthStatus] like '%'";
+                    healthFilter = $"[HealthStatus] like '%'";
                     HealthStatusCondition = "";
                 }
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -361,19 +391,17 @@ namespace MedHelp_dotNet
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
-                if (!firstStart)
+                if (cbArea.SelectedItem != null)
                 {
-                    if (cbArea.SelectedItem != null)
-                    {
-                        eventsData.DefaultView.RowFilter = $"[areaName] like '{areas[cbArea.SelectedIndex].name}'";
-                        areaCondition = $"and e.area_id = {areas[cbArea.SelectedIndex].id}";
-                    }
-                    else
-                    {
-                        eventsData.DefaultView.RowFilter = string.Format($"Convert([areaName], System.String) like '%'");
-                        areaCondition = "";
-                    }
+                    areaFilter = $"[areaName] like '{areas[cbArea.SelectedIndex].name}'";
+                    areaCondition = $" and e.area_id = {areas[cbArea.SelectedIndex].id}";
                 }
+                else
+                {
+                    areaFilter = $"[areaName] like '%'";
+                    areaCondition = "";
+                }
+                SelectFilter();
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
@@ -393,15 +421,16 @@ namespace MedHelp_dotNet
                 {
                     if (cbMedOrg.SelectedItem != null)
                     {
-                        eventsData.DefaultView.RowFilter = $"[medOrgName] like '{medOrgN[cbMedOrg.SelectedIndex].name}'";
-                        medOrgCondition = $"and e.medOrg_id = {medOrgN[cbMedOrg.SelectedIndex].id}";
+                        medOrgFilter = $"[medOrgName] like '{medOrgN[cbMedOrg.SelectedIndex].name}'";
+                        medOrgCondition = $" and e.medOrg_id = {medOrgN[cbMedOrg.SelectedIndex].id}";
                     }
                     else
                     {
-                        eventsData.DefaultView.RowFilter = $"[medOrgName] like '%'";
+                        medOrgFilter = $"[medOrgName] like '%'";
                         medOrgCondition = $"";
                     }
                 }
+                SelectFilter();
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
@@ -421,15 +450,16 @@ namespace MedHelp_dotNet
                 {
                     if (cbDOO.SelectedItem != null)
                     {
-                        eventsData.DefaultView.RowFilter = $"[DOOName] = '{HealthOrg[cbDOO.SelectedIndex].FullName}'";
+                        DOOFilter = $"[DOOName] = '{HealthOrg[cbDOO.SelectedIndex].FullName}'";
                         DOOCondition = $" and e.doo_id = {HealthOrg[cbDOO.SelectedIndex].id}";
                     }
                     else
                     {
-                        eventsData.DefaultView.RowFilter = $"[DOOName] like '%'";
+                        DOOFilter = $"[DOOName] like '%'";
                         DOOCondition = "";
                     }
                 }
+                SelectFilter();
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
@@ -444,8 +474,9 @@ namespace MedHelp_dotNet
         {
             try
             {
-                if (ClientFIOCB.Checked) eventsData.DefaultView.RowFilter = $"[ClientFIO] like '{ClientFIOTB.Text}%'";
-                else eventsData.DefaultView.RowFilter = $"[ClientFIO] like '%'";
+                if (ClientFIOCB.Checked) clientFilter = $"[ClientFIO] like '{ClientFIOTB.Text}%'";
+                else clientFilter = $"[ClientFIO] like '%'";
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -502,14 +533,15 @@ namespace MedHelp_dotNet
             {
                 if (eventDateCB.Checked)
                 {
-                    eventsData.DefaultView.RowFilter = $"[eventDate] >= '{eventDate_From.Value:dd.MM.yyyy}' and [eventDate] <= '{eventDate_To.Value:dd.MM.yyyy}'";
+                    eventDateFilter = $"[eventDate] >= '{eventDate_From.Value:dd.MM.yyyy}' and [eventDate] <= '{eventDate_To.Value:dd.MM.yyyy}'";
                     eventDateCondition = $" and e.eventDate between '{eventDate_From.Value:yyyy-MM-dd}' and '{eventDate_To.Value:yyyy-MM-dd}'";
                 }
                 else
                 {
-                    eventsData.DefaultView.RowFilter = string.Format($"[eventDate] like '%'");
+                    eventDateFilter = $"[eventDate] like '%'";
                     eventDateCondition = "";
                 }
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -524,14 +556,15 @@ namespace MedHelp_dotNet
             {
                 if (eventDateCB.Checked)
                 {
-                    eventsData.DefaultView.RowFilter = $"[eventDate] >= '{eventDate_From.Value:dd.MM.yyyy}' and [eventDate] <= '{eventDate_To.Value:dd.MM.yyyy}'";
+                    eventDateFilter = $"[eventDate] >= '{eventDate_From.Value:dd.MM.yyyy}' and [eventDate] <= '{eventDate_To.Value:dd.MM.yyyy}'";
                     eventDateCondition = $" and e.eventDate between '{eventDate_From.Value:yyyy-MM-dd}' and '{eventDate_To.Value:yyyy-MM-dd}'";
                 }
                 else
                 {
-                    eventsData.DefaultView.RowFilter = string.Format($"[eventDate] like '%'");
+                    eventDateFilter = $"[eventDate] like '%'";
                     eventDateCondition = "";
                 }
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -546,14 +579,15 @@ namespace MedHelp_dotNet
             {
                 if (TreatmentCB.Checked)
                 {
-                    eventsData.DefaultView.RowFilter = $"[TreatmentDate] >= '{TreatmentDateDP_From.Value:dd.MM.yyyy}' and [TreatmentDate] <= '{TreatmentDateDP_To.Value:dd.MM.yyyy}'";
+                    TreatmentFilter = $"[TreatmentDate] >= '{TreatmentDateDP_From.Value:dd.MM.yyyy}' and [TreatmentDate] <= '{TreatmentDateDP_To.Value:dd.MM.yyyy}'";
                     TreatmentDateCondition = $" and TreatmentDate between '{TreatmentDateDP_From.Value:yyyy-MM-dd}' and '{TreatmentDateDP_To.Value:yyyy-MM-dd}'";
                 }
                 else
                 {
-                    eventsData.DefaultView.RowFilter = $"[eventDate] like '%'";
+                    TreatmentFilter = $"[TreatmentDate] like '%'";//$"[eventDate] like '%'";
                     TreatmentDateCondition = "";
                 }
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -588,8 +622,9 @@ namespace MedHelp_dotNet
         {
             try
             {
-                if (TransfertedCB.Checked) eventsData.DefaultView.RowFilter = $"[TransfertedDepart] like '{TransfertedTB.Text}%'";
-                else eventsData.DefaultView.RowFilter = $"[TransfertedDepart] like '%'";
+                if (TransfertedCB.Checked) transfertedFilter = $"[TransfertedDepart] like '{TransfertedTB.Text}%'";
+                else transfertedFilter = $"[TransfertedDepart] like '%'";
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -604,9 +639,10 @@ namespace MedHelp_dotNet
             {
                 if (HealthStatusCB.Checked)
                 {
-                    eventsData.DefaultView.RowFilter = $"[HealthStatus] = '{cbHealthStatus.SelectedItem.ToString()}'";
+                    healthFilter = $"[HealthStatus] = '{cbHealthStatus.SelectedItem.ToString()}'";
                     HealthStatusCondition = $" and HealthStatus = '{cbHealthStatus.SelectedItem.ToString()}'";
                 }
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -619,7 +655,8 @@ namespace MedHelp_dotNet
         {
             try
             {
-                eventsData.DefaultView.RowFilter = CheckRelaxInfo(RelaxInfo_Child2);
+                relaxFilter = CheckRelaxInfo(RelaxInfo_Child2);
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -632,7 +669,8 @@ namespace MedHelp_dotNet
         {
             try
             {
-                eventsData.DefaultView.RowFilter = CheckRelaxInfo(RelaxInfo_Child3);
+                relaxFilter = CheckRelaxInfo(RelaxInfo_Child3);
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -645,7 +683,8 @@ namespace MedHelp_dotNet
         {
             try
             {
-                eventsData.DefaultView.RowFilter = CheckRelaxInfo(RelaxInfo_Child5);
+                relaxFilter = CheckRelaxInfo(RelaxInfo_Child5);
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -658,7 +697,8 @@ namespace MedHelp_dotNet
         {
             try
             {
-                eventsData.DefaultView.RowFilter = CheckRelaxInfo(RelaxInfo_Child6);
+                relaxFilter = CheckRelaxInfo(RelaxInfo_Child6);
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -706,22 +746,22 @@ namespace MedHelp_dotNet
                             case "RelaxInfo_Child2":
                                 cntCheckRelax++;
                                 str += ", 'Организованный отдых (Самостоятельно)'";
-                                relaxCon = ", 2";
+                                relaxCon += ", 2";
                                 break;
                             case "RelaxInfo_Child3":
                                 cntCheckRelax++;
                                 str += ", 'Организованный отдых (По путевке Мать и дитя)'";
-                                relaxCon = ", 3";
+                                relaxCon += ", 3";
                                 break;
                             case "RelaxInfo_Child5":
                                 cntCheckRelax++;
                                 str += ", 'Неорганизованный отдых (Самостоятельно)'";
-                                relaxCon = ", 5";
+                                relaxCon += ", 5";
                                 break;
                             case "RelaxInfo_Child6":
                                 cntCheckRelax++;
                                 str += ", 'Неорганизованный отдых (С законным представителем)'";
-                                relaxCon = ", 6";
+                                relaxCon += ", 6";
                                 break;
                         }
                     }
@@ -951,7 +991,8 @@ namespace MedHelp_dotNet
         {
             try
             {
-                eventsData.DefaultView.RowFilter = CheckHelp(PMSMP);
+                helpFilter = CheckHelp(PMSMP);
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -964,7 +1005,8 @@ namespace MedHelp_dotNet
         {
             try
             {
-                eventsData.DefaultView.RowFilter = CheckHelp(PSMSP);
+                helpFilter = CheckHelp(PSMSP);
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -977,7 +1019,8 @@ namespace MedHelp_dotNet
         {
             try
             {
-                eventsData.DefaultView.RowFilter = CheckHelp(SMP);
+                helpFilter = CheckHelp(SMP);
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -992,14 +1035,15 @@ namespace MedHelp_dotNet
             {
                 if (AgeCB.Checked)
                 {
-                    eventsData.DefaultView.RowFilter = eventsData.DefaultView.RowFilter = $"[age] >= {ageTB_From.Text} and [age] <= {ageTB_To.Text}";
+                    ageFilter = $"[age] >= {ageTB_From.Text} and [age] <= {ageTB_To.Text}";
                     ageCondition = $" and age(c.birthDate, current_date()) BETWEEN {ageTB_From.Text} AND {ageTB_To.Text}";
                 }
                 else
                 {
-                    eventsData.DefaultView.RowFilter = $"[age] >= 0";
+                    ageFilter = $"[age] >= 0";
                     ageCondition = "";
                 }
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -1094,6 +1138,7 @@ namespace MedHelp_dotNet
                 settingsTip.ReshowDelay = 500;
                 settingsTip.ShowAlways = true;
                 settingsTip.SetToolTip(statusStrip1, "Для открытия настроек необходимо нажать следующее сочетание клавишь: Ctrl+Shift+S");
+                SelectFilter();
             }
             catch (Exception ex)
             {
@@ -1130,21 +1175,29 @@ namespace MedHelp_dotNet
 
                     DataTable wordExport = new DataTable();
                     DataTable textExport = new DataTable();
+                    DataTable classExport = new DataTable();
+                    DataTable chldReport = new DataTable();
 
                     wordExport = Classes.EventClass.LoadDataToReport(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, relaxCondition, medHelpCondition, HealthStatusCondition);
                     textExport = Classes.EventClass.ReportWord(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, relaxCondition, medHelpCondition, HealthStatusCondition);
+                    classExport = Classes.EventClass.LoadDataToTableReport(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, relaxCondition, medHelpCondition, HealthStatusCondition);
+                    chldReport = Classes.EventClass.LoadDataToCHLDReport(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, HealthStatusCondition);
 
-                    Classes.WordClass.ExportWordData(wordExport, textExport, dateTimes[0], dateTimes[1]);
+                    Classes.WordClass.ExportWordData(wordExport, textExport, classExport, dateTimes[0], dateTimes[1], chldReport);
                 }
                 else
                 {
                     DataTable wordExport = new DataTable();
                     DataTable textExport = new DataTable();
+                    DataTable classExport = new DataTable();
+                    DataTable chldReport = new DataTable();
 
                     wordExport = Classes.EventClass.LoadDataToReport(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, relaxCondition, medHelpCondition, HealthStatusCondition);
                     textExport = Classes.EventClass.ReportWord(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, relaxCondition, medHelpCondition, HealthStatusCondition);
+                    classExport = Classes.EventClass.LoadDataToTableReport(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, relaxCondition, medHelpCondition, HealthStatusCondition);
+                    chldReport = Classes.EventClass.LoadDataToCHLDReport(areaCondition, medOrgCondition, eventDateCondition, DOOCondition, ageCondition, TreatmentDateCondition, HealthStatusCondition);
 
-                    Classes.WordClass.ExportWordData(wordExport, textExport, TreatmentDateDP_From.Value, TreatmentDateDP_To.Value);
+                    Classes.WordClass.ExportWordData(wordExport, textExport, classExport, TreatmentDateDP_From.Value, TreatmentDateDP_To.Value, chldReport);
                 }
                 Cursor.Current = Cursors.Default;
             }

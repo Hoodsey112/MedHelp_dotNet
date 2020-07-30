@@ -106,6 +106,8 @@
             this.EditArea = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveArea = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.ClassCaseCB = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.HealthStatusMeniStrip.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -127,6 +129,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.ClassCaseCB);
+            this.groupBox1.Controls.Add(this.label21);
             this.groupBox1.Controls.Add(this.CancelBTN);
             this.groupBox1.Controls.Add(this.AddBTN);
             this.groupBox1.Controls.Add(this.cbHealthStatus);
@@ -137,14 +141,14 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(12, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(657, 556);
+            this.groupBox1.Size = new System.Drawing.Size(657, 574);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Новое обращение";
             // 
             // CancelBTN
             // 
-            this.CancelBTN.Location = new System.Drawing.Point(576, 517);
+            this.CancelBTN.Location = new System.Drawing.Point(576, 527);
             this.CancelBTN.Name = "CancelBTN";
             this.CancelBTN.Size = new System.Drawing.Size(75, 23);
             this.CancelBTN.TabIndex = 6;
@@ -154,7 +158,7 @@
             // 
             // AddBTN
             // 
-            this.AddBTN.Location = new System.Drawing.Point(495, 517);
+            this.AddBTN.Location = new System.Drawing.Point(495, 527);
             this.AddBTN.Name = "AddBTN";
             this.AddBTN.Size = new System.Drawing.Size(75, 23);
             this.AddBTN.TabIndex = 5;
@@ -166,7 +170,7 @@
             // 
             this.cbHealthStatus.ContextMenuStrip = this.HealthStatusMeniStrip;
             this.cbHealthStatus.FormattingEnabled = true;
-            this.cbHealthStatus.Location = new System.Drawing.Point(232, 519);
+            this.cbHealthStatus.Location = new System.Drawing.Point(232, 543);
             this.cbHealthStatus.Name = "cbHealthStatus";
             this.cbHealthStatus.Size = new System.Drawing.Size(221, 21);
             this.cbHealthStatus.TabIndex = 4;
@@ -196,7 +200,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(16, 522);
+            this.label17.Location = new System.Drawing.Point(16, 546);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(210, 13);
             this.label17.TabIndex = 0;
@@ -866,11 +870,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Район";
             // 
+            // ClassCaseCB
+            // 
+            this.ClassCaseCB.ContextMenuStrip = this.HealthStatusMeniStrip;
+            this.ClassCaseCB.FormattingEnabled = true;
+            this.ClassCaseCB.Location = new System.Drawing.Point(232, 517);
+            this.ClassCaseCB.Name = "ClassCaseCB";
+            this.ClassCaseCB.Size = new System.Drawing.Size(221, 21);
+            this.ClassCaseCB.TabIndex = 8;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(79, 520);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(146, 13);
+            this.label21.TabIndex = 7;
+            this.label21.Text = "Структура заболеваемости";
+            // 
             // AddEventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 571);
+            this.ClientSize = new System.Drawing.Size(681, 592);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "AddEventForm";
@@ -981,6 +1003,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox MKB10TB;
         private System.Windows.Forms.CheckBox TransfertedCheck;
+        private System.Windows.Forms.ComboBox ClassCaseCB;
+        private System.Windows.Forms.Label label21;
     }
 }
 

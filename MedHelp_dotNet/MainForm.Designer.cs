@@ -102,9 +102,11 @@
             this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransfertedDepartment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransfertedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClassCaseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HealthStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddEventForm = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.AddEventStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditEventStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteEvent = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -116,7 +118,8 @@
             this.Server = new System.Windows.Forms.ToolStripStatusLabel();
             this.DataBase = new System.Windows.Forms.ToolStripStatusLabel();
             this.DuplicateBTN = new System.Windows.Forms.Button();
-            this.EditEventStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TableCNTRows = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -265,9 +268,9 @@
             this.PMSMP.CheckState = System.Windows.Forms.CheckState.Checked;
             this.PMSMP.Location = new System.Drawing.Point(6, 16);
             this.PMSMP.Name = "PMSMP";
-            this.PMSMP.Size = new System.Drawing.Size(67, 17);
+            this.PMSMP.Size = new System.Drawing.Size(58, 17);
             this.PMSMP.TabIndex = 1;
-            this.PMSMP.Text = "ПМСМП";
+            this.PMSMP.Text = "ПМСП";
             this.PMSMP.UseVisualStyleBackColor = true;
             this.PMSMP.CheckedChanged += new System.EventHandler(this.PMSMP_CheckedChanged);
             // 
@@ -716,6 +719,7 @@
             this.Department,
             this.TransfertedDepartment,
             this.TransfertedDate,
+            this.ClassCaseName,
             this.HealthStatus});
             this.dataGridView1.ContextMenuStrip = this.AddEventForm;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -732,7 +736,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 279);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 277);
             this.dataGridView1.TabIndex = 3;
             // 
             // id
@@ -885,6 +889,13 @@
             this.TransfertedDate.Name = "TransfertedDate";
             this.TransfertedDate.ReadOnly = true;
             // 
+            // ClassCaseName
+            // 
+            this.ClassCaseName.DataPropertyName = "ClassCaseName";
+            this.ClassCaseName.HeaderText = "Структура заболеваемости";
+            this.ClassCaseName.Name = "ClassCaseName";
+            this.ClassCaseName.ReadOnly = true;
+            // 
             // HealthStatus
             // 
             this.HealthStatus.DataPropertyName = "HealthStatus";
@@ -899,7 +910,7 @@
             this.EditEventStrip,
             this.deleteEvent});
             this.AddEventForm.Name = "AddEventForm";
-            this.AddEventForm.Size = new System.Drawing.Size(218, 92);
+            this.AddEventForm.Size = new System.Drawing.Size(218, 70);
             // 
             // AddEventStrip
             // 
@@ -907,6 +918,13 @@
             this.AddEventStrip.Size = new System.Drawing.Size(217, 22);
             this.AddEventStrip.Text = "Добавить новое обращение";
             this.AddEventStrip.Click += new System.EventHandler(this.AddEventStrip_Click);
+            // 
+            // EditEventStrip
+            // 
+            this.EditEventStrip.Name = "EditEventStrip";
+            this.EditEventStrip.Size = new System.Drawing.Size(217, 22);
+            this.EditEventStrip.Text = "Редактировать обращение";
+            this.EditEventStrip.Click += new System.EventHandler(this.EditEventStrip_Click);
             // 
             // deleteEvent
             // 
@@ -975,7 +993,7 @@
             this.SettingStrip,
             this.Server,
             this.DataBase});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 676);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 686);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(800, 22);
             this.statusStrip1.TabIndex = 4;
@@ -1013,18 +1031,33 @@
             this.DuplicateBTN.UseVisualStyleBackColor = true;
             this.DuplicateBTN.Click += new System.EventHandler(this.DuplicateBTN_Click);
             // 
-            // EditEventStrip
+            // label11
             // 
-            this.EditEventStrip.Name = "EditEventStrip";
-            this.EditEventStrip.Size = new System.Drawing.Size(217, 22);
-            this.EditEventStrip.Text = "Редактировать обращение";
-            this.EditEventStrip.Click += new System.EventHandler(this.EditEventStrip_Click);
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(13, 665);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(167, 13);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Количество записей в таблице:";
+            // 
+            // TableCNTRows
+            // 
+            this.TableCNTRows.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TableCNTRows.AutoSize = true;
+            this.TableCNTRows.Location = new System.Drawing.Point(177, 665);
+            this.TableCNTRows.Name = "TableCNTRows";
+            this.TableCNTRows.Size = new System.Drawing.Size(29, 13);
+            this.TableCNTRows.TabIndex = 8;
+            this.TableCNTRows.Text = "CNT";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 698);
+            this.ClientSize = new System.Drawing.Size(800, 708);
+            this.Controls.Add(this.TableCNTRows);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.DuplicateBTN);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox2);
@@ -1135,6 +1168,9 @@
         private System.Windows.Forms.Button WordExportBTN;
         private System.Windows.Forms.Button DuplicateBTN;
         private System.Windows.Forms.ToolStripMenuItem deleteEvent;
+        private System.Windows.Forms.ToolStripMenuItem EditEventStrip;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label TableCNTRows;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn area;
         private System.Windows.Forms.DataGridViewTextBoxColumn medOrg;
@@ -1156,7 +1192,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Department;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransfertedDepartment;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransfertedDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClassCaseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn HealthStatus;
-        private System.Windows.Forms.ToolStripMenuItem EditEventStrip;
     }
 }

@@ -17,6 +17,7 @@ namespace MedHelp_dotNet
         Classes.MOClass[] moClass;
         Classes.HealthOrgClass[] healthClass;
         Classes.MKBClass[] MKB;
+        Classes.ClassCase[] classCase;
         System.Data.DataTable editData;
         //List<Classes.MKBClass> MKB = new List<Classes.MKBClass>();
 
@@ -34,6 +35,7 @@ namespace MedHelp_dotNet
                 InitializeComponent();
                 LoadHealthStatus();
                 LoadArea();
+                LoadClassCases();
 
                 //----------------------------------
                 MKB = Classes.MKBClass.LoadMKB();//|
@@ -184,6 +186,26 @@ namespace MedHelp_dotNet
                 Cursor.Current = Cursors.WaitCursor;
                 cbHealthStatus.DataSource = null;
                 cbHealthStatus.DataSource = Classes.HealthStatusClass.LoadHealthStatus();
+                Cursor.Current = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                Cursor.Current = Cursors.Default;
+                logger.Error(ex, $"\r\n#---------#\r\n{ex.StackTrace}\r\n##---------##\r\n{ex.Message}\r\n###---------###\r\n{ex.Source}");
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadClassCases()
+        {
+            try
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                classCase = Classes.ClassCase.LoadListCase();
+                ClassCaseCB.DisplayMember = "name";
+                ClassCaseCB.ValueMember = "id";
+                ClassCaseCB.DataSource = classCase;
+                ClassCaseCB.SelectedIndex = -1;
                 Cursor.Current = Cursors.Default;
             }
             catch (Exception ex)
@@ -592,28 +614,36 @@ namespace MedHelp_dotNet
                                         {
                                             if (TransferTB.Text != "")
                                             {
-                                                if (cbHealthStatus.SelectedItem != null)
+                                                if (ClassCaseCB.SelectedItem != null)
                                                 {
-                                                    if (update != true) Classes.EventClass.InsertEvent(int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, DiagTB.Text /*MKB[MKB10TB.SelectedIndex].DiagName*/, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString());
-                                                    else Classes.EventClass.UpdateEvent(event_id, int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, DiagTB.Text /*MKB[MKB10TB.SelectedIndex].DiagName*/, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString());
-                                                    
-                                                    MessageBox.Show("Данные успешно сохранены", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                    ClearAll();
+                                                    if (cbHealthStatus.SelectedItem != null)
+                                                    {
+                                                        if (update != true) Classes.EventClass.InsertEvent(int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, DiagTB.Text /*MKB[MKB10TB.SelectedIndex].DiagName*/, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString(), int.Parse(ClassCaseCB.SelectedValue.ToString()));
+                                                        else Classes.EventClass.UpdateEvent(event_id, int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, DiagTB.Text /*MKB[MKB10TB.SelectedIndex].DiagName*/, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString(), int.Parse(ClassCaseCB.SelectedValue.ToString()));
+
+                                                        MessageBox.Show("Данные успешно сохранены", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                        ClearAll();
+                                                    }
+                                                    else MessageBox.Show("Вы не указали состояние ребенка по степени тяжести", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                 }
-                                                else MessageBox.Show("Вы не указали состояние ребенка по степени тяжести", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                else MessageBox.Show("Вы не указали классификацию случая", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                             }
                                             else MessageBox.Show("Вы не указали информацию о направлении(переводе)", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                         }
                                         else
                                         {
-                                            if (cbHealthStatus.SelectedItem != null)
+                                            if (ClassCaseCB.SelectedItem != null)
                                             {
-                                                if (update != true) Classes.EventClass.InsertEvent(int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, DiagTB.Text /* MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagName : DiagTB.Text*/, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString());
-                                                else Classes.EventClass.UpdateEvent(event_id, int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, DiagTB.Text /*MKB[MKB10TB.SelectedIndex].DiagName*/, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString());
-                                                MessageBox.Show("Данные успешно сохранены", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                ClearAll();
+                                                if (cbHealthStatus.SelectedItem != null)
+                                                {
+                                                    if (update != true) Classes.EventClass.InsertEvent(int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, DiagTB.Text /* MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagName : DiagTB.Text*/, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString(), int.Parse(ClassCaseCB.SelectedValue.ToString()));
+                                                    else Classes.EventClass.UpdateEvent(event_id, int.Parse(cbArea.SelectedValue.ToString()), int.Parse(cbMO.SelectedValue.ToString()), EventDate.Value, int.Parse(cbShortNameOrg.SelectedValue.ToString()), client.id, RelaxInfo, TransferDate.Value, HelpName, DiagTB.Text /*MKB[MKB10TB.SelectedIndex].DiagName*/, MKB10TB.SelectedIndex != -1 ? MKB[MKB10TB.SelectedIndex].DiagID : "", SpecialityTB.Text, DepartmentTB.Text, TransfertedCheck.Checked == true ? TransferTB.Text : "", TransfertedCheck.Checked == true ? TransferDate.Value : DateTime.MinValue, cbHealthStatus.SelectedItem.ToString(), int.Parse(ClassCaseCB.SelectedValue.ToString()));
+                                                    MessageBox.Show("Данные успешно сохранены", "Сохранение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    ClearAll();
+                                                }
+                                                else MessageBox.Show("Вы не указали состояние ребенка по степени тяжести", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                             }
-                                            else MessageBox.Show("Вы не указали состояние ребенка по степени тяжести", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            else MessageBox.Show("Вы не указали классификацию случая", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                         }
                                     }
                                     else MessageBox.Show("Вы не указали информацию об оказанной помощи", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

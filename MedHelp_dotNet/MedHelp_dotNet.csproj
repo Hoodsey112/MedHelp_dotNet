@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AreaClass.cs" />
+    <Compile Include="Classes\ClassCase.cs" />
     <Compile Include="Classes\ClientClass.cs" />
     <Compile Include="Classes\ConnectionClass.cs" />
     <Compile Include="Classes\EventClass.cs" />

@@ -593,14 +593,14 @@ namespace MedHelp_dotNet.Classes
                     {
                         if (int.Parse(sum) > 0)
                         {
-                            itog_list = $"- {oTable_1.Cell(1, i).Range.Text.Remove(oTable_1.Cell(1, i).Range.Text.Length - 2, 2)} - {sum} {chld} ({(int.Parse(sum) * 100) / int.Parse(itog_1)}%); \r\n";
+                            itog_list = $"- {oTable_1.Cell(1, i).Range.Text.Remove(oTable_1.Cell(1, i).Range.Text.Length - 2, 2)} - {sum} {chld} ({Math.Round((double.Parse(sum) * 100) / double.Parse(itog_1),1)}%); \r\n";
                         }
                     }
                     else
                     {
                         if (int.Parse(sum) > 0)
                         {
-                            itog_list += $"- {oTable_1.Cell(1, i).Range.Text.Remove(oTable_1.Cell(1, i).Range.Text.Length - 2, 2)} - {sum} {chld} ({(int.Parse(sum) * 100) / int.Parse(itog_1)}%); \r\n";
+                            itog_list += $"- {oTable_1.Cell(1, i).Range.Text.Remove(oTable_1.Cell(1, i).Range.Text.Length - 2, 2)} - {sum} {chld} ({Math.Round((double.Parse(sum) * 100) / double.Parse(itog_1), 1)}%); \r\n";
                         }
                     }
                 }
